@@ -11,10 +11,10 @@ public class WorldMapSceneView : BaseInitializable
 	public override void Initialize()
 	{
 		_exit.onClick.AddListener(Exit);
-		foreach (var buyButton in _enemiesZone)
+		foreach (var buyButton in _enemiesZone) // TODO: Верно ли?
 		{
-			var buttonName = buyButton.name;
-			buyButton.onClick.AddListener(() => GoToEnemyWar(buttonName));
+			var buttonName = buyButton.name; // TODO: Верно ли?
+			buyButton.onClick.AddListener(() => GoToEnemyWar(buttonName)); // TODO: Верно ли?
 		}
 	}
 
@@ -23,7 +23,7 @@ public class WorldMapSceneView : BaseInitializable
 		SceneSwitcher.Switch("Main");
 	}
     
-	private void GoToEnemyWar(string buttonName)
+	private void GoToEnemyWar(string buttonName) // TODO: Верно ли?
 	{
 		throw new Exception($"War have not yet been implemented (Button: {buttonName})");
 	}

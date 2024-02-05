@@ -13,8 +13,8 @@ public class ShopSceneView : BaseInitializable
         _exit.onClick.AddListener(Exit);
         foreach (var buyButton in _buyButtons)
         {
-            var buttonName = buyButton.name;
-            buyButton.onClick.AddListener(() => Buy(buttonName));
+            var buttonName = buyButton.name; // TODO: Верно ли?
+            buyButton.onClick.AddListener(() => Buy(buttonName)); // TODO: Верно ли?
         }
     }
 
@@ -23,7 +23,7 @@ public class ShopSceneView : BaseInitializable
         SceneSwitcher.Switch("Main");
     }
     
-    private void Buy(string buttonName)
+    private void Buy(string buttonName) // TODO: Верно ли?
     {
         throw new Exception($"Shop have not yet been implemented (Button: {buttonName})");
     }
