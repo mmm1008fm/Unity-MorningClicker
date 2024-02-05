@@ -1,11 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
 {
-    [SerializeField] private Clicker _clicker;
+    [SerializeField] private List<BaseInitializable> _initializables;
 
     private void Awake()
     {
-        _clicker.Initialize();
+        foreach (var baseInitializable in _initializables)
+        {
+            baseInitializable.Initialize();
+        }
     }
 }

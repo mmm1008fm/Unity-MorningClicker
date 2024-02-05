@@ -2,14 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Clicker : MonoBehaviour
+public class Clicker : BaseInitializable
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private Button _mainButton;
     [SerializeField] private int _perClick;
     private int _score;
 
-    public void Initialize()
+    public override void Initialize()
     {
         _mainButton.onClick.AddListener(() => AddScore(_perClick));
     }
