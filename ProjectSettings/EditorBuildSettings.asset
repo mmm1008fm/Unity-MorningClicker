@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Presentation/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Presentation/Scenes/MapPlaceBase.unity
+    path: Assets/Presentation/Scenes/WorldMap.unity
     guid: 927f0f566746766428ddd6e9ac8aa3df
+  - enabled: 1
+    path: Assets/Presentation/Scenes/Castle.unity
+    guid: 94ede4bb4b38bf1439ba01f5ec6eeaa3
+  - enabled: 1
+    path: Assets/Presentation/Scenes/Shop.unity
+    guid: 396a0199c7c988d478463bffc993e6ba
   m_configObjects: {}

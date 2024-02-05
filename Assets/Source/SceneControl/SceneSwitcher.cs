@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSwitcher : MonoBehaviour
+public static class SceneSwitcher
 {
-    public void QuitGame() => Application.Quit();
+    public static void QuitGame() => Application.Quit();
 
-    public void Switch(string sceneName) => SceneManager.LoadScene(sceneName);
+    public static void Switch(string sceneName) => SceneManager.LoadScene(sceneName);
 
-    public void Reload() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    public static void Reload() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }
