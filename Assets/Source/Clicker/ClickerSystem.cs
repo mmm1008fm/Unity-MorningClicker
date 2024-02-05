@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Clicker : MonoBehaviour
+public class ClickerSystem : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
     private int _score;
