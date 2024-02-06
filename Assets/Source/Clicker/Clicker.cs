@@ -7,7 +7,6 @@ public class Clicker : BaseInitializable
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private Button _mainButton;
     [SerializeField] private int _perClick;
-    private static int _score; // TODO: Верно ли?
 
     public override void Initialize()
     {
@@ -17,12 +16,12 @@ public class Clicker : BaseInitializable
 
     private void AddScore(int value)
     {
-        _score += value;
+        PlayerVariables.Score += value;
         UpdateTextValue();
     }
 
     private void UpdateTextValue()
     {
-        _scoreText.text = "Score: " + _score;
+        _scoreText.text = "Score: " + PlayerVariables.Score;
     }
 }
