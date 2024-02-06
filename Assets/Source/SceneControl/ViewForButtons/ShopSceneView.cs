@@ -21,10 +21,7 @@ public class ShopSceneView : BaseInitializable
         _openWarriors.onClick.AddListener(OpenWarriors);
     }
 
-    private void Exit()
-    {
-        SceneSwitcher.Switch("Main");
-    }
+    private void Exit() => SceneSwitcher.Switch("Main");
     
     private void OpenWarriors()
     {

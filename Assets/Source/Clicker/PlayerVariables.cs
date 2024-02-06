@@ -1,6 +1,7 @@
-public static class PlayerVariables // TODO: Верно ли?
+public static class PlayerVariables
 {
-	public static int Score;
-	public static int Warriors;
-	public static float DefensePercent;
+	public static int Score = 0;
+	public static int Warriors = 0;
+	public static int PerClick = 1;
+	public static float DefensePercent = 0f;
 }
