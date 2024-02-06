@@ -1,10 +1,13 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
+    public static UnityAction onClose;
     [SerializeField] private Image PersonAvatar;
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _content;
@@ -74,6 +77,7 @@ public class Dialogue : MonoBehaviour
         {
             _dialogue = null;
             _dialogueBody.SetActive(false);
+            onClose.Invoke();
         }
     }
 }
