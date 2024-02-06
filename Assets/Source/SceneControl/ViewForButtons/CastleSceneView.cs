@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +5,8 @@ public class CastleSceneView : BaseInitializable
 {
     [SerializeField] private Button _exit;
     [SerializeField] private Button _talk;
+    [SerializeField] private Dialogue _dialogue;
+    [SerializeField] private DialogueObject _setDialogue;
 
     public override void Initialize()
     {
@@ -20,6 +21,6 @@ public class CastleSceneView : BaseInitializable
     
     private void Talk()
     {
-        throw new Exception("Dialogs have not yet been implemented");
+        _dialogue.StartDialogue(_setDialogue);
     }
 }
