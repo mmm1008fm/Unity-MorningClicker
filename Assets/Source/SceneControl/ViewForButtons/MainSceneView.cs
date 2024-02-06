@@ -14,18 +14,9 @@ public class MainSceneView : BaseInitializable
         _toWorld.onClick.AddListener(ToWorld);
     }
 
-    private void ToCastle()
-    {
-        SceneSwitcher.Switch("Castle");
-    }
+    private void ToCastle() => SceneSwitcher.Switch("Castle");
     
-    private void ToShop()
-    {
-        SceneSwitcher.Switch("Shop");
-    }
+    private void ToShop() => SceneSwitcher.Switch("Shop");
     
-    private void ToWorld()
-    {
-        SceneSwitcher.Switch("World");
-    }
+    private void ToWorld() => SceneSwitcher.Switch("World");
 }
