@@ -5,11 +5,9 @@ using UnityEngine.UI;
 public class ShopSceneView : BaseInitializable
 {
     [SerializeField] private Button _exit;
+    [SerializeField] private Button _closeWindowForBuy;
     [SerializeField] private Button _openWarriors;
     [SerializeField] private Button _openArmor;
-    [SerializeField] private Button _buyArmor;
-    [SerializeField] private Button _buyWarriors;
-    [SerializeField] private Button _closeWindowForBuy;
     [SerializeField] private GameObject _windowForBuy;
     [SerializeField] private GameObject _forWarriors;
     [SerializeField] private GameObject _forArmor;
