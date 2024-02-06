@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +15,9 @@ public class ShopSceneView : BaseInitializable
     [SerializeField] private GameObject _forArmor;
     [SerializeField] private Button _buyArmor;
     [SerializeField] private Button _buyWarriors;
+    [SerializeField] private TextMeshProUGUI _ScoreText;
+    [SerializeField] private TextMeshProUGUI _DefenseEffect;
+    [SerializeField] private TextMeshProUGUI _WarriorsCount;
 
     public override void Initialize()
     {
@@ -26,6 +31,19 @@ public class ShopSceneView : BaseInitializable
         {
             var buttonName = buyButton.name; // TODO: Верно ли?
             buyButton.onClick.AddListener(() => Buy(buttonName)); // TODO: Верно ли?
+        }
+        
+        UpdateScoreCycle();
+    }
+
+    private async void UpdateScoreCycle() // TODO: Отказаться от тасков
+    {
+        while (Application.isPlaying)
+        {
+            _ScoreText.text = $"Score: {PlayerVariables.Score}";
+            _DefenseEffect.text = $"Now: {PlayerVariables.DefensePercent * 100f}%";
+            _WarriorsCount.text = $"Now: {PlayerVariables.Warriors}";
+            await Task.Delay(1000);
         }
     }
 
