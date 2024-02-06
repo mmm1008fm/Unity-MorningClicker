@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CastleSceneView : BaseInitializable
@@ -14,7 +12,7 @@ public class CastleSceneView : BaseInitializable
     {
         _exit.onClick.AddListener(Exit);
         _talk.onClick.AddListener(Talk);
-        Dialogue.onClose += EndTalk; // TODO: Фигня?
+        Dialogue.onClose += EndTalk;
     }
 
     private void Exit()

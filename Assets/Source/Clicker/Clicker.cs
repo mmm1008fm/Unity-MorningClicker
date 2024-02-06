@@ -4,24 +4,24 @@ using UnityEngine.UI;
 
 public class Clicker : BaseInitializable
 {
+    [SerializeField] private string _prefix = "Score: ";
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private Button _mainButton;
-    [SerializeField] private int _perClick;
 
     public override void Initialize()
     {
-        _mainButton.onClick.AddListener(() => AddScore(_perClick));
+        _mainButton.onClick.AddListener(AddScore);
         UpdateTextValue();
     }
 
-    private void AddScore(int value)
+    private void AddScore()
     {
-        PlayerVariables.Score += value;
+        PlayerVariables.Score += PlayerVariables.PerClick;
         UpdateTextValue();
     }
 
     private void UpdateTextValue()
     {
-        _scoreText.text = "Score: " + PlayerVariables.Score;
+        _scoreText.text = _prefix + PlayerVariables.Score;
     }
 }

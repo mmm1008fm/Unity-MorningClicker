@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -24,12 +23,12 @@ public class Dialogue : MonoBehaviour
 
     private void CheckDialogue()
     {
-        if (!Input.GetMouseButtonDown(0)) // TODO: InputListener
+        if (!Input.GetMouseButtonDown(0))
         {
             return;
         }
         
-        if (_dialogue == null) // TODO: Проверить
+        if (!_dialogue)
         {
             return;
         }
@@ -58,7 +57,7 @@ public class Dialogue : MonoBehaviour
     
     private IEnumerator TypeLine()
     {
-        foreach (char c in _dialogue.Content[_index].ToCharArray())
+        foreach (var c in _dialogue.Content[_index].ToCharArray())
         {
             _content.text += c;
             yield return new WaitForSeconds(_textSpeed);
