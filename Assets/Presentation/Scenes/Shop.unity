@@ -314,6 +314,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7311749098933458622, guid: 3c9b119949878e94a8fc271f91bf454d, type: 3}
   m_PrefabInstance: {fileID: 1401627276}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1449646639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7365389129981062906, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
+  m_PrefabInstance: {fileID: 8925679770365408092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1774381067 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6457140585812118027, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
+  m_PrefabInstance: {fileID: 8925679770365408092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5113561142000356416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +407,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 203590186311035878, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 799527059312794673, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 959157580670849434, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
@@ -487,10 +513,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2647112813425144802, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831899735769665473, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4102900425487164821, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4719688648615005265, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
+      propertyPath: _openArmor
+      value: 
+      objectReference: {fileID: 1774381067}
+    - target: {fileID: 4719688648615005265, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
+      propertyPath: _openWarriors
+      value: 
+      objectReference: {fileID: 1449646639}
     - target: {fileID: 7736336818651780085, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
       propertyPath: m_text
       value: 'Buy warriors
@@ -501,7 +543,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 959157580670849434, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 1401627277}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc949e8380630ae45927bdb57a28f2f1, type: 3}
