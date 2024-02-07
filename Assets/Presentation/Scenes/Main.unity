@@ -901,6 +901,7 @@ MonoBehaviour:
   _toCastle: {fileID: 5176540145457276865}
   _toShop: {fileID: 3236905644756598296}
   _toWorld: {fileID: 1509559976323981927}
+  _toSettings: {fileID: 1595852065}
 --- !u!4 &4274379408764735233
 Transform:
   m_ObjectHideFlags: 0
