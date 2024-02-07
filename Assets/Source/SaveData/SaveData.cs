@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -24,7 +23,8 @@ public class SaveData : BaseInitializable
 		PlayerVariables.DefensePercent = PlayerPrefs.GetFloat("DefensePercent", PlayerVariables.DefensePercent);
 		PlayerVariables.GameVolume = PlayerPrefs.GetFloat("GameVolume", PlayerVariables.GameVolume);
 		PlayerVariables.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", PlayerVariables.MusicVolume);
-		// Debug.Log("Data Loaded");
+		PlayerVariables.WindmillPower = PlayerPrefs.GetFloat("WindmillPower", PlayerVariables.WindmillPower);
+		Debug.Log("Data Loaded");
 		StartCoroutine(Cycle());
 	}
 	
@@ -50,6 +50,7 @@ public class SaveData : BaseInitializable
 		PlayerPrefs.SetFloat("DefensePercent", PlayerVariables.DefensePercent);
 		PlayerPrefs.SetFloat("GameVolume", PlayerVariables.GameVolume);
 		PlayerPrefs.SetFloat("MusicVolume", PlayerVariables.MusicVolume);
-		// Debug.Log("Data Saved");
+		PlayerPrefs.SetFloat("WindmillPower", PlayerVariables.WindmillPower);
+		Debug.Log("Data Saved");
 	}
 }
