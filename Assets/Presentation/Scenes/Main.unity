@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoSaveInterval: 10
-  _resetProgress: 1
+  _resetProgress: 0
 --- !u!1 &1595852063
 GameObject:
   m_ObjectHideFlags: 0
