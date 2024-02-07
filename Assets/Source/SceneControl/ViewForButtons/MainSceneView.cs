@@ -22,5 +22,9 @@ public class MainSceneView : BaseInitializable
     
     private void ToWorld() => SceneSwitcher.Switch("World");
 
-    private void ToSettings() => SceneSwitcher.Switch("Srttings");
+    private void ToSettings()
+    {
+        Debug.Log("Button settings");
+        SceneSwitcher.Switch("Settings");
+    }
 }
