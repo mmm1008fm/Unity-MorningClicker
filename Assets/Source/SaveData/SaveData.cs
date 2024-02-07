@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SaveData : BaseInitializable
 {
+	[SerializeField] private bool _resetProgress = false;
 	private static SaveData singleton;
 	
 	public override void Initialize()
@@ -15,6 +16,14 @@ public class SaveData : BaseInitializable
 		else
 		{
 			Destroy(gameObject);
+		}
+
+		if (_resetProgress)
+		{
+			Debug.Log("Data not loaded, because the progress reset is on");
+			StartCoroutine(Cycle());
+			_resetProgress = false;
+			return;
 		}
 		
 		PlayerVariables.Score = PlayerPrefs.GetInt("Score", PlayerVariables.Score);
