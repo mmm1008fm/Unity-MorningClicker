@@ -23,7 +23,6 @@ public class SaveData : BaseInitializable
 		{
 			Debug.Log("Data not loaded, because the progress reset is on");
 			StartCoroutine(SaveCycle(_autoSaveInterval));
-			_resetProgress = false;
 			return;
 		}
 		
