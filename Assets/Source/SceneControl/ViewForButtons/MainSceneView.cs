@@ -20,11 +20,7 @@ public class MainSceneView : BaseInitializable
     
     private void ToShop() => SceneSwitcher.Switch("Shop");
     
-    private void ToWorld() => SceneSwitcher.Switch("World");
+    private void ToWorld() => SceneSwitcher.Switch("WorldMap");
 
-    private void ToSettings()
-    {
-        Debug.Log("Button settings");
-        SceneSwitcher.Switch("Settings");
-    }
+    private void ToSettings() => SceneSwitcher.Switch("Settings");
 }
