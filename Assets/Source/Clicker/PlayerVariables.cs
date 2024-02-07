@@ -6,4 +6,5 @@ public static class PlayerVariables
 	public static float DefensePercent = 0f;
 	public static float MusicVolume = 1f;
 	public static float GameVolume = 1f;
+	public static float WindmillPower = 0f;
 }
