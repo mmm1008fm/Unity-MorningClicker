@@ -1,9 +1,10 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class SaveData : BaseInitializable
 {
+	[SerializeField] private float _autoSaveInterval = 10f;
+	[SerializeField] private bool _resetProgress = false;
 	private static SaveData singleton;
 	
 	public override void Initialize()
@@ -17,6 +18,14 @@ public class SaveData : BaseInitializable
 		{
 			Destroy(gameObject);
 		}
+
+		if (_resetProgress)
+		{
+			Debug.Log("Data not loaded, because the progress reset is on");
+			StartCoroutine(SaveCycle(_autoSaveInterval));
+			_resetProgress = false;
+			return;
+		}
 		
 		PlayerVariables.Score = PlayerPrefs.GetInt("Score", PlayerVariables.Score);
 		PlayerVariables.PerClick = PlayerPrefs.GetInt("PerClick", PlayerVariables.PerClick);
@@ -24,16 +33,17 @@ public class SaveData : BaseInitializable
 		PlayerVariables.DefensePercent = PlayerPrefs.GetFloat("DefensePercent", PlayerVariables.DefensePercent);
 		PlayerVariables.GameVolume = PlayerPrefs.GetFloat("GameVolume", PlayerVariables.GameVolume);
 		PlayerVariables.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", PlayerVariables.MusicVolume);
-		// Debug.Log("Data Loaded");
-		StartCoroutine(Cycle());
+		PlayerVariables.WindmillPower = PlayerPrefs.GetInt("WindmillPower", PlayerVariables.WindmillPower);
+		Debug.Log("Data Loaded");
+		StartCoroutine(SaveCycle(_autoSaveInterval));
 	}
 	
-	private IEnumerator Cycle()
+	private IEnumerator SaveCycle(float _interval)
 	{
 		while (Application.isPlaying)
 		{
 			SetData();
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(_interval);
 		}
 	}
 
@@ -50,6 +60,7 @@ public class SaveData : BaseInitializable
 		PlayerPrefs.SetFloat("DefensePercent", PlayerVariables.DefensePercent);
 		PlayerPrefs.SetFloat("GameVolume", PlayerVariables.GameVolume);
 		PlayerPrefs.SetFloat("MusicVolume", PlayerVariables.MusicVolume);
-		// Debug.Log("Data Saved");
+		PlayerPrefs.SetInt("WindmillPower", PlayerVariables.WindmillPower);
+		Debug.Log("Data Saved");
 	}
 }

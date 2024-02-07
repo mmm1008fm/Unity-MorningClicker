@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class BuyItemsView : MonoBehaviour
 {
-	[SerializeField] private TextMeshProUGUI _ScoreText;
 	[SerializeField] private TextMeshProUGUI _effect;
 	[SerializeField] private Button _buyButton;
 	[SerializeField] private ShopItem _item;
@@ -33,11 +32,12 @@ public class BuyItemsView : MonoBehaviour
 			case ShopItem.Warrior:
 				_effect.text = $"Warriors count: {PlayerVariables.Warriors}";
 				break;
+			case ShopItem.Windmill:
+				_effect.text = $"Windmill power: {PlayerVariables.WindmillPower}";
+				break;
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
-		
-		_ScoreText.text = $"Score: {PlayerVariables.Score}";
 	}
 
 	public void Buy()
@@ -56,6 +56,9 @@ public class BuyItemsView : MonoBehaviour
 				break;
 			case ShopItem.Warrior:
 				PlayerVariables.Warriors += (int)_count;
+				break;
+			case ShopItem.Windmill:
+				PlayerVariables.WindmillPower += (int)_count;
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();

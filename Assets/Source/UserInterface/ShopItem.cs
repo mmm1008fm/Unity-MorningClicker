@@ -1,5 +1,6 @@
 ﻿enum ShopItem
 {
 	Armor,
-	Warrior
+	Warrior,
+	Windmill
 }
