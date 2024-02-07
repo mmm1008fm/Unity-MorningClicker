@@ -1208,7 +1208,7 @@ GameObject:
   - component: {fileID: 1986865355}
   - component: {fileID: 1986865356}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1579,6 +1579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _back: {fileID: 1732345319}
+  _volume: {fileID: 1986865356}
+  _music: {fileID: 1519611479}
 --- !u!114 &4925041031573761893
 MonoBehaviour:
   m_ObjectHideFlags: 0
