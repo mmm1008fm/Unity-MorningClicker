@@ -10,6 +10,7 @@ public class CoinParticleController : MonoBehaviour
     {
         _sounds[Random.Range(0, _sounds.Count)].Play();
         ParticleSystem particleSystemInstance = Instantiate(_particleSystemPrefab, transform);
+        particleSystemInstance.Play();
         Destroy(particleSystemInstance.gameObject, particleSystemInstance.main.duration + 10f);
     }
 }
