@@ -1,39 +1,22 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class SaveData : BaseInitializable
 {
-	private static SaveData singleton;
+	[SerializeField] private float _secondsSaveInterval = 10f;
 	
 	public override void Initialize()
 	{
-		if (!singleton)
-		{
-			DontDestroyOnLoad(gameObject);
-			singleton = this;
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
-		
-		PlayerVariables.Score = PlayerPrefs.GetInt("Score", PlayerVariables.Score);
-		PlayerVariables.PerClick = PlayerPrefs.GetInt("PerClick", PlayerVariables.PerClick);
-		PlayerVariables.Warriors = PlayerPrefs.GetInt("Warriors", PlayerVariables.Warriors);
-		PlayerVariables.DefensePercent = PlayerPrefs.GetFloat("DefensePercent", PlayerVariables.DefensePercent);
-		PlayerVariables.GameVolume = PlayerPrefs.GetFloat("GameVolume", PlayerVariables.GameVolume);
-		PlayerVariables.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", PlayerVariables.MusicVolume);
-		// Debug.Log("Data Loaded");
-		StartCoroutine(Cycle());
+		LoadData();
+		StartCoroutine(SaveCycle(_secondsSaveInterval));
 	}
 	
-	private IEnumerator Cycle()
+	private IEnumerator SaveCycle(float secondsInterval)
 	{
 		while (Application.isPlaying)
 		{
 			SetData();
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(secondsInterval);
 		}
 	}
 
@@ -50,6 +33,17 @@ public class SaveData : BaseInitializable
 		PlayerPrefs.SetFloat("DefensePercent", PlayerVariables.DefensePercent);
 		PlayerPrefs.SetFloat("GameVolume", PlayerVariables.GameVolume);
 		PlayerPrefs.SetFloat("MusicVolume", PlayerVariables.MusicVolume);
-		// Debug.Log("Data Saved");
+		Debug.Log("Data Saved");
+	}
+
+	private void LoadData()
+	{
+		PlayerVariables.Score = PlayerPrefs.GetInt("Score", PlayerVariables.Score);
+		PlayerVariables.PerClick = PlayerPrefs.GetInt("PerClick", PlayerVariables.PerClick);
+		PlayerVariables.Warriors = PlayerPrefs.GetInt("Warriors", PlayerVariables.Warriors);
+		PlayerVariables.DefensePercent = PlayerPrefs.GetFloat("DefensePercent", PlayerVariables.DefensePercent);
+		PlayerVariables.GameVolume = PlayerPrefs.GetFloat("GameVolume", PlayerVariables.GameVolume);
+		PlayerVariables.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", PlayerVariables.MusicVolume);
+		Debug.Log("Data Loaded");
 	}
 }

@@ -11,6 +11,7 @@ public class ShopSceneView : BaseInitializable
     [SerializeField] private GameObject _windowForBuy;
     [SerializeField] private GameObject _forWarriors;
     [SerializeField] private GameObject _forArmor;
+    [SerializeField] private TextMeshProUGUI _score;
 
     public override void Initialize()
     {
@@ -19,6 +20,8 @@ public class ShopSceneView : BaseInitializable
         
         _openArmor.onClick.AddListener(OpenArmor);
         _openWarriors.onClick.AddListener(OpenWarriors);
+
+        _score.text = $"Score: {PlayerVariables.Score}";
     }
 
     private void Exit() => SceneSwitcher.Switch("Main");
