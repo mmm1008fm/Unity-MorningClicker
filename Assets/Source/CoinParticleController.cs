@@ -22,7 +22,7 @@ public class CoinParticleController : MonoBehaviour
                 _posZ = 50f;
                 break;
             case UIlayer.Center:
-                _posZ = 0f;
+                _posZ = -10f;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

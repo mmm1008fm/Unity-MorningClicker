@@ -5849,6 +5849,7 @@ MonoBehaviour:
   - {fileID: 221883131}
   - {fileID: 457357399}
   - {fileID: 1820045468}
+  _layer: 2
 --- !u!224 &5926224382849411389
 RectTransform:
   m_ObjectHideFlags: 0
