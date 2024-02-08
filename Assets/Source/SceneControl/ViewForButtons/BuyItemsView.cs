@@ -52,11 +52,6 @@ public class BuyItemsView : MonoBehaviour
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
-
-		if (_startCost == 0)
-		{
-			_startCost = _costDefaultMin;
-		}
 	}
 
 	private void Buy()
