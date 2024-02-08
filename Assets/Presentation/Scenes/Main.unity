@@ -3927,7 +3927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _autoSaveInterval: 10
-  _resetProgress: 1
+  _resetProgress: 0
 --- !u!1 &1541428333
 GameObject:
   m_ObjectHideFlags: 0
@@ -6867,7 +6867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfffb26fb654e7f4b8455ffe284366a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particleSystemPrefab: {fileID: 2790241837417772525, guid: 9f092e5d99f438540b1d03be99a521ba, type: 3}
+  _particleSystemPrefab: {fileID: 2790241837417772525, guid: 93f13e6cc3497f0449c94ca424946693, type: 3}
   _sounds:
   - {fileID: 1210270063}
   - {fileID: 1934319158}
