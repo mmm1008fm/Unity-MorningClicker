@@ -13,7 +13,7 @@ public class Clicker : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("Нажатие на кнопку");
+        Debug.Log("Нажатие на кнопку");
         OnClick.Invoke();
         AddScore();
     }
