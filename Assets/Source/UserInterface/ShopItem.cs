@@ -2,5 +2,6 @@
 {
 	Armor,
 	Warrior,
-	Windmill
+	Windmill,
+	PerClick
 }

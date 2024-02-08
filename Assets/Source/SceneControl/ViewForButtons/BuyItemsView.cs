@@ -35,12 +35,15 @@ public class BuyItemsView : MonoBehaviour
 			case ShopItem.Windmill:
 				_effect.text = $"Windmill power: {PlayerVariables.WindmillPower}";
 				break;
+			case ShopItem.PerClick:
+				_effect.text = $"Per click: {PlayerVariables.PerClick}";
+				break;
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
 	}
 
-	public void Buy()
+	private void Buy()
 	{
 		if (PlayerVariables.Score < _cost)
 		{
@@ -59,6 +62,9 @@ public class BuyItemsView : MonoBehaviour
 				break;
 			case ShopItem.Windmill:
 				PlayerVariables.WindmillPower += (int)_count;
+				break;
+			case ShopItem.PerClick:
+				PlayerVariables.PerClick += (int)_count;
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
