@@ -12,7 +12,7 @@ public class BuyItemsView : MonoBehaviour
 	[SerializeField] private int _startCost = 10;
 	[SerializeField] private float _costMultiplier = 2f;
 	[SerializeField] private float _count = 1f;
-	[SerializeField] private int _costDefaultMin;
+	[SerializeField] private int _defaultMinCost = 10;
 
 	public void Awake()
 	{
@@ -30,24 +30,24 @@ public class BuyItemsView : MonoBehaviour
 		switch (_item)
 		{
 			case ShopItem.Armor:
-				_effect.text = $"Defense: {Math.Round(PlayerVariables.DefensePercent * 100f)}%";
-				_costText.text = $"Buy armor {_startCost}$";
-                _startCost = PlayerPrefs.GetInt("ArmorCost", _startCost);
+				_startCost = PlayerPrefs.GetInt("ArmorCost", _defaultMinCost);
+				_effect.text = $"Защита: {Math.Round(PlayerVariables.DefensePercent * 100f)}%";
+				_costText.text = $"Купить: {_startCost}$";
 				break;
 			case ShopItem.Warrior:
-				_effect.text = $"Warriors count: {PlayerVariables.Warriors}";
-				_costText.text = $"Buy warrior {_startCost}$";
-                _startCost = PlayerPrefs.GetInt("WarriorsCost", _startCost);
+				_startCost = PlayerPrefs.GetInt("WarriorCost", _defaultMinCost);
+				_effect.text = $"Воины: {PlayerVariables.Warriors}";
+				_costText.text = $"Купить: {_startCost}$";
 				break;
 			case ShopItem.Windmill:
-				_effect.text = $"Windmill power: {PlayerVariables.WindmillPower}";
-				_costText.text = $"Buy windmill {_startCost}$";
-                _startCost = PlayerPrefs.GetInt("WindmillCost", _startCost);
+				_startCost = PlayerPrefs.GetInt("WindmillCost", _defaultMinCost);
+				_effect.text = $"Сила: {PlayerVariables.WindmillPower}";
+				_costText.text = $"Купить: {_startCost}$";
 				break;
 			case ShopItem.PerClick:
-				_effect.text = $"Per click: {PlayerVariables.PerClick}";
-				_costText.text = $"Buy click {_startCost}$";
-                _startCost = PlayerPrefs.GetInt("ClickCost", _startCost);
+				_startCost = PlayerPrefs.GetInt("ClickCost", _defaultMinCost);
+				_effect.text = $"За клик: {PlayerVariables.PerClick}";
+				_costText.text = $"Купить: {_startCost}$";
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
@@ -68,19 +68,19 @@ public class BuyItemsView : MonoBehaviour
 		{
 			case ShopItem.Armor:
 				PlayerVariables.DefensePercent += _count;
-				PlayerPrefs.SetInt("ArmorCost", _startCost);
+                PlayerPrefs.SetInt("ArmorCost", _startCost);
 				break;
 			case ShopItem.Warrior:
 				PlayerVariables.Warriors += (int)_count;
-				PlayerPrefs.SetInt("WarriorCost", _startCost);
+                PlayerPrefs.SetInt("WarriorCost", _startCost);
 				break;
 			case ShopItem.Windmill:
 				PlayerVariables.WindmillPower += (int)_count;
-				PlayerPrefs.SetInt("WindmillCost", _startCost);
+                PlayerPrefs.SetInt("WindmillCost", _startCost);
 				break;
 			case ShopItem.PerClick:
 				PlayerVariables.PerClick += (int)_count;
-				PlayerPrefs.SetInt("ClickCost", _startCost);
+                PlayerPrefs.SetInt("ClickCost", _startCost);
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();

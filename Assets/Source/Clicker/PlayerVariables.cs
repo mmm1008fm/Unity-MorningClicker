@@ -21,7 +21,7 @@ public static class PlayerVariables
 		{
 			_score = value;
 			OnScoreChanged?.Invoke();
-			Debug.Log("Изменение очков и вызов");
+			//Debug.Log("Изменение очков и вызов");
 		}
 	}
 
