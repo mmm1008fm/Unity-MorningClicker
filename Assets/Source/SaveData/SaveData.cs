@@ -5,12 +5,11 @@ public class SaveData : BaseInitializable
 {
 	[SerializeField] private float _autoSaveInterval = 10f;
 	[SerializeField] private bool _resetProgress = false;
+	private static bool _isAlreadyReset;
 	private static SaveData singleton;
 	
 	public override void Initialize()
 	{
-		PlayerVariables.IsResetProgress = _resetProgress;
-		
 		if (!singleton)
 		{
 			DontDestroyOnLoad(gameObject);
@@ -21,15 +20,13 @@ public class SaveData : BaseInitializable
 			Destroy(gameObject);
 		}
 		
-		Debug.LogWarning(PlayerVariables.IsResetProgress);
+		Debug.LogWarning(_resetProgress);
 		
-		if (PlayerVariables.IsResetProgress)
+		if (_resetProgress && !_isAlreadyReset)
 		{
+			_isAlreadyReset = true;
 			Debug.Log("Data not loaded, because the progress reset is on");
-			PlayerVariables.IsResetProgress = false;
-			PlayerPrefs.DeleteAll(); // Не работает -> Очень даже удаляется
-			Debug.Log("Data delited");
-			LoadData();
+			//LoadData();
 		}
 		else
 		{

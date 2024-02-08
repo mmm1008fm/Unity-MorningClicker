@@ -9,7 +9,6 @@ public static class PlayerVariables
 	public static float MusicVolume = 1f;
 	public static float GameVolume = 1f;
 	public static int WindmillPower = 0;
-	public static bool IsResetProgress;
 	
 	public static event UnityAction OnScoreChanged;
 
