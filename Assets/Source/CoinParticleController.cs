@@ -11,15 +11,25 @@ public class CoinParticleController : MonoBehaviour
     [SerializeField] private UIlayer _layer;
     private float _posZ;
 
-    public void SpawnParticle()
+    private void OnEnable()
+    {
+        Clicker.OnClick += SpawnParticle;
+    }
+
+    private void OnDisable()
+    {
+        Clicker.OnClick -= SpawnParticle;
+    }
+
+    private void SpawnParticle()
     {
         switch (_layer)
         {
             case UIlayer.Front:
-                _posZ = -50f;
+                _posZ = -60f;
                 break;
             case UIlayer.Back:
-                _posZ = 50f;
+                _posZ = 40f;
                 break;
             case UIlayer.Center:
                 _posZ = -10f;
@@ -28,7 +38,9 @@ public class CoinParticleController : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
         _sounds[Random.Range(0, _sounds.Count)].Play();
-        var particleSystemInstance = Instantiate(_particleSystemPrefab, new Vector3(0f, 0f, _posZ), quaternion.identity);
+        var worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var particleSystemInstance = Instantiate(
+            _particleSystemPrefab, new Vector3(worldPos.x, worldPos.y, _posZ), quaternion.identity);
         particleSystemInstance.Play();
         Destroy(particleSystemInstance.gameObject, particleSystemInstance.main.duration);
     }

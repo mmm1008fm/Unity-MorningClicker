@@ -12,7 +12,7 @@ public class Windmill : MonoBehaviour
 
     private IEnumerator AddWindmillPowerToScore()
     {
-        while (true)
+        while (Application.isPlaying)
         {
             yield return new WaitForSeconds(1);
             PlayerVariables.Score += PlayerVariables.WindmillPower;

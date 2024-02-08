@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.Events;
 
 public static class PlayerVariables
@@ -20,6 +21,7 @@ public static class PlayerVariables
 		{
 			_score = value;
 			OnScoreChanged?.Invoke();
+			Debug.Log("Изменение очков и вызов");
 		}
 	}
 

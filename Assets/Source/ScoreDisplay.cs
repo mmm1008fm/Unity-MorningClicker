@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour
 {
+    [SerializeField] private string _prefix = "Score: ";
     [SerializeField] private TextMeshProUGUI _scoreText;
 
     private void OnEnable()
@@ -18,6 +19,7 @@ public class ScoreDisplay : MonoBehaviour
 
     private void UpdateScoreDisplay()
     {
-        _scoreText.text = $"Score: {PlayerVariables.Score}";
+        Debug.Log("Обновление текста на экране");
+        _scoreText.text = _prefix + PlayerVariables.Score;
     }
 }
