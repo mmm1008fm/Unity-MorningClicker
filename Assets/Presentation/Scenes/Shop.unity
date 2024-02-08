@@ -934,7 +934,7 @@ MonoBehaviour:
   _costText: {fileID: 479431197}
   _buyButton: {fileID: 1010138196}
   _item: 2
-  _startCost: 50
+  _startCost: 10
   _costMultiplier: 2
   _count: 1
   _costDefaultMin: 10
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   _buyButton: {fileID: 2022923734}
   _item: 3
   _startCost: 10
-  _costMultiplier: 3
+  _costMultiplier: 2
   _count: 1
   _costDefaultMin: 10
 --- !u!1 &1443139719
@@ -3708,7 +3708,7 @@ MonoBehaviour:
   _buyButton: {fileID: 2172928560339919980}
   _item: 1
   _startCost: 10
-  _costMultiplier: 1.4
+  _costMultiplier: 2
   _count: 1
   _costDefaultMin: 10
 --- !u!1 &6931118912209763836
@@ -3913,8 +3913,8 @@ MonoBehaviour:
   _costText: {fileID: 6134598501473713350}
   _buyButton: {fileID: 2992009027835771191}
   _item: 0
-  _startCost: 200
-  _costMultiplier: 1.5
+  _startCost: 10
+  _costMultiplier: 2
   _count: 0.05
   _costDefaultMin: 10
 --- !u!114 &8063312196610714331

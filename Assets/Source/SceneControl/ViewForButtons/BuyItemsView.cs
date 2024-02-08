@@ -16,13 +16,28 @@ public class BuyItemsView : MonoBehaviour
 
 	public void Awake()
 	{
+		
 		_buyButton.onClick.AddListener(Buy);
 		UpdateUI();
 	}
 
 	private void OnEnable()
 	{
+		SaveData.onReset += ResetCost;
 		UpdateUI();
+	}
+
+	private void OnDisable()
+	{
+		SaveData.onReset -= ResetCost;
+	}
+
+	private void ResetCost()
+	{
+		PlayerPrefs.SetInt("ArmorCost", _startCost);
+		PlayerPrefs.SetInt("WarriorCost", _startCost);
+		PlayerPrefs.SetInt("WindmillCost", _startCost);
+		PlayerPrefs.SetInt("ClickCost", _startCost);
 	}
 
 	private void UpdateUI()

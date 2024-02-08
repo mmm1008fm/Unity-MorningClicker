@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SaveData : BaseInitializable
 {
+	public static event UnityAction onReset;
 	[SerializeField] private float _autoSaveInterval = 10f;
 	[SerializeField] private bool _resetProgress = false;
 	private static SaveData singleton;
@@ -21,6 +23,7 @@ public class SaveData : BaseInitializable
 
 		if (_resetProgress)
 		{
+			onReset.Invoke();
 			Debug.Log("Data not loaded, because the progress reset is on");
 			StartCoroutine(SaveCycle(_autoSaveInterval));
 			return;
