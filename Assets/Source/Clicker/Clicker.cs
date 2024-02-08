@@ -1,20 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.Events;
 
-public class Clicker : BaseInitializable
+public class Clicker : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] private Button _mainButton;
-    [SerializeField] private TextMeshProUGUI _score;
+    public static event UnityAction OnClick;
 
-    public override void Initialize()
+    /*public override void Initialize()
     {
         _mainButton.onClick.AddListener(AddScore);
+    }*/
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("Нажатие на кнопку");
+        OnClick.Invoke();
+        AddScore();
     }
 
     private void AddScore()
     {
         PlayerVariables.Score += PlayerVariables.PerClick;
-        _score.text = $"Score: {PlayerVariables.Score}";
+        // _score.text = $"Score: {PlayerVariables.Score}";
     }
 }

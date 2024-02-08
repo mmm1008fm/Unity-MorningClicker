@@ -11,6 +11,7 @@ public class SaveData : BaseInitializable
 	{
 		if (!singleton)
 		{
+			LoadData();
 			DontDestroyOnLoad(gameObject);
 			singleton = this;
 		}
@@ -26,14 +27,6 @@ public class SaveData : BaseInitializable
 			return;
 		}
 		
-		PlayerVariables.Score = PlayerPrefs.GetInt("Score", PlayerVariables.Score);
-		PlayerVariables.PerClick = PlayerPrefs.GetInt("PerClick", PlayerVariables.PerClick);
-		PlayerVariables.Warriors = PlayerPrefs.GetInt("Warriors", PlayerVariables.Warriors);
-		PlayerVariables.DefensePercent = PlayerPrefs.GetFloat("DefensePercent", PlayerVariables.DefensePercent);
-		PlayerVariables.GameVolume = PlayerPrefs.GetFloat("GameVolume", PlayerVariables.GameVolume);
-		PlayerVariables.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", PlayerVariables.MusicVolume);
-		PlayerVariables.WindmillPower = PlayerPrefs.GetInt("WindmillPower", PlayerVariables.WindmillPower);
-		Debug.Log("Data Loaded");
 		StartCoroutine(SaveCycle(_autoSaveInterval));
 	}
 	
@@ -61,5 +54,17 @@ public class SaveData : BaseInitializable
 		PlayerPrefs.SetFloat("MusicVolume", PlayerVariables.MusicVolume);
 		PlayerPrefs.SetInt("WindmillPower", PlayerVariables.WindmillPower);
 		Debug.Log("Data Saved");
+	}
+
+	private void LoadData()
+	{
+		PlayerVariables.Score = PlayerPrefs.GetInt("Score", PlayerVariables.Score);
+		PlayerVariables.PerClick = PlayerPrefs.GetInt("PerClick", PlayerVariables.PerClick);
+		PlayerVariables.Warriors = PlayerPrefs.GetInt("Warriors", PlayerVariables.Warriors);
+		PlayerVariables.DefensePercent = PlayerPrefs.GetFloat("DefensePercent", PlayerVariables.DefensePercent);
+		PlayerVariables.GameVolume = PlayerPrefs.GetFloat("GameVolume", PlayerVariables.GameVolume);
+		PlayerVariables.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", PlayerVariables.MusicVolume);
+		PlayerVariables.WindmillPower = PlayerPrefs.GetInt("WindmillPower", PlayerVariables.WindmillPower);
+		Debug.Log("Data Loaded");
 	}
 }

@@ -5144,6 +5144,7 @@ GameObject:
   - component: {fileID: 5756897573159912595}
   - component: {fileID: 1936826631871844546}
   - component: {fileID: 5756897573159912596}
+  - component: {fileID: 5756897573159912597}
   m_Layer: 5
   m_Name: Casle (button)
   m_TagString: Untagged
@@ -5212,19 +5213,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5756897573159912595}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5756897573159912596}
-        m_TargetAssemblyTypeName: CoinParticleController, Assembly-CSharp
-        m_MethodName: SpawnParticle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2075591125235615071
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,25 +5254,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4596568759404181692}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2611530925496159591
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4274379408764735233}
-  - component: {fileID: 8949233231714084361}
-  m_Layer: 0
-  m_Name: Clicker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &2945479103327071909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5508,21 +5480,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!4 &4274379408764735233
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2611530925496159591}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4596568759404181692}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4565298779322384794
 GameObject:
   m_ObjectHideFlags: 0
@@ -5571,8 +5528,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2277450273870252646}
-  - {fileID: 4274379408764735233}
   - {fileID: 250113528312376139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5813,7 +5768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfffb26fb654e7f4b8455ffe284366a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particleSystemPrefab: {fileID: 2790241837417772525, guid: d512662b084129f4b80c98020b94da9a, type: 3}
+  _particleSystemPrefab: {fileID: 2790241837417772525, guid: 9f092e5d99f438540b1d03be99a521ba, type: 3}
   _sounds:
   - {fileID: 1210270063}
   - {fileID: 1934319158}
@@ -5849,7 +5804,19 @@ MonoBehaviour:
   - {fileID: 221883131}
   - {fileID: 457357399}
   - {fileID: 1820045468}
-  _layer: 2
+  _layer: 0
+--- !u!114 &5756897573159912597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677205198537048178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5dd07bea3e59f4aa82b66540a57692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5926224382849411389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6438,7 +6405,6 @@ MonoBehaviour:
   _initializables:
   - {fileID: 1530487809}
   - {fileID: 4596568759404181693}
-  - {fileID: 8949233231714084361}
 --- !u!114 &8373956672965797096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6636,20 +6602,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075591125235615071}
   m_CullTransparentMesh: 1
---- !u!114 &8949233231714084361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2611530925496159591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5dd07bea3e59f4aa82b66540a57692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainButton: {fileID: 1936826631871844546}
-  _score: {fileID: 8453550889631036021}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -6659,3 +6611,4 @@ SceneRoots:
   - {fileID: 4596568759404181692}
   - {fileID: 1530487808}
   - {fileID: 3243056595159997739}
+  - {fileID: 2277450273870252646}
