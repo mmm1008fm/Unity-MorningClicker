@@ -119,12 +119,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0430\u0439\u0442\u0435\u043C\u044B \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438
-        \u043D\u043E\u0440\u043C\u0430\u0441_0"
+      name: 1
       rect:
         serializedVersion: 2
         x: 40
@@ -132,7 +144,7 @@ TextureImporter:
         width: 40
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,8 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0430\u0439\u0442\u0435\u043C\u044B \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438
-        \u043D\u043E\u0440\u043C\u0430\u0441_1"
+      name: 2
       rect:
         serializedVersion: 2
         x: 110
@@ -154,7 +165,7 @@ TextureImporter:
         width: 30
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,8 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0430\u0439\u0442\u0435\u043C\u044B \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438
-        \u043D\u043E\u0440\u043C\u0430\u0441_2"
+      name: 3
       rect:
         serializedVersion: 2
         x: 34
@@ -176,7 +186,7 @@ TextureImporter:
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,8 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0430\u0439\u0442\u0435\u043C\u044B \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438
-        \u043D\u043E\u0440\u043C\u0430\u0441_3"
+      name: 4
       rect:
         serializedVersion: 2
         x: 76
@@ -198,7 +207,7 @@ TextureImporter:
         width: 37
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -221,10 +230,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\u0430\u0439\u0442\u0435\u043C\u044B \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u043D\u043E\u0440\u043C\u0430\u0441_0": 857245125
-      "\u0430\u0439\u0442\u0435\u043C\u044B \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u043D\u043E\u0440\u043C\u0430\u0441_1": -538097627
-      "\u0430\u0439\u0442\u0435\u043C\u044B \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u043D\u043E\u0440\u043C\u0430\u0441_2": -1660513510
-      "\u0430\u0439\u0442\u0435\u043C\u044B \u0434\u043B\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u043D\u043E\u0440\u043C\u0430\u0441_3": -1192803435
+      1: 857245125
+      2: -538097627
+      3: -1660513510
+      4: -1192803435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
