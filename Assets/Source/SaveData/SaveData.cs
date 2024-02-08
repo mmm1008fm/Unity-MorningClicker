@@ -11,7 +11,6 @@ public class SaveData : BaseInitializable
 	{
 		if (!singleton)
 		{
-			LoadData();
 			DontDestroyOnLoad(gameObject);
 			singleton = this;
 		}
@@ -25,6 +24,11 @@ public class SaveData : BaseInitializable
 			Debug.Log("Data not loaded, because the progress reset is on");
 			StartCoroutine(SaveCycle(_autoSaveInterval));
 			return;
+		}
+
+		if (!singleton)
+		{
+			LoadData();
 		}
 		
 		StartCoroutine(SaveCycle(_autoSaveInterval));
