@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveData : BaseInitializable
 {
@@ -10,6 +11,8 @@ public class SaveData : BaseInitializable
 	
 	public override void Initialize()
 	{
+		SceneManager.sceneUnloaded += SceneUnload;
+		
 		if (!singleton)
 		{
 			DontDestroyOnLoad(gameObject);
@@ -20,22 +23,24 @@ public class SaveData : BaseInitializable
 			Destroy(gameObject);
 		}
 		
-		Debug.LogWarning(_resetProgress);
-		
 		if (_resetProgress && !_isAlreadyReset)
 		{
 			_isAlreadyReset = true;
-			Debug.Log("Data not loaded, because the progress reset is on");
-			//LoadData();
+			PlayerPrefs.DeleteAll();
 		}
 		else
 		{
-			LoadData();
+			LoadData(); // Заного грузит при переходе с другой сцены (решил путём сохранения при выходе со сцены)
 		}
 		
 		StartCoroutine(SaveCycle(_autoSaveInterval));
 	}
-	
+
+	private void SceneUnload(Scene arg0)
+	{
+		SetData();
+	}
+
 	private IEnumerator SaveCycle(float _interval)
 	{
 		while (Application.isPlaying)
@@ -59,7 +64,6 @@ public class SaveData : BaseInitializable
 		PlayerPrefs.SetFloat("GameVolume", PlayerVariables.GameVolume);
 		PlayerPrefs.SetFloat("MusicVolume", PlayerVariables.MusicVolume);
 		PlayerPrefs.SetInt("WindmillPower", PlayerVariables.WindmillPower);
-		Debug.Log("Data Saved");
 	}
 
 	private void LoadData()
@@ -71,6 +75,5 @@ public class SaveData : BaseInitializable
 		PlayerVariables.GameVolume = PlayerPrefs.GetFloat("GameVolume", PlayerVariables.GameVolume);
 		PlayerVariables.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", PlayerVariables.MusicVolume);
 		PlayerVariables.WindmillPower = PlayerPrefs.GetInt("WindmillPower", PlayerVariables.WindmillPower);
-		Debug.Log("Data Loaded");
 	}
 }
