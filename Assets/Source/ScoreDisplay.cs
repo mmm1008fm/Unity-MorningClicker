@@ -19,7 +19,7 @@ public class ScoreDisplay : MonoBehaviour
 
     private void UpdateScoreDisplay()
     {
-        //Debug.Log("Обновление текста на экране");
+        Debug.Log("Обновление текста на экране");
         _scoreText.text = _prefix + PlayerVariables.Score;
     }
 }
