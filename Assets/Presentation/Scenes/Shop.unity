@@ -805,6 +805,7 @@ MonoBehaviour:
   _startCost: 10
   _costMultiplier: 2
   _count: 1
+  _costDefaultMin: 10
 --- !u!1 &758824392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1296,7 @@ MonoBehaviour:
   _startCost: 10
   _costMultiplier: 2
   _count: 1
+  _costDefaultMin: 10
 --- !u!1 &1575081734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,6 +3445,7 @@ MonoBehaviour:
   _startCost: 10
   _costMultiplier: 2
   _count: 1
+  _costDefaultMin: 10
 --- !u!1 &6931118912209763836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,6 +3651,7 @@ MonoBehaviour:
   _startCost: 10
   _costMultiplier: 2
   _count: 0.05
+  _costDefaultMin: 10
 --- !u!114 &8063312196610714331
 MonoBehaviour:
   m_ObjectHideFlags: 0
