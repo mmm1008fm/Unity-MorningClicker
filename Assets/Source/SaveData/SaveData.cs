@@ -21,6 +21,9 @@ public class SaveData : BaseInitializable
 
 		if (_resetProgress)
 		{
+			_resetProgress = false;
+			PlayerPrefs.DeleteAll(); // Не работает
+			LoadData();
 			Debug.Log("Data not loaded, because the progress reset is on");
 		}
 		else
