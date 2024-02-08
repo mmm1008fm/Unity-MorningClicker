@@ -9,6 +9,8 @@ public class SaveData : BaseInitializable
 	
 	public override void Initialize()
 	{
+		PlayerVariables.IsResetProgress = _resetProgress;
+		
 		if (!singleton)
 		{
 			DontDestroyOnLoad(gameObject);
@@ -18,11 +20,13 @@ public class SaveData : BaseInitializable
 		{
 			Destroy(gameObject);
 		}
-
-		if (_resetProgress)
+		
+		Debug.LogWarning(PlayerVariables.IsResetProgress);
+		
+		if (PlayerVariables.IsResetProgress)
 		{
 			Debug.Log("Data not loaded, because the progress reset is on");
-			_resetProgress = false;
+			PlayerVariables.IsResetProgress = false;
 			PlayerPrefs.DeleteAll(); // Не работает -> Очень даже удаляется
 			Debug.Log("Data delited");
 			LoadData();
