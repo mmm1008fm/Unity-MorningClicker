@@ -1,6 +1,7 @@
-using UnityEngine;
+using System;
 using UnityEngine.Events;
 
+[Serializable]
 public static class PlayerVariables
 {
 	public static int Warriors = 0;
@@ -21,7 +22,6 @@ public static class PlayerVariables
 		{
 			_score = value;
 			OnScoreChanged?.Invoke();
-			//Debug.Log("Изменение очков и вызов");
 		}
 	}
 

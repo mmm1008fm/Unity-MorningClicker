@@ -6,21 +6,14 @@ public class Clicker : MonoBehaviour, IPointerDownHandler
 {
     public static event UnityAction OnClick;
 
-    /*public override void Initialize()
-    {
-        _mainButton.onClick.AddListener(AddScore);
-    }*/
-
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("Нажатие на кнопку");
-        OnClick.Invoke();
-        AddScore();
+        OnClick?.Invoke();
+        AddScore(PlayerVariables.PerClick);
     }
 
-    private void AddScore()
+    private void AddScore(int value)
     {
-        PlayerVariables.Score += PlayerVariables.PerClick;
-        // _score.text = $"Score: {PlayerVariables.Score}";
+        PlayerVariables.Score += value;
     }
 }

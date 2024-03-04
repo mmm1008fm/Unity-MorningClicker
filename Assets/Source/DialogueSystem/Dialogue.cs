@@ -16,10 +16,7 @@ public class Dialogue : MonoBehaviour
     private int _index;
     private DialogueObject _dialogue;
 
-    private void Update()
-    {
-        CheckDialogue();
-    }
+    private void Update() => CheckDialogue();
 
     private void CheckDialogue()
     {
