@@ -5,7 +5,6 @@ public class Windmill : MonoBehaviour
 {
     private void Start()
     {
-        // DontDestroyOnLoad(this.gameObject);
         StartCoroutine(AddWindmillPowerToScore());
     }
 
@@ -15,7 +14,7 @@ public class Windmill : MonoBehaviour
         while (Application.isPlaying)
         {
             yield return new WaitForSeconds(1);
-            PlayerVariables.Score += PlayerVariables.WindmillPower;
+            PlayerVariables.Singleton.Score += PlayerVariables.Singleton.WindmillPower;
         }
     }
 }

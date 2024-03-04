@@ -10,15 +10,15 @@ public class SettingsSceneView : BaseInitializable
     public override void Initialize()
     {
         _back.onClick.AddListener(ToMain);
-        _volume.value = PlayerVariables.GameVolume;
-        _music.value = PlayerVariables.MusicVolume;
+        _volume.value = PlayerVariables.Singleton.GameVolume;
+        _music.value = PlayerVariables.Singleton.MusicVolume;
         _volume.onValueChanged.AddListener(ChangeGameVolume);
         _music.onValueChanged.AddListener(ChangeMusicVolume);
     }
 
     private void ToMain() => SceneSwitcher.Switch("Main");
 
-    private void ChangeGameVolume(float value) => PlayerVariables.GameVolume = value;
+    private void ChangeGameVolume(float value) => PlayerVariables.Singleton.GameVolume = value;
     
-    private void ChangeMusicVolume(float value) => PlayerVariables.MusicVolume = value;
+    private void ChangeMusicVolume(float value) => PlayerVariables.Singleton.MusicVolume = value;
 }

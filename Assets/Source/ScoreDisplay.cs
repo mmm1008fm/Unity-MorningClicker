@@ -8,18 +8,17 @@ public class ScoreDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerVariables.OnScoreChanged += UpdateScoreDisplay;
+        PlayerVariables.Singleton.OnScoreChanged += UpdateScoreDisplay;
         UpdateScoreDisplay();
     }
 
     private void OnDisable()
     {
-        PlayerVariables.OnScoreChanged -= UpdateScoreDisplay;
+        PlayerVariables.Singleton.OnScoreChanged -= UpdateScoreDisplay;
     }
 
     private void UpdateScoreDisplay()
     {
-        //Debug.Log("Обновление текста на экране");
-        _scoreText.text = _prefix + PlayerVariables.Score;
+        _scoreText.text = _prefix + PlayerVariables.Singleton.Score;
     }
 }

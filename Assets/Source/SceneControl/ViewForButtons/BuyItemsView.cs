@@ -31,22 +31,22 @@ public class BuyItemsView : MonoBehaviour
 		{
 			case ShopItem.Armor:
 				_startCost = PlayerPrefs.GetInt("ArmorCost", _defaultMinCost);
-				_effect.text = $"Защита: {Math.Round(PlayerVariables.DefensePercent * 100f)}%";
+				_effect.text = $"Защита: {Math.Round(PlayerVariables.Singleton.DefensePercent * 100f)}%";
 				_costText.text = $"Купить: {_startCost}$";
 				break;
 			case ShopItem.Warrior:
 				_startCost = PlayerPrefs.GetInt("WarriorCost", _defaultMinCost);
-				_effect.text = $"Воины: {PlayerVariables.Warriors}";
+				_effect.text = $"Воины: {PlayerVariables.Singleton.Warriors}";
 				_costText.text = $"Купить: {_startCost}$";
 				break;
 			case ShopItem.Windmill:
 				_startCost = PlayerPrefs.GetInt("WindmillCost", _defaultMinCost);
-				_effect.text = $"Сила: {PlayerVariables.WindmillPower}";
+				_effect.text = $"Сила: {PlayerVariables.Singleton.WindmillPower}";
 				_costText.text = $"Купить: {_startCost}$";
 				break;
 			case ShopItem.PerClick:
 				_startCost = PlayerPrefs.GetInt("ClickCost", _defaultMinCost);
-				_effect.text = $"За клик: {PlayerVariables.PerClick}";
+				_effect.text = $"За клик: {PlayerVariables.Singleton.PerClick}";
 				_costText.text = $"Купить: {_startCost}$";
 				break;
 			default:
@@ -56,30 +56,30 @@ public class BuyItemsView : MonoBehaviour
 
 	private void Buy()
 	{
-		if (PlayerVariables.Score < _startCost)
+		if (PlayerVariables.Singleton.Score < _startCost)
 		{
 			return;
 		}
 
-		PlayerVariables.Score -= _startCost;
+		PlayerVariables.Singleton.Score -= _startCost;
 		_startCost *= (int)_costMultiplier;
 		
 		switch (_item)
 		{
 			case ShopItem.Armor:
-				PlayerVariables.DefensePercent += _count;
+				PlayerVariables.Singleton.DefensePercent += _count;
                 PlayerPrefs.SetInt("ArmorCost", _startCost);
 				break;
 			case ShopItem.Warrior:
-				PlayerVariables.Warriors += (int)_count;
+				PlayerVariables.Singleton.Warriors += (int)_count;
                 PlayerPrefs.SetInt("WarriorCost", _startCost);
 				break;
 			case ShopItem.Windmill:
-				PlayerVariables.WindmillPower += (int)_count;
+				PlayerVariables.Singleton.WindmillPower += (int)_count;
                 PlayerPrefs.SetInt("WindmillCost", _startCost);
 				break;
 			case ShopItem.PerClick:
-				PlayerVariables.PerClick += (int)_count;
+				PlayerVariables.Singleton.PerClick += (int)_count;
                 PlayerPrefs.SetInt("ClickCost", _startCost);
 				break;
 			default:
