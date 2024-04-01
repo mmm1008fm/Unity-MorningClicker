@@ -559,6 +559,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPowerTextField: {fileID: 1729429529}
   _enemyPowerTextField: {fileID: 914081918}
+  _attackButton: {fileID: 14189495}
+  _hidingObjectsOnAttack:
+  - {fileID: 14189493}
+  - {fileID: 1382054882}
 --- !u!1 &1382054882
 GameObject:
   m_ObjectHideFlags: 0
