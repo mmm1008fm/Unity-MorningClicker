@@ -11,6 +11,8 @@ public class ShopSceneView : BaseInitializable
     [SerializeField] private Button _closeWindowForBuy;
     [SerializeField] private GameObject _windowForBuy;
 
+    private bool _isOpened;
+
     public override void Initialize()
     {
         _exit.onClick.AddListener(Exit);
@@ -21,7 +23,12 @@ public class ShopSceneView : BaseInitializable
             buttonViewPair.Button.onClick.AddListener(() =>
             {
                 _windowForBuy.SetActive(true);
-                buttonViewPair.GameObject.SetActive(true);
+
+                if (!_isOpened)
+                {
+                    buttonViewPair.GameObject.SetActive(true);
+                    _isOpened = true;
+                }
             });
         }
     }
@@ -33,6 +40,7 @@ public class ShopSceneView : BaseInitializable
         foreach (var o in _objectsToClose)
         {
             o.SetActive(false);
+            _isOpened = false;
         }
     }
 }
