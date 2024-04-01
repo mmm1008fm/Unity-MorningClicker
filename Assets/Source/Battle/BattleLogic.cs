@@ -45,9 +45,11 @@ public class BattleLogic : MonoBehaviour
         {
             case AttackResult.Win:
                 Debug.Log("Победа!");
+                PlayerVariables.Warriors += Random.Range(3, 10);
                 break;
             case AttackResult.Deffeat:
                 Debug.Log("Поражение!");
+                PlayerVariables.Warriors = 0;
                 break;
             case AttackResult.Nobody:
                 Debug.Log("Ничья!");
@@ -70,7 +72,7 @@ public class BattleLogic : MonoBehaviour
 
         while (_playerPower > 0 && _enemyPower > 0)
         {
-            await UniTask.Delay(Random.Range(750, 1500));
+            await UniTask.Delay(Random.Range(200, 1500));
 
             _playerPower -= 1;
             _enemyPower -= 1;

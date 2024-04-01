@@ -605,6 +605,10 @@ PrefabInstance:
       propertyPath: _count
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8122191150086698235, guid: 5d5ef8c1d4ad7544a8663d92fc611f07, type: 3}
+      propertyPath: _startCost
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -910,6 +914,10 @@ PrefabInstance:
     - target: {fileID: 8122191150086698235, guid: 5d5ef8c1d4ad7544a8663d92fc611f07, type: 3}
       propertyPath: _count
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122191150086698235, guid: 5d5ef8c1d4ad7544a8663d92fc611f07, type: 3}
+      propertyPath: _startCost
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1458,6 +1466,14 @@ PrefabInstance:
     - target: {fileID: 8122191150086698235, guid: 5d5ef8c1d4ad7544a8663d92fc611f07, type: 3}
       propertyPath: _count
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122191150086698235, guid: 5d5ef8c1d4ad7544a8663d92fc611f07, type: 3}
+      propertyPath: _startCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122191150086698235, guid: 5d5ef8c1d4ad7544a8663d92fc611f07, type: 3}
+      propertyPath: _costAddition
+      value: 110
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2172,6 +2188,10 @@ PrefabInstance:
     - target: {fileID: 7477080971004824401, guid: 5d5ef8c1d4ad7544a8663d92fc611f07, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122191150086698235, guid: 5d5ef8c1d4ad7544a8663d92fc611f07, type: 3}
+      propertyPath: _startCost
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
