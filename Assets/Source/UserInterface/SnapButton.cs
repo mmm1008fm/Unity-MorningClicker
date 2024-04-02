@@ -20,6 +20,9 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler
             case ButtonAction.QuitGame:
                 SceneSwitcher.QuitGame();
                 break;
+            case ButtonAction.ResetProgress:
+                ResourceBank.Reset();
+                break;
         }
     }
 
@@ -27,6 +30,7 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler
     {
         SwitchScene,
         ReloadScene,
-        QuitGame
+        QuitGame,
+        ResetProgress
     }
 }

@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEditor;
 
 public class ResourceBank : MonoBehaviour
 {
@@ -171,5 +172,10 @@ public class ResourceBank : MonoBehaviour
     public static void Reset()
     {
         PlayerPrefs.DeleteAll();
+        #if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+        #else
+            SceneSwitcher.QuitGame();
+        #endif
     }
 }
