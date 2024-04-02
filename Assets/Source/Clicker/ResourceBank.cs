@@ -13,6 +13,8 @@ public class ResourceBank : MonoBehaviour
     public static UnityAction<int> ScorePerClickCostChanged;
     public static UnityAction<int> ScorePerSecondCostChanged;
     public static UnityAction<float> DefensePercentChanged;
+    public static UnityAction<int> ArmorCostChanged;
+    public static UnityAction<int> WarriorCostChanged;
 
     public int Score
     {
@@ -23,7 +25,7 @@ public class ResourceBank : MonoBehaviour
             ScoreChanged?.Invoke(value);
         }
     }
-    private int _score;
+    private int _score = 0;
 
     public int ScorePerClick
     {
@@ -34,7 +36,7 @@ public class ResourceBank : MonoBehaviour
             ScorePerClickChanged?.Invoke(value);
         }
     }
-    private int _scorePerClick;
+    private int _scorePerClick = 1;
 
     public int ScorePerSecond
     {
@@ -45,7 +47,7 @@ public class ResourceBank : MonoBehaviour
             ScorePerSecondChanged?.Invoke(value);
         }
     }
-    private int _scorePerSecond;
+    private int _scorePerSecond = 0;
 
     public int WarriorsCount
     {
@@ -56,7 +58,7 @@ public class ResourceBank : MonoBehaviour
             WarriorsCountChanged?.Invoke(value);
         }
     }
-    private int _warriorsCount;
+    private int _warriorsCount = 0;
 
     public int ScorePerClickCost
     {
@@ -67,7 +69,7 @@ public class ResourceBank : MonoBehaviour
             ScorePerClickCostChanged?.Invoke(value);
         }
     }
-    private int _scorePerClickCost;
+    private int _scorePerClickCost = 50;
 
     public int ScorePerSecondCost
     {
@@ -78,7 +80,7 @@ public class ResourceBank : MonoBehaviour
             ScorePerSecondCostChanged?.Invoke(value);
         }
     }
-    private int _scorePerSecondCost;
+    private int _scorePerSecondCost = 50;
 
     public float DefensePercent
     {
@@ -89,7 +91,29 @@ public class ResourceBank : MonoBehaviour
             DefensePercentChanged?.Invoke(value);
         }
     }
-    private float _defensePercent;
+    private float _defensePercent = 0f;
+
+    public int WarriorCost
+    {
+        get => _warriorCost;
+        set
+        {
+            _warriorCost = value;
+            WarriorCostChanged?.Invoke(value);
+        }
+    }
+    private int _warriorCost = 50;
+
+    public int ArmorCost
+    {
+        get => _armorCost;
+        set
+        {
+            _armorCost = value;
+            ArmorCostChanged?.Invoke(value);
+        }
+    }
+    private int _armorCost;
 
     [SerializeField] private int _autoSaveInterval;
 
@@ -105,12 +129,6 @@ public class ResourceBank : MonoBehaviour
     private void Start()
     {
         Load();
-        
-        if (ScorePerClick <= 0)
-        {
-            ScorePerClick = 1;
-        }
-        
         UniTask.Create(AutoSaveCycle);
     }
 
