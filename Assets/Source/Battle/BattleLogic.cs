@@ -21,8 +21,8 @@ public class BattleLogic : MonoBehaviour
 
     private void Start()
     {
-        _enemyPower = PlayerVariables.Warriors + Random.Range(-3, 5);
-        _playerPower = PlayerVariables.Warriors;
+        _enemyPower = ResourceBank.Instance.WarriorsCount + Random.Range(-3, 5);
+        _playerPower = ResourceBank.Instance.WarriorsCount;
     }
 
     private void Update()
@@ -44,15 +44,12 @@ public class BattleLogic : MonoBehaviour
         switch (r)
         {
             case AttackResult.Win:
-                Debug.Log("Победа!");
-                PlayerVariables.Warriors += Random.Range(3, 10);
+                ResourceBank.Instance.WarriorsCount += Random.Range(3, 10);
                 break;
             case AttackResult.Deffeat:
-                Debug.Log("Поражение!");
-                PlayerVariables.Warriors = 0;
+                ResourceBank.Instance.WarriorsCount = 0;
                 break;
             case AttackResult.Nobody:
-                Debug.Log("Ничья!");
                 break;
         }
 
@@ -66,7 +63,6 @@ public class BattleLogic : MonoBehaviour
     {
         if (_playerPower <= 0)
         {
-            Debug.Log("Недостаточно юнитов");
             return AttackResult.Nobody;
         }
 

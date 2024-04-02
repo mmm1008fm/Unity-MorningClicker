@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class CoinParticleController : MonoBehaviour
 {
@@ -34,10 +33,9 @@ public class CoinParticleController : MonoBehaviour
             case UIlayer.Center:
                 _posZ = -10f;
                 break;
-            default:
-                throw new ArgumentOutOfRangeException();
         }
-        _sounds[Random.Range(0, _sounds.Count)].Play();
+        
+        _sounds[UnityEngine.Random.Range(0, _sounds.Count)].Play();
         var worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var particleSystemInstance = Instantiate(
             _particleSystemPrefab, new Vector3(worldPos.x, worldPos.y, _posZ), quaternion.identity);
