@@ -6,8 +6,7 @@ public class ShopSceneView : BaseInitializable
 {
     [SerializeField] private List<ButtonViewPair> _buttonViewPairs;
     [SerializeField] private List<GameObject> _objectsToClose;
-    
-    [SerializeField] private Button _exit;
+
     [SerializeField] private Button _closeWindowForBuy;
     [SerializeField] private GameObject _windowForBuy;
 
@@ -15,7 +14,6 @@ public class ShopSceneView : BaseInitializable
 
     public override void Initialize()
     {
-        _exit.onClick.AddListener(Exit);
         _closeWindowForBuy.onClick.AddListener(CloseWindowForBuy);
         
         foreach (var buttonViewPair in _buttonViewPairs)

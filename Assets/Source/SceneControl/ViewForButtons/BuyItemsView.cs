@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Unity.Collections;
 
 public class BuyItemsView : MonoBehaviour
 {
@@ -14,17 +13,11 @@ public class BuyItemsView : MonoBehaviour
 	[SerializeField] private int _costAddition = 50;
 	[SerializeField] private float _count = 1f;
 	[SerializeField] private int _defaultMinCost = 10;
-	[SerializeField, ReadOnly] private int _cost;
+	[SerializeField] private int _cost;
 
 	public void Awake()
 	{
-		if (_item == ShopItem.Warrior)
-		{
-			_cost = PlayerVariables.Warriors * _startCost;
-		}
-
 		_buyButton.onClick.AddListener(Buy);
-		UpdateUI();
 	}
 
 	private void OnEnable()
@@ -34,30 +27,39 @@ public class BuyItemsView : MonoBehaviour
 
 	private void UpdateUI()
 	{
+		_cost = PlayerPrefs.GetInt("ArmorCost", _defaultMinCost);
+		_cost = PlayerPrefs.GetInt("WarriorCost", _defaultMinCost);
+		_cost = PlayerPrefs.GetInt("WindmillCost", _defaultMinCost);
+		_cost = PlayerPrefs.GetInt("ClickCost", _defaultMinCost);
+
+		if (_item is ShopItem.Warrior)
+		{
+			_cost = PlayerVariables.Warriors * _startCost;
+		}
+
+		if (_cost == 0)
+		{
+			_cost = _startCost;
+		}
+
 		switch (_item)
 		{
 			case ShopItem.Armor:
-				_cost = PlayerPrefs.GetInt("ArmorCost", _defaultMinCost);
 				_effect.text = $"Защита: {Math.Round(PlayerVariables.DefensePercent * 100f)}%";
 				_costText.text = $"Купить: {_cost}$";
 				break;
 			case ShopItem.Warrior:
-				_cost = PlayerPrefs.GetInt("WarriorCost", _defaultMinCost);
 				_effect.text = $"Воины: {PlayerVariables.Warriors}";
 				_costText.text = $"Купить: {_cost}$";
 				break;
 			case ShopItem.Windmill:
-				_cost = PlayerPrefs.GetInt("WindmillCost", _defaultMinCost);
 				_effect.text = $"Сила: {PlayerVariables.WindmillPower}";
 				_costText.text = $"Купить: {_cost}$";
 				break;
 			case ShopItem.PerClick:
-				_cost = PlayerPrefs.GetInt("ClickCost", _defaultMinCost);
 				_effect.text = $"За клик: {PlayerVariables.PerClick}";
 				_costText.text = $"Купить: {_cost}$";
 				break;
-			default:
-				throw new ArgumentOutOfRangeException();
 		}
 	}
 
@@ -89,8 +91,6 @@ public class BuyItemsView : MonoBehaviour
 				PlayerVariables.PerClick += (int)_count;
                 PlayerPrefs.SetInt("ClickCost", _cost);
 				break;
-			default:
-				throw new ArgumentOutOfRangeException();
 		}
 		
 		UpdateUI();
