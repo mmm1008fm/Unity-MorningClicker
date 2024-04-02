@@ -2,15 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class ButtonViewPair
-{
-    [field: SerializeField] public Button Button { get; private set; }
-    [field: SerializeField] public GameObject GameObject { get; private set; }
-    
-    
-}
-
 public class ShopSceneView : BaseInitializable
 {
     [SerializeField] private List<ButtonViewPair> _buttonViewPairs;
@@ -19,6 +10,8 @@ public class ShopSceneView : BaseInitializable
     [SerializeField] private Button _exit;
     [SerializeField] private Button _closeWindowForBuy;
     [SerializeField] private GameObject _windowForBuy;
+
+    private bool _isOpened;
 
     public override void Initialize()
     {
@@ -30,7 +23,12 @@ public class ShopSceneView : BaseInitializable
             buttonViewPair.Button.onClick.AddListener(() =>
             {
                 _windowForBuy.SetActive(true);
-                buttonViewPair.GameObject.SetActive(true);
+
+                if (!_isOpened)
+                {
+                    buttonViewPair.GameObject.SetActive(true);
+                    _isOpened = true;
+                }
             });
         }
     }
@@ -42,6 +40,7 @@ public class ShopSceneView : BaseInitializable
         foreach (var o in _objectsToClose)
         {
             o.SetActive(false);
+            _isOpened = false;
         }
     }
 }
