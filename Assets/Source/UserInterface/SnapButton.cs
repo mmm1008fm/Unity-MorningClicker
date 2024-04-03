@@ -6,6 +6,7 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] ButtonAction _action;
     [SerializeField, ShowIf("_action", ButtonAction.SwitchScene)] string _sceneName;
+    [SerializeField, ShowIf("_action", ButtonAction.OpenURL)] string _url;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -27,6 +28,12 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 break;
             case ButtonAction.Nothing:
                 break;
+            case ButtonAction.OpenURL:
+                if (!string.IsNullOrEmpty(_url))
+                {
+                    Application.OpenURL(_url);
+                }
+                break;
         }
     }
 
@@ -41,6 +48,7 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         SwitchScene,
         ReloadScene,
         QuitGame,
-        ResetProgress
+        ResetProgress,
+        OpenURL
     }
 }
