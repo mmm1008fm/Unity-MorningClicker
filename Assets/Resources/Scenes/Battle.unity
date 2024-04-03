@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 14189497}
   - component: {fileID: 14189496}
   - component: {fileID: 14189495}
+  - component: {fileID: 14189498}
   m_Layer: 5
   m_Name: StartBattle
   m_TagString: Untagged
@@ -244,6 +245,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14189493}
   m_CullTransparentMesh: 1
+--- !u!114 &14189498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14189493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _action: 0
+  _sceneName: 
 --- !u!1001 &573792183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,6 +648,7 @@ GameObject:
   - component: {fileID: 1382054885}
   - component: {fileID: 1382054884}
   - component: {fileID: 1382054887}
+  - component: {fileID: 1382054888}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -756,6 +772,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _action: 0
   _sceneName: WorldMap
+--- !u!114 &1382054888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382054882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _action: 0
+  _sceneName: 
 --- !u!1001 &1527631198
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1042,6 +1042,7 @@ GameObject:
   - component: {fileID: 1132112572025563504}
   - component: {fileID: 6300182275788927915}
   - component: {fileID: 4302619144747246638}
+  - component: {fileID: 6300182275788927916}
   m_Layer: 5
   m_Name: Talk (button)
   m_TagString: Untagged
@@ -1468,6 +1469,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6300182275788927916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333088420294297442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _action: 0
+  _sceneName: 
 --- !u!1 &6434176175766760211
 GameObject:
   m_ObjectHideFlags: 0
