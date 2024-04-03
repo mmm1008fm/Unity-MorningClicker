@@ -125,6 +125,10 @@ public class ResourceBank : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
