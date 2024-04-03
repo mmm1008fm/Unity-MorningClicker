@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        _audioSource.volume = pair.Volume;
+        _audioSource.volume = pair.Volume * ResourceBank.Instance.SoundVolume;
         _audioSource.PlayOneShot(pair.Sound);
     }
 }

@@ -1,7 +1,9 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEditor;
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
 public class ResourceBank : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class ResourceBank : MonoBehaviour
     public static UnityAction<float> DefensePercentChanged;
     public static UnityAction<int> ArmorCostChanged;
     public static UnityAction<int> WarriorCostChanged;
+    public static UnityAction<float> SoundVolumeChanged;
+    public static UnityAction<float> MusicVolumeChanged;
 
     public int Score
     {
@@ -116,6 +120,28 @@ public class ResourceBank : MonoBehaviour
     }
     private int _armorCost;
 
+    public float SoundVolume
+    {
+        get => _soundVolume;
+        set
+        {
+            _soundVolume = value;
+            SoundVolumeChanged?.Invoke(value);
+        }
+    }
+    private float _soundVolume = 1f;
+
+    public float MusicVolume
+    {
+        get => _musicVolume;
+        set
+        {
+            _musicVolume = value;
+            MusicVolumeChanged?.Invoke(value);
+        }
+    }
+    private float _musicVolume = 1f;
+
     [SerializeField] private int _autoSaveInterval;
 
     private void Awake()
@@ -155,6 +181,10 @@ public class ResourceBank : MonoBehaviour
         PlayerPrefs.SetInt("ScorePerClickCost", bank.ScorePerClickCost);
         PlayerPrefs.SetInt("ScorePerSecondCost", bank.ScorePerSecondCost);
         PlayerPrefs.SetFloat("DefensePercent", bank.DefensePercent);
+        PlayerPrefs.SetInt("WarriorCost", bank.WarriorCost);
+        PlayerPrefs.SetInt("ArmorCost", bank.ArmorCost);
+        PlayerPrefs.SetFloat("MusicVolume", bank.MusicVolume);
+        PlayerPrefs.SetFloat("SoundVolume", bank.SoundVolume);
     }
 
     public static void Load()
@@ -171,6 +201,10 @@ public class ResourceBank : MonoBehaviour
         Instance.ScorePerClickCost = PlayerPrefs.GetInt("ScorePerClickCost", Instance.ScorePerClickCost);
         Instance.ScorePerSecondCost = PlayerPrefs.GetInt("ScorePerSecondCost", Instance.ScorePerSecondCost);
         Instance.DefensePercent = PlayerPrefs.GetFloat("DefensePercent", Instance.DefensePercent);
+        Instance.WarriorCost = PlayerPrefs.GetInt("WarriorCost", Instance.WarriorCost);
+        Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", Instance.ArmorCost);
+        Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", Instance.MusicVolume);
+        Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", Instance.SoundVolume);
     }
 
     public static void Reset()
