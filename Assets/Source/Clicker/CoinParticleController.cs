@@ -35,7 +35,7 @@ public class CoinParticleController : MonoBehaviour
                 break;
         }
         
-        _sounds[UnityEngine.Random.Range(0, _sounds.Count)].Play();
+        SoundManager.Instance.Play("coins");
         var worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var particleSystemInstance = Instantiate(
             _particleSystemPrefab, new Vector3(worldPos.x, worldPos.y, _posZ), quaternion.identity);

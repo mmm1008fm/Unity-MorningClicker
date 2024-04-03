@@ -1065,6 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _action: 0
   _sceneName: 
+  _url: 
 --- !u!1 &405464746
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,6 +4363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _action: 1
   _sceneName: Settings
+  _url: 
 --- !u!1 &1665414446
 GameObject:
   m_ObjectHideFlags: 0
@@ -5302,6 +5304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _action: 0
   _sceneName: 
+  _url: 
 --- !u!1 &1909126877
 GameObject:
   m_ObjectHideFlags: 0
@@ -5982,6 +5985,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7540541039587896391, guid: 0995e68c6d0d9434bb03916eb42a53d0, type: 3}
+      propertyPath: _sounds.Array.data[2].Volume
+      value: 0.661
+      objectReference: {fileID: 0}
     - target: {fileID: 8562388445286564872, guid: 0995e68c6d0d9434bb03916eb42a53d0, type: 3}
       propertyPath: m_Name
       value: '[SoundManager]'
@@ -6806,6 +6813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _action: 1
   _sceneName: Shop
+  _url: 
 --- !u!1 &7447472890983736120
 GameObject:
   m_ObjectHideFlags: 0
@@ -6840,6 +6848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _action: 1
   _sceneName: Castle
+  _url: 
 --- !u!224 &7995348392700651972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7086,6 +7095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _action: 1
   _sceneName: WorldMap
+  _url: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
