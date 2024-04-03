@@ -46,6 +46,11 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue(DialogueObject dialogue)
     {
+        if (_dialogueBody.activeSelf)
+        {
+            return;
+        }
+
         _dialogue = dialogue;
         _index = 0;
         _content.text = string.Empty;
@@ -76,7 +81,7 @@ public class Dialogue : MonoBehaviour
         {
             _dialogue = null;
             _dialogueBody.SetActive(false);
-            onClose.Invoke();
+            onClose?.Invoke();
         }
     }
 }
