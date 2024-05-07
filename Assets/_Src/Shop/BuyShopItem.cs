@@ -11,6 +11,9 @@ public class BuyShopItem : MonoBehaviour
 	[SerializeField] private ShopItem _item;
 	[SerializeField] private int _costAddition = 50;
 	[SerializeField] private float _count = 1f;
+	[SerializeField] private Slider _slider;
+	[SerializeField] private TMP_Text _countShopping;
+	private int _countToBuy;
 
 	public void Awake()
 	{
@@ -22,47 +25,40 @@ public class BuyShopItem : MonoBehaviour
         UpdateUI();
     }
 
+	private void Update()
+	{
+		UpdateUI();
+	}
+
 	private void UpdateUI()
 	{
-        // if (ResourceBank.Instance.ArmorCost <= 0 || ResourceBank.Instance.WarriorCost <= 0 || ResourceBank.Instance.ScorePerClickCost <= 0 || ResourceBank.Instance.ScorePerSecondCost <= 0)
-        // {
-        //     switch (_item)
-        //     {
-        //         case ShopItem.Armor:
-        //             ResourceBank.Instance.ArmorCost = _startCost;
-        //             break;
-        //         case ShopItem.Warrior:
-        //             ResourceBank.Instance.WarriorCost = _startCost;
-        //             break;
-        //         case ShopItem.Windmill:
-        //             ResourceBank.Instance.ScorePerSecondCost = _startCost;
-        //             break;
-        //         case ShopItem.PerClick:
-        //             ResourceBank.Instance.ScorePerClickCost = _startCost;
-        //             break;
-        //     }
-        // }
-
         switch (_item)
 		{
 			case ShopItem.Armor:
 				_effect.text = $"Защита: {Math.Round(ResourceBank.Instance.DefensePercent * 100f)}%";
 				_costText.text = $"Купить: {ResourceBank.Instance.ArmorCost}$";
+				_slider.maxValue = ResourceBank.Instance.ArmorCost / _count;
 				break;
 			case ShopItem.Warrior:
                 ResourceBank.Instance.WarriorCost = ResourceBank.Instance.WarriorsCount * 50; // 50 is start cost of warrior
 				_effect.text = $"Воины: {ResourceBank.Instance.WarriorsCount}";
 				_costText.text = $"Купить: {ResourceBank.Instance.WarriorCost}$";
+				_slider.maxValue = ResourceBank.Instance.WarriorCost / _count;
 				break;
 			case ShopItem.Windmill:
 				_effect.text = $"Сила: {ResourceBank.Instance.ScorePerSecond}";
 				_costText.text = $"Купить: {ResourceBank.Instance.ScorePerSecondCost}$";
+				_slider.maxValue = ResourceBank.Instance.ScorePerSecondCost / _count;
 				break;
 			case ShopItem.PerClick:
 				_effect.text = $"За клик: {ResourceBank.Instance.ScorePerClick}";
 				_costText.text = $"Купить: {ResourceBank.Instance.ScorePerClickCost}$";
+				_slider.maxValue = ResourceBank.Instance.ScorePerClickCost / _count;
 				break;
 		}
+
+		_countToBuy = Mathf.FloorToInt(_slider.maxValue);
+		_countShopping.text = $"Кол-во: {_countToBuy}";
     }
 
     private void Buy()
@@ -89,24 +85,24 @@ public class BuyShopItem : MonoBehaviour
 			return;
 		}
 
-		ResourceBank.Instance.Score -= cost;
+		ResourceBank.Instance.Score -= cost * _countToBuy;
 		
 		switch (_item)
 		{
 			case ShopItem.Armor:
-				ResourceBank.Instance.DefensePercent += _count;
-                ResourceBank.Instance.ArmorCost += _costAddition;
+				ResourceBank.Instance.DefensePercent += _count * _countToBuy;
+                ResourceBank.Instance.ArmorCost += _costAddition * _countToBuy;
 				break;
 			case ShopItem.Warrior:
-				ResourceBank.Instance.WarriorsCount += (int)_count;
+				ResourceBank.Instance.WarriorsCount += (int)_count * _countToBuy;
 				break;
 			case ShopItem.Windmill:
-				ResourceBank.Instance.ScorePerSecond += (int)_count;
-                ResourceBank.Instance.ScorePerSecondCost += _costAddition;
+				ResourceBank.Instance.ScorePerSecond += (int)_count * _countToBuy;
+                ResourceBank.Instance.ScorePerSecondCost += _costAddition * _countToBuy;
 				break;
 			case ShopItem.PerClick:
-				ResourceBank.Instance.ScorePerClick += (int)_count;
-                ResourceBank.Instance.ScorePerClickCost += _costAddition;
+				ResourceBank.Instance.ScorePerClick += (int)_count * _countToBuy;
+                ResourceBank.Instance.ScorePerClickCost += _costAddition * _countToBuy;
 				break;
 		}
 		
