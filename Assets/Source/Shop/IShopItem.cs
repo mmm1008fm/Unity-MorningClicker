@@ -1,0 +1,4 @@
+interface IShopItem
+{
+	void Buy();
+}

@@ -155,11 +155,12 @@ public class ResourceBank : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Load();
     }
 
     private void Start()
     {
-        Load();
         UniTask.Create(AutoSaveCycle);
     }
 

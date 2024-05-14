@@ -1,4 +1,4 @@
-﻿enum ShopItem
+﻿public enum ShopItem
 {
 	Armor,
 	Warrior,
