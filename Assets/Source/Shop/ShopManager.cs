@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-    public int Balance { get; private set; }
+    public BuyShopItemsNew ActiveItem { get; private set; }
+    [field: SerializeField] public int Balance { get; private set; }
     [SerializeField] private GameObject _window;
     [SerializeField] private TMP_Text _descriptionField;
     [SerializeField] private TMP_Text _priceField;
@@ -14,7 +15,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Button _closeButton;
-    private BuyShopItemNew _activeItem;
     private ShopParams _shopParams;
 
     private void Awake()
@@ -31,7 +31,7 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        var count = GetMaxItemsAffordable(_shopParams.Price, _shopParams.PriceIncrease, Balance);
+        var count = GetMaxItemsAffordable(ActiveItem.Price, ActiveItem.PriceIncrease, Balance);
 
         if (count > 1)
         {
@@ -58,8 +58,8 @@ public class ShopManager : MonoBehaviour
         _slider.maxValue = count;
         _slider.minValue = 1f;
         _countToBuyField.text = "Купить: " + _slider.value.ToString();
-        _priceField.text = '$' + CalculateTotalPrice((int)_slider.value, _shopParams.Price, _shopParams.PriceIncrease).ToString() + $" (база: {_shopParams.Price})";
-        _countField.text = "В наличии: " + _activeItem.Count.ToString();
+        _priceField.text = '$' + CalculateTotalPrice((int)_slider.value, ActiveItem.Price, ActiveItem.PriceIncrease).ToString() + $" (база: {ActiveItem.Price})";
+        _countField.text = "В наличии: " + ActiveItem.Count.ToString();
     }
 
     public void SetBalance(int value)
@@ -67,30 +67,31 @@ public class ShopManager : MonoBehaviour
         Balance = value >= 0 ? value : 0;
     }
 
-    public void OpenWindow(ShopParams shopParams, BuyShopItemNew item)
+    public void OpenWindow(ShopParams shopParams, BuyShopItemsNew item)
     {
         _shopParams = shopParams;
         _descriptionField.text = _shopParams.Description;
         // Добавить новое, при расширении класса ShopParams
-        _activeItem = item;
+        ActiveItem = item;
         _window.SetActive(true);
     }
 
     public void CloseWindow()
     {
-        _activeItem = null;
+        ActiveItem = null;
         _window.SetActive(false);
     }
 
     private void Buy()
     {    
         var count = (int)_slider.value;
-        var cost = (int)_slider.value * _shopParams.PriceIncrease;
-        Balance -= CalculateTotalPrice((int)_slider.value, _shopParams.Price, _shopParams.PriceIncrease);
-        _shopParams.Price += cost;
-        _activeItem.Count += count;
+        var cost = (int)_slider.value * ActiveItem.PriceIncrease;
+        var price = CalculateTotalPrice((int)_slider.value, ActiveItem.Price, ActiveItem.PriceIncrease);
+        Balance -= price;
+        ActiveItem.Price += cost;
+        ActiveItem.Count += count;
         _slider.value = 1f;
-        _activeItem.OnBuy?.Invoke(new ShopTransaction(cost, count));
+        BuyShopItemsNew.OnBuy?.Invoke(new ShopTransaction(price, count, ActiveItem.Item, ActiveItem.Price));
     }
 
     /// <summary>

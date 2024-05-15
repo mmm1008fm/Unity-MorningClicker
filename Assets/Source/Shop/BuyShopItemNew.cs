@@ -6,12 +6,13 @@ using UnityEngine.UI;
 /// Этот скрипт представляет из себя предмет, который является кнопкой. Он устанавливает чего и сколько покупаем!
 /// </summary>
 [RequireComponent(typeof(Button))]
-public class BuyShopItemNew : MonoBehaviour, IShopItem
+public class BuyShopItemsNew : MonoBehaviour, IShopItems
 {
-    public Action<ShopTransaction> OnBuy;
+    public static Action<ShopTransaction> OnBuy;
     public int Count = 1;
     public int Price = 50;
     public int PriceIncrease = 50;
+    [field: SerializeField] public ShopItems Item { get; set; }
     [SerializeField] private string _description = "У этого продукта нет описания";
     [SerializeField] private Button _buyButton;
     [SerializeField] private ShopManager _shopManager;

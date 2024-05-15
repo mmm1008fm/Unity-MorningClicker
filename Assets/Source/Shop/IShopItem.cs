@@ -1,4 +1,4 @@
-interface IShopItem
+interface IShopItems
 {
 	void Buy();
 }
