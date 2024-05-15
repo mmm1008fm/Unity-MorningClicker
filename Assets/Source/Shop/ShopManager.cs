@@ -4,8 +4,6 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
 	public event Action<ShopItem> OnItemBought;
-	[field: NaughtyAttributes.ReadOnly, SerializeField]
-	public int LocalBalance { get; private set; }
 	[SerializeField] private ShopWindow _shop;
 	private ShopParameters _currentParameters;
 
@@ -38,7 +36,8 @@ public class ShopManager : MonoBehaviour
 		var chosenCount = (int)_shop.Slider.value;
 		var chosenItem = item.Buy(chosenCount);
 
-		LocalBalance -= price;
+		ResourceBank.Instance.Score -= price;
+		_currentParameters.Item.Price += _currentParameters.PriceIncrease;
 		_shop.Slider.value = 1f;
 		OnItemBought?.Invoke(chosenItem);
 
@@ -103,24 +102,24 @@ public class ShopManager : MonoBehaviour
 		}
 
 		var price = CalculateTotalPrice((int)_shop.Slider.value, _currentParameters.Price, _currentParameters.PriceIncrease);
-		var count = GetMaxItemsAffordable(_currentParameters.Price, _currentParameters.PriceIncrease, LocalBalance);
+		var countToBuy = GetMaxItemsAffordable(_currentParameters.Price, _currentParameters.PriceIncrease, ResourceBank.Instance.Score);
 		var chosenCount = (int)_shop.Slider.value;
 
-		_shop.Slider.maxValue = count;
+		_shop.Slider.maxValue = countToBuy;
 		_shop.Slider.minValue = 1f;
 
-		if (chosenCount == 0)
+		if (countToBuy == 0)
 		{
 			_shop.BuyButton.interactable = false;
 			_shop.Slider.value = 1;
 			_shop.Slider.gameObject.SetActive(false);
 		}
-		else if (chosenCount == 1)
+		else if (countToBuy == 1)
 		{
 			_shop.BuyButton.interactable = true;
 			_shop.Slider.gameObject.SetActive(false);
 		}
-		else if (chosenCount > 1)
+		else if (countToBuy > 1)
 		{
 			_shop.BuyButton.interactable = true;
 			_shop.Slider.gameObject.SetActive(true);
@@ -131,8 +130,8 @@ public class ShopManager : MonoBehaviour
 			throw new ArgumentOutOfRangeException(nameof(chosenCount));
 		}
 
-		_shop.PriceField.text = $"Стоимость: {price}";
-		_shop.CountField.text = $"У вас в наличии: {count}";
+		_shop.PriceField.text = $"${price} (${_currentParameters.Price})";
+		_shop.CountField.text = $"У вас в наличии: {_currentParameters.Item.Count}";
 		_shop.CountToBuyField.text = $"Покупка: {chosenCount}";
 		_shop.DescriptionField.text = _currentParameters.Description;
     }
