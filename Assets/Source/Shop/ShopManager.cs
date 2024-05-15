@@ -1,9 +1,11 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    public int Balance { get; private set; }
     [SerializeField] private GameObject _window;
     [SerializeField] private TMP_Text _descriptionField;
     [SerializeField] private TMP_Text _priceField;
@@ -12,17 +14,13 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Button _closeButton;
-    private ShopItem _activeItem;
+    private BuyShopItemNew _activeItem;
     private ShopParams _shopParams;
-    private int _basePrice;
-    private int _itemsThatCanBeBoughtCount;
-    private int _priceIncrease;
 
     private void Awake()
     {
         _buyButton.onClick.AddListener(Buy);
         _closeButton.onClick.AddListener(CloseWindow);
-        _slider.onValueChanged.AddListener(OnSliderValueChanged);
         _window.SetActive(false);
     }
 
@@ -33,91 +31,66 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        switch (_activeItem)
-        {
-            case ShopItem.Armor:
-                _countField.text = $"Защита: {ResourceBank.Instance.DefensePercent}%";
-                _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(ResourceBank.Instance.ArmorCost, _priceIncrease, ResourceBank.Instance.Score);
-                break;
-            case ShopItem.Warrior:
-                _countField.text = $"Воины: {ResourceBank.Instance.WarriorsCount}";
-                _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(ResourceBank.Instance.WarriorCost, _priceIncrease, ResourceBank.Instance.Score);
-                break;
-            case ShopItem.Windmill:
-                _countField.text = $"Счёт в секунду: {ResourceBank.Instance.ScorePerSecond}";
-                _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(ResourceBank.Instance.ScorePerSecondCost, _priceIncrease, ResourceBank.Instance.Score);
-                break;
-            case ShopItem.PerClick:
-                _countField.text = $"За клик: {ResourceBank.Instance.ScorePerClick}";
-                _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(ResourceBank.Instance.ScorePerClickCost, _priceIncrease, ResourceBank.Instance.Score);
-                break;
-        }
+        var count = GetMaxItemsAffordable(_shopParams.Price, _shopParams.PriceIncrease, Balance);
 
-        if (_itemsThatCanBeBoughtCount > 1)
+        if (count > 1)
         {
             _slider.gameObject.SetActive(true);
-            _slider.maxValue = _itemsThatCanBeBoughtCount;
-            _slider.minValue = 0f;
+            _buyButton.interactable = true;
+        }
+        else if (count == 0)
+        {
+            _slider.gameObject.SetActive(false);
+            _buyButton.interactable = false;
+            _slider.value = 0f;
+        }
+        else if (count == 1)
+        {
+            _slider.gameObject.SetActive(false);
+            _buyButton.interactable = true;
+            _slider.value = 1f;
         }
         else
         {
-            _slider.gameObject.SetActive(false);
+            throw new ArgumentException("Invalid count");
         }
 
-        _countToBuyField.text = "Покупка: " + (int)_slider.value;
+        _slider.maxValue = count;
+        _slider.minValue = 1f;
+        _countToBuyField.text = "Купить: " + _slider.value.ToString();
+        _priceField.text = '$' + CalculateTotalPrice((int)_slider.value, _shopParams.Price, _shopParams.PriceIncrease).ToString() + $" (база: {_shopParams.Price})";
+        _countField.text = "В наличии: " + _activeItem.Count.ToString();
     }
 
-    public void OpenWindow(ShopParams shopParams)
+    public void SetBalance(int value)
+    {
+        Balance = value >= 0 ? value : 0;
+    }
+
+    public void OpenWindow(ShopParams shopParams, BuyShopItemNew item)
     {
         _shopParams = shopParams;
         _descriptionField.text = _shopParams.Description;
-        _basePrice = _shopParams.BasePrice;
-        _priceIncrease = _shopParams.PriceIncrease;
-        _activeItem = _shopParams.Item;
         // Добавить новое, при расширении класса ShopParams
+        _activeItem = item;
         _window.SetActive(true);
     }
 
     public void CloseWindow()
     {
+        _activeItem = null;
         _window.SetActive(false);
     }
 
-    private void OnSliderValueChanged(float count)
-    {
-        _priceField.text = '$' + CalculateTotalPrice((int)count, _basePrice).ToString();
-    }
-
     private void Buy()
-    {
-        var price = CalculateTotalPrice((int)_slider.value, _basePrice);
-        
-        if (ResourceBank.Instance.Score >= price)
-        {
-            ResourceBank.Instance.Score -= price;
-        }
-
-        switch (_activeItem)
-        {
-            case ShopItem.Armor:
-                ResourceBank.Instance.DefensePercent += (int)_slider.value;
-                ResourceBank.Instance.ArmorCost += (int)_slider.value * _shopParams.PriceIncrease;
-                break;
-            case ShopItem.Warrior:
-                ResourceBank.Instance.WarriorsCount += (int)_slider.value;
-                ResourceBank.Instance.WarriorCost += (int)_slider.value * _shopParams.PriceIncrease;
-                break;
-            case ShopItem.Windmill:
-                ResourceBank.Instance.ScorePerSecond += (int)_slider.value;
-                ResourceBank.Instance.ScorePerSecondCost += (int)_slider.value * _shopParams.PriceIncrease;
-                break;
-            case ShopItem.PerClick:
-                ResourceBank.Instance.ScorePerClick += (int)_slider.value;
-                ResourceBank.Instance.ScorePerClickCost += (int)_slider.value * _shopParams.PriceIncrease;
-                break;
-        }
-
-        // _slider.value = 0f; // Защита от случайных кликов пользователями
+    {    
+        var count = (int)_slider.value;
+        var cost = (int)_slider.value * _shopParams.PriceIncrease;
+        Balance -= CalculateTotalPrice((int)_slider.value, _shopParams.Price, _shopParams.PriceIncrease);
+        _shopParams.Price += cost;
+        _activeItem.Count += count;
+        _slider.value = 1f;
+        _activeItem.OnBuy?.Invoke(new ShopTransaction(cost, count));
     }
 
     /// <summary>
@@ -126,13 +99,13 @@ public class ShopManager : MonoBehaviour
     /// <param name="itemsCount"></param>
     /// <param name="basePrice"></param>
     /// <returns></returns>
-    private int CalculateTotalPrice(int itemsCount, int basePrice)
+    private int CalculateTotalPrice(int itemsCount, int basePrice, int priceIncrease)
     {
         var totalPrice = 0;
         
         for (int i = 0; i < itemsCount; i++)
         {
-            totalPrice += basePrice + (_priceIncrease * i);
+            totalPrice += basePrice + (priceIncrease * i);
         }
 
         return totalPrice;

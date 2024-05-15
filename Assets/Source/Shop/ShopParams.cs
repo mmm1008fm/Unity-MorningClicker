@@ -1,15 +1,13 @@
 public class ShopParams
 {
+	public int Price {get; set; }
 	public string Description {get; private set; }
-	public int BasePrice {get; private set; }
 	public int PriceIncrease {get; private set; }
-	public ShopItem Item { get; private set; }
 
-	public ShopParams(string description, int basePrice, int priceIncrease, ShopItem item)
+	public ShopParams(string description, int basePrice, int priceIncrease)
 	{
+		Price = basePrice;
 		Description = description;
-		BasePrice = basePrice;
 		PriceIncrease = priceIncrease;
-		Item = item;
 	}
 }

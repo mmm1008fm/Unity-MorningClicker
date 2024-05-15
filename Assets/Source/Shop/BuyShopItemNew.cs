@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class BuyShopItemNew : MonoBehaviour, IShopItem
 {
+    public Action<ShopTransaction> OnBuy;
+    public int Count = 1;
+    public int Price = 50;
+    public int PriceIncrease = 50;
     [SerializeField] private string _description = "У этого продукта нет описания";
-    [SerializeField] private int _basePrice = 50;
-    [SerializeField] private int _priceIncrease = 50;
     [SerializeField] private Button _buyButton;
     [SerializeField] private ShopManager _shopManager;
-    [SerializeField] private ShopItem _shopItem;
     private ShopParams _shopParams;
 
     private void OnValidate()
@@ -20,14 +22,29 @@ public class BuyShopItemNew : MonoBehaviour, IShopItem
         _buyButton = GetComponent<Button>();
     }
 
+    private void OnEnable()
+    {
+        OnBuy += OnBuyMethod;
+    }
+
+    private void OnDisable()
+    {
+        OnBuy -= OnBuyMethod;
+    }
+
     private void Awake()
     {
         _buyButton.onClick.AddListener(Buy);
-        _shopParams = new ShopParams(_description, _basePrice, _priceIncrease, _shopItem);
+        _shopParams = new ShopParams(_description, Price, PriceIncrease);
     }
 
     public void Buy()
     {
-        _shopManager.OpenWindow(_shopParams);
+        _shopManager.OpenWindow(_shopParams, this);
+    }
+
+    private void OnBuyMethod(ShopTransaction transaction)
+    {
+        Debug.Log($"Совершена покупка: {transaction.Count} шт. за {transaction.Cost}$");
     }
 }
