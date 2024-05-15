@@ -24,7 +24,7 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 SceneSwitcher.QuitGame();
                 break;
             case ButtonAction.ResetProgress:
-                ResourceBank.Reset();
+                ResourceBank.Instance.Reset();
                 break;
             case ButtonAction.Nothing:
                 break;

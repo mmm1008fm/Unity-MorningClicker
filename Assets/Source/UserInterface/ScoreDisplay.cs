@@ -8,12 +8,12 @@ public class ScoreDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        ResourceBank.ScoreChanged += UpdateScoreDisplay;
+        ResourceBank.OnScoreChanged += UpdateScoreDisplay;
     }
 
     private void OnDisable()
     {
-        ResourceBank.ScoreChanged -= UpdateScoreDisplay;
+        ResourceBank.OnScoreChanged -= UpdateScoreDisplay;
     }
 
     private void Start()

@@ -21,8 +21,8 @@ public class BattleLogic : MonoBehaviour
 
     private void Start()
     {
-        _enemyPower = ResourceBank.Instance.WarriorsCount + Random.Range(-3, 5);
-        _playerPower = ResourceBank.Instance.WarriorsCount;
+        _enemyPower = ResourceBank.Instance.Warriors + Random.Range(-3, 5);
+        _playerPower = ResourceBank.Instance.Warriors;
     }
 
     private void Update()
@@ -44,10 +44,10 @@ public class BattleLogic : MonoBehaviour
         switch (r)
         {
             case AttackResult.Win:
-                ResourceBank.Instance.WarriorsCount += Random.Range(3, 10);
+                ResourceBank.Instance.Warriors += Random.Range(3, 10);
                 break;
             case AttackResult.Deffeat:
-                ResourceBank.Instance.WarriorsCount = 0;
+                ResourceBank.Instance.Warriors = 0;
                 break;
             case AttackResult.Nobody:
                 break;

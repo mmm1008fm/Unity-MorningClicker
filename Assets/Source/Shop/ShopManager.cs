@@ -1,142 +1,139 @@
 using System;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-    public BuyShopItemsNew ActiveItem { get; private set; }
-    [field: SerializeField] public int Balance { get; private set; }
-    [SerializeField] private GameObject _window;
-    [SerializeField] private TMP_Text _descriptionField;
-    [SerializeField] private TMP_Text _priceField;
-    [SerializeField] private TMP_Text _countField;
-    [SerializeField] private TMP_Text _countToBuyField;
-    [SerializeField] private Slider _slider;
-    [SerializeField] private Button _buyButton;
-    [SerializeField] private Button _closeButton;
-    private ShopParams _shopParams;
+	public event Action<ShopItem> OnItemBought;
+	[field: NaughtyAttributes.ReadOnly, SerializeField]
+	public int LocalBalance { get; private set; }
+	[SerializeField] private ShopWindow _shop;
+	private ShopParameters _currentParameters;
 
-    private void Awake()
+	private void Awake()
+	{
+		_shop.CloseButton.onClick.AddListener(CloseShop);
+		_shop.BuyButton.onClick.AddListener(() => Buy(_currentParameters.Item));
+	}
+
+	private void Update()
+	{
+		ShopWindowManage();
+	}
+
+    public void OpenShop(ShopParameters parameters)
+	{
+		_currentParameters = parameters;
+		_shop.Window.SetActive(true);
+	}
+
+	public void CloseShop()
+	{
+		_currentParameters = null;
+		_shop.Window.SetActive(false);
+	}
+
+	public ShopItem Buy(ShopItem item)
+	{
+		var price = CalculateTotalPrice((int)_shop.Slider.value, _currentParameters.Price, _currentParameters.PriceIncrease);
+		var chosenCount = (int)_shop.Slider.value;
+		var chosenItem = item.Buy(chosenCount);
+
+		LocalBalance -= price;
+		_shop.Slider.value = 1f;
+		OnItemBought?.Invoke(chosenItem);
+
+		return chosenItem;
+	}
+
+	/// <summary>
+	/// Рассчитывает общую стоимость покупки, учитывая увеличение цены
+	/// </summary>
+	/// <param name="itemsCount"></param>
+	/// <param name="basePrice"></param>
+	/// <returns></returns>
+	public static int CalculateTotalPrice(int itemsCount, int basePrice, int priceIncrease)
+	{
+		var totalPrice = 0;
+		
+		for (int i = 0; i < itemsCount; i++)
+		{
+			totalPrice += basePrice + (priceIncrease * i);
+		}
+
+		return totalPrice;
+	}
+
+	/// <summary>
+	/// Возвращает максимальное количество покупаемых предметов, которое можно приобрести
+	/// </summary>
+	/// <param name="basePrice"></param>
+	/// <param name="priceIncrease"></param>
+	/// <param name="currentScore"></param>
+	/// <returns></returns>
+	public static int GetMaxItemsAffordable(int basePrice, int priceIncrease, int currentScore)
+	{
+		int totalCost = 0;
+		int itemCount = 0;
+
+		while (true)
+		{
+			int itemPrice = basePrice + (priceIncrease * itemCount);
+
+			if (totalCost + itemPrice > currentScore)
+			{
+				break;
+			}
+
+			totalCost += itemPrice;
+			itemCount++;
+		}
+
+		return itemCount;
+	}
+
+	/// <summary>
+	/// Включает, выключает и управляет состоянием окна магазина
+	/// </summary>
+	/// <exception cref="ArgumentOutOfRangeException"></exception>
+	private void ShopWindowManage()
     {
-        _buyButton.onClick.AddListener(Buy);
-        _closeButton.onClick.AddListener(CloseWindow);
-        _window.SetActive(false);
-    }
+        if (!_shop.Window.activeSelf)
+		{
+			return;
+		}
 
-    private void Update()
-    {
-        if (!_window.activeSelf)
-        {
-            return;
-        }
+		var price = CalculateTotalPrice((int)_shop.Slider.value, _currentParameters.Price, _currentParameters.PriceIncrease);
+		var count = GetMaxItemsAffordable(_currentParameters.Price, _currentParameters.PriceIncrease, LocalBalance);
+		var chosenCount = (int)_shop.Slider.value;
 
-        var count = GetMaxItemsAffordable(ActiveItem.Price, ActiveItem.PriceIncrease, Balance);
+		_shop.Slider.maxValue = count;
+		_shop.Slider.minValue = 1f;
 
-        if (count > 1)
-        {
-            _slider.gameObject.SetActive(true);
-            _buyButton.interactable = true;
-        }
-        else if (count == 0)
-        {
-            _slider.gameObject.SetActive(false);
-            _buyButton.interactable = false;
-            _slider.value = 0f;
-        }
-        else if (count == 1)
-        {
-            _slider.gameObject.SetActive(false);
-            _buyButton.interactable = true;
-            _slider.value = 1f;
-        }
-        else
-        {
-            throw new ArgumentException("Invalid count");
-        }
+		if (chosenCount == 0)
+		{
+			_shop.BuyButton.interactable = false;
+			_shop.Slider.value = 1;
+			_shop.Slider.gameObject.SetActive(false);
+		}
+		else if (chosenCount == 1)
+		{
+			_shop.BuyButton.interactable = true;
+			_shop.Slider.gameObject.SetActive(false);
+		}
+		else if (chosenCount > 1)
+		{
+			_shop.BuyButton.interactable = true;
+			_shop.Slider.gameObject.SetActive(true);
+			
+		}
+		else
+		{
+			throw new ArgumentOutOfRangeException(nameof(chosenCount));
+		}
 
-        _slider.maxValue = count;
-        _slider.minValue = 1f;
-        _countToBuyField.text = "Купить: " + _slider.value.ToString();
-        _priceField.text = '$' + CalculateTotalPrice((int)_slider.value, ActiveItem.Price, ActiveItem.PriceIncrease).ToString() + $" (база: {ActiveItem.Price})";
-        _countField.text = "В наличии: " + ActiveItem.Count.ToString();
-    }
-
-    public void SetBalance(int value)
-    {
-        Balance = value >= 0 ? value : 0;
-    }
-
-    public void OpenWindow(ShopParams shopParams, BuyShopItemsNew item)
-    {
-        _shopParams = shopParams;
-        _descriptionField.text = _shopParams.Description;
-        // Добавить новое, при расширении класса ShopParams
-        ActiveItem = item;
-        _window.SetActive(true);
-    }
-
-    public void CloseWindow()
-    {
-        ActiveItem = null;
-        _window.SetActive(false);
-    }
-
-    private void Buy()
-    {    
-        var count = (int)_slider.value;
-        var cost = (int)_slider.value * ActiveItem.PriceIncrease;
-        var price = CalculateTotalPrice((int)_slider.value, ActiveItem.Price, ActiveItem.PriceIncrease);
-        Balance -= price;
-        ActiveItem.Price += cost;
-        ActiveItem.Count += count;
-        _slider.value = 1f;
-        BuyShopItemsNew.OnBuy?.Invoke(new ShopTransaction(price, count, ActiveItem.Item, ActiveItem.Price));
-    }
-
-    /// <summary>
-    /// Рассчитывает общую стоимость покупки, учитывая увеличение цены
-    /// </summary>
-    /// <param name="itemsCount"></param>
-    /// <param name="basePrice"></param>
-    /// <returns></returns>
-    private int CalculateTotalPrice(int itemsCount, int basePrice, int priceIncrease)
-    {
-        var totalPrice = 0;
-        
-        for (int i = 0; i < itemsCount; i++)
-        {
-            totalPrice += basePrice + (priceIncrease * i);
-        }
-
-        return totalPrice;
-    }
-
-    /// <summary>
-    /// Возвращает максимальное количество покупаемых предметов, которое можно приобрести
-    /// </summary>
-    /// <param name="basePrice"></param>
-    /// <param name="priceIncrease"></param>
-    /// <param name="currentScore"></param>
-    /// <returns></returns>
-    private int GetMaxItemsAffordable(int basePrice, int priceIncrease, int currentScore)
-    {
-        int totalCost = 0;
-        int itemCount = 0;
-
-        while (true)
-        {
-            int itemPrice = basePrice + (priceIncrease * itemCount);
-
-            if (totalCost + itemPrice > currentScore)
-            {
-                break;
-            }
-
-            totalCost += itemPrice;
-            itemCount++;
-        }
-
-        return itemCount;
+		_shop.PriceField.text = $"Стоимость: {price}";
+		_shop.CountField.text = $"У вас в наличии: {count}";
+		_shop.CountToBuyField.text = $"Покупка: {chosenCount}";
+		_shop.DescriptionField.text = _currentParameters.Description;
     }
 }

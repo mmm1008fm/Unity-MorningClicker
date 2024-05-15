@@ -1,4 +1,0 @@
-interface IShopItems
-{
-	void Buy();
-}
