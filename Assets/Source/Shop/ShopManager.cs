@@ -33,47 +33,48 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        _descriptionField.text = _shopParams.Description;
-        _basePrice = _shopParams.BasePrice;
-        _priceIncrease = _shopParams.PriceIncrease;
-        _activeItem = _shopParams.Item;
-        // Остановился на том, что нихрена ничего не меняется. Код сверху - подумать. Остальная логика - исправить
-
         switch (_activeItem)
         {
             case ShopItem.Armor:
                 _countField.text = $"Защита: {ResourceBank.Instance.DefensePercent}%";
+                _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(ResourceBank.Instance.ArmorCost, _priceIncrease, ResourceBank.Instance.Score);
                 break;
             case ShopItem.Warrior:
                 _countField.text = $"Воины: {ResourceBank.Instance.WarriorsCount}";
+                _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(ResourceBank.Instance.WarriorCost, _priceIncrease, ResourceBank.Instance.Score);
                 break;
             case ShopItem.Windmill:
                 _countField.text = $"Счёт в секунду: {ResourceBank.Instance.ScorePerSecond}";
+                _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(ResourceBank.Instance.ScorePerSecondCost, _priceIncrease, ResourceBank.Instance.Score);
                 break;
             case ShopItem.PerClick:
                 _countField.text = $"За клик: {ResourceBank.Instance.ScorePerClick}";
+                _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(ResourceBank.Instance.ScorePerClickCost, _priceIncrease, ResourceBank.Instance.Score);
                 break;
         }
-
-        _itemsThatCanBeBoughtCount = GetMaxItemsAffordable(_basePrice, _priceIncrease, ResourceBank.Instance.Score);
 
         if (_itemsThatCanBeBoughtCount > 1)
         {
             _slider.gameObject.SetActive(true);
             _slider.maxValue = _itemsThatCanBeBoughtCount;
-            _slider.minValue = 1;
+            _slider.minValue = 0f;
         }
         else
         {
             _slider.gameObject.SetActive(false);
         }
 
-        _countToBuyField.text = "Покупка: " + _slider.value;
+        _countToBuyField.text = "Покупка: " + (int)_slider.value;
     }
 
     public void OpenWindow(ShopParams shopParams)
     {
         _shopParams = shopParams;
+        _descriptionField.text = _shopParams.Description;
+        _basePrice = _shopParams.BasePrice;
+        _priceIncrease = _shopParams.PriceIncrease;
+        _activeItem = _shopParams.Item;
+        // Добавить новое, при расширении класса ShopParams
         _window.SetActive(true);
     }
 
@@ -95,6 +96,28 @@ public class ShopManager : MonoBehaviour
         {
             ResourceBank.Instance.Score -= price;
         }
+
+        switch (_activeItem)
+        {
+            case ShopItem.Armor:
+                ResourceBank.Instance.DefensePercent += (int)_slider.value;
+                ResourceBank.Instance.ArmorCost += (int)_slider.value * _shopParams.PriceIncrease;
+                break;
+            case ShopItem.Warrior:
+                ResourceBank.Instance.WarriorsCount += (int)_slider.value;
+                ResourceBank.Instance.WarriorCost += (int)_slider.value * _shopParams.PriceIncrease;
+                break;
+            case ShopItem.Windmill:
+                ResourceBank.Instance.ScorePerSecond += (int)_slider.value;
+                ResourceBank.Instance.ScorePerSecondCost += (int)_slider.value * _shopParams.PriceIncrease;
+                break;
+            case ShopItem.PerClick:
+                ResourceBank.Instance.ScorePerClick += (int)_slider.value;
+                ResourceBank.Instance.ScorePerClickCost += (int)_slider.value * _shopParams.PriceIncrease;
+                break;
+        }
+
+        // _slider.value = 0f; // Защита от случайных кликов пользователями
     }
 
     /// <summary>
@@ -120,9 +143,9 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     /// <param name="basePrice"></param>
     /// <param name="priceIncrease"></param>
-    /// <param name="currentMoney"></param>
+    /// <param name="currentScore"></param>
     /// <returns></returns>
-    private int GetMaxItemsAffordable(int basePrice, int priceIncrease, int currentMoney)
+    private int GetMaxItemsAffordable(int basePrice, int priceIncrease, int currentScore)
     {
         int totalCost = 0;
         int itemCount = 0;
@@ -130,11 +153,12 @@ public class ShopManager : MonoBehaviour
         while (true)
         {
             int itemPrice = basePrice + (priceIncrease * itemCount);
-            if (totalCost + itemPrice > currentMoney)
+
+            if (totalCost + itemPrice > currentScore)
             {
                 break;
             }
-            
+
             totalCost += itemPrice;
             itemCount++;
         }
