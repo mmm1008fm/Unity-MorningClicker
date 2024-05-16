@@ -11,6 +11,7 @@ public class ShopManager : MonoBehaviour
 	{
 		_shop.CloseButton.onClick.AddListener(CloseShop);
 		_shop.BuyButton.onClick.AddListener(() => Buy(_currentParameters.Item));
+		_shop.Window.SetActive(false);
 	}
 
 	private void Update()
