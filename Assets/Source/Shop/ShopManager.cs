@@ -32,7 +32,7 @@ public class ShopManager : MonoBehaviour
 
 	public ShopItem Buy(ShopItem item)
 	{
-		var price = CalculateTotalPrice((int)_shop.Slider.value, _currentParameters.Price, _currentParameters.PriceIncrease);
+		var price = CalculateTotalPrice((int)_shop.Slider.value, _currentParameters.Item.Price, _currentParameters.PriceIncrease);
 		var chosenCount = (int)_shop.Slider.value;
 		var chosenItem = item.Buy(chosenCount);
 
@@ -101,8 +101,8 @@ public class ShopManager : MonoBehaviour
 			return;
 		}
 
-		var price = CalculateTotalPrice((int)_shop.Slider.value, _currentParameters.Price, _currentParameters.PriceIncrease);
-		var countToBuy = GetMaxItemsAffordable(_currentParameters.Price, _currentParameters.PriceIncrease, ResourceBank.Instance.Score);
+		var price = CalculateTotalPrice((int)_shop.Slider.value, _currentParameters.Item.Price, _currentParameters.PriceIncrease);
+		var countToBuy = GetMaxItemsAffordable(_currentParameters.Item.Price, _currentParameters.PriceIncrease, ResourceBank.Instance.Score);
 		var chosenCount = (int)_shop.Slider.value;
 
 		_shop.Slider.maxValue = countToBuy;
@@ -130,7 +130,7 @@ public class ShopManager : MonoBehaviour
 			throw new ArgumentOutOfRangeException(nameof(chosenCount));
 		}
 
-		_shop.PriceField.text = $"${price} (${_currentParameters.Price})";
+		_shop.PriceField.text = $"${price} (${_currentParameters.Item.Price})";
 		_shop.CountField.text = $"У вас в наличии: {_currentParameters.Item.Count}";
 		_shop.CountToBuyField.text = $"Покупка: {chosenCount}";
 		_shop.DescriptionField.text = _currentParameters.Description;
