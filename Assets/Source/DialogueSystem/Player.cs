@@ -1,35 +1,57 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    private GameObject _notificationObject;
-    private DialogueCycle _dialogueCycle;
+    public static Player Instance { get; private set; }
+    public DialogueCycle DialogueCycle { get; private set; }
+    [SerializeField] private DialogueObject _giftDialogue;
+
+    private void Awake()
+    {
+        if (Instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void Start()
     {
-        _notificationObject = GameObject.Find("DialogueNotification");
-        _dialogueCycle = new DialogueCycle();
-        _dialogueCycle.StartCycle().Forget();
-        DontDestroyOnLoad(gameObject);
+        if (DialogueCycle == null)
+        {
+            DialogueCycle = new DialogueCycle(_giftDialogue, 10000, 120000, 60000);
+            DialogueCycle.StartCycle().Forget();
+        }
     }
 
     private void Update()
     {
-        for (int i = 0; i < _dialogueCycle.DialogueTasks.Count; i++)
+        for (int i = 0; i < DialogueCycle.DialogueTasks.Count; i++)
         {
-            if (!_dialogueCycle.DialogueTasks[i].Initialized)
+            if (!DialogueCycle.DialogueTasks[i].Initialized)
             {
-                _dialogueCycle.DialogueTasks.Remove(_dialogueCycle.DialogueTasks[i]);
+                DialogueCycle.DialogueTasks.Remove(DialogueCycle.DialogueTasks[i]);
             }
         }
 
-        if (_dialogueCycle.DialogueTasks.Count == 0)
+        if (SceneManager.GetActiveScene().name != "Main")
         {
-            _notificationObject.SetActive(false);
+            return;
+        }
+
+        if (DialogueCycle.DialogueTasks.Count == 0)
+        {
+            Notification.Instance.SetActive(false);
         }
         else
         {
-            _notificationObject.SetActive(true);
+            Notification.Instance.SetActive(true);
         }
     }
 }

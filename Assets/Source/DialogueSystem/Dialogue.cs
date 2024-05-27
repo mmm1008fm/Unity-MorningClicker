@@ -54,6 +54,7 @@ public class Dialogue : MonoBehaviour
         _dialogue = dialogue;
         _index = 0;
         _content.text = string.Empty;
+        Debug.Log(_dialogue);
         PersonAvatar.sprite = _dialogue.PersonAwatar;
         _name.text = _dialogue.PersonName;
         _dialogueBody.SetActive(true);

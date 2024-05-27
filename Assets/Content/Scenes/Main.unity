@@ -3107,6 +3107,7 @@ GameObject:
   - component: {fileID: 1217812166}
   - component: {fileID: 1217812168}
   - component: {fileID: 1217812167}
+  - component: {fileID: 1217812169}
   m_Layer: 5
   m_Name: DialogueNotification
   m_TagString: Untagged
@@ -3171,6 +3172,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217812165}
   m_CullTransparentMesh: 1
+--- !u!114 &1217812169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217812165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17186b56fe8b1fc478396764b8e4d429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1327810883
 GameObject:
   m_ObjectHideFlags: 0
@@ -5082,6 +5095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d68a12570b0c6b47ac3b7acff8717fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _giftDialogue: {fileID: 11400000, guid: f31d71b14d00658409cfce5a0a8d46d0, type: 2}
 --- !u!4 &1766494968
 Transform:
   m_ObjectHideFlags: 0
