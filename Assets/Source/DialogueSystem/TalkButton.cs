@@ -13,7 +13,6 @@ public class TalkButton : MonoBehaviour
     [SerializeField] private GameObject _variantPrefab;
     [SerializeField] private Transform _variantsParent;
     private List<DialogueTask> _dialogueTasks => Player.Instance.DialogueCycle.DialogueTasks;
-    private Button[] _variants;
 
     private void OnValidate()
     {

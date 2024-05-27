@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueCycle
 {
     public List<DialogueTask> DialogueTasks { get; private set; } = new List<DialogueTask>();
-    public DialogueObject[] GiftDialogue { get; private set; }
+    public DialogueObject[] GiftDialogue { get; private set; } // TODO: Сделать класс с множеством конфигураций
     private int _giftActualDuration { get; set; }
     private int _minMsInterval { get; set; }
     private int _maxMsInterval { get; set; }
@@ -23,7 +23,7 @@ public class DialogueCycle
         while (Application.isPlaying)
         {
             await UniTask.Delay(Random.Range(_minMsInterval, _maxMsInterval));
-            var gift = new DialogueGift("Test Gift", _giftActualDuration, GiftDialogue, new string[] { "Yes", "No" });
+            var gift = new DialogueGift("Gift", _giftActualDuration, GiftDialogue, new string[] { "Принять", "Откзать" });
             gift.Initialize().Forget();
             DialogueTasks.Add(gift);
         }
