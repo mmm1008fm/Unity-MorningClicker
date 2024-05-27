@@ -1,9 +1,7 @@
-using UnityEngine;
-
 public class DialogueGift : DialogueTask
 {
-    public DialogueGift(string text, int relevanceTime, DialogueObject actualDialogue)
-    : base(text, relevanceTime, actualDialogue) { }
+    public DialogueGift(string text, int relevanceTime, DialogueObject[] actualDialogues, string[] answers)
+    : base(text, relevanceTime, actualDialogues, answers) { }
 
     public override void Activate()
     {

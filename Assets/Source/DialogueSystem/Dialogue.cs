@@ -1,4 +1,5 @@
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class Dialogue : MonoBehaviour
 {
     public static UnityAction onClose;
+    public bool IsDialogue { get; private set; }
     [SerializeField] private Image PersonAvatar;
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _content;
@@ -44,21 +46,23 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueObject dialogue)
+    public async UniTask StartDialogue(DialogueObject dialogue)
     {
         if (_dialogueBody.activeSelf)
         {
             return;
         }
 
+        IsDialogue = true;
         _dialogue = dialogue;
         _index = 0;
         _content.text = string.Empty;
-        Debug.Log(_dialogue);
         PersonAvatar.sprite = _dialogue.PersonAwatar;
         _name.text = _dialogue.PersonName;
         _dialogueBody.SetActive(true);
         StartCoroutine(TypeLine());
+
+        await UniTask.WaitUntil(() => !IsDialogue);
     }
     
     private IEnumerator TypeLine()
@@ -83,6 +87,7 @@ public class Dialogue : MonoBehaviour
             _dialogue = null;
             _dialogueBody.SetActive(false);
             onClose?.Invoke();
+            IsDialogue = false;
         }
     }
 }

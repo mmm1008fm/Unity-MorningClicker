@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
     public DialogueCycle DialogueCycle { get; private set; }
-    [SerializeField] private DialogueObject _giftDialogue;
+    [SerializeField] private DialogueObject[] _giftDialogue;
 
     private void Awake()
     {
@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
     {
         if (DialogueCycle == null)
         {
-            DialogueCycle = new DialogueCycle(_giftDialogue, 10000, 120000, 60000);
+            // DialogueCycle = new DialogueCycle(_giftDialogue, 10000, 120000, 60000);
+            DialogueCycle = new DialogueCycle(_giftDialogue, 1000, 1000, 1000);
             DialogueCycle.StartCycle().Forget();
         }
     }
