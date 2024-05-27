@@ -38,7 +38,7 @@ public class ShopManager : MonoBehaviour
 		var chosenItem = item.Buy(chosenCount);
 
 		ResourceBank.Instance.Score -= price;
-		_currentParameters.Item.Price += _currentParameters.PriceIncrease;
+		_currentParameters.Item.Price += _currentParameters.PriceIncrease * chosenCount;
 		_shop.Slider.value = 1f;
 		OnItemBought?.Invoke(chosenItem);
 
