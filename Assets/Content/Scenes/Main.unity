@@ -5083,7 +5083,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d68a12570b0c6b47ac3b7acff8717fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _giftDialogue: {fileID: 11400000, guid: f31d71b14d00658409cfce5a0a8d46d0, type: 2}
+  _context:
+  - <Start>k__BackingField: {fileID: 11400000, guid: 703ca7216651bb3449479c69f1d4212b, type: 2}
+    <End>k__BackingField: {fileID: 11400000, guid: b0b2e6d079e108648b67d466b62e8a13, type: 2}
+    <Answers>k__BackingField:
+    - {fileID: 11400000, guid: 27362ad74d748ed4c9a44d0b3fc641a8, type: 2}
+    - {fileID: 11400000, guid: 7acfd3f54c67aa04981d25bc5bfa0da0, type: 2}
 --- !u!4 &1766494968
 Transform:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
     public DialogueCycle DialogueCycle { get; private set; }
-    [SerializeField] private DialogueObject _giftDialogue;
+    [SerializeField] private DialoguesContext[] _context;
 
     private void Awake()
     {
@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
     {
         if (DialogueCycle == null)
         {
-            DialogueCycle = new DialogueCycle(_giftDialogue, 10000, 120000, 60000);
+            DialogueCycle = new DialogueCycle(_context, 10000, 120000, 60000);
+            // DialogueCycle = new DialogueCycle(_context, 2000, 2000, 1000);
             DialogueCycle.StartCycle().Forget();
         }
     }
@@ -34,7 +35,7 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < DialogueCycle.DialogueTasks.Count; i++)
         {
-            if (!DialogueCycle.DialogueTasks[i].Initialized)
+            if (!DialogueCycle.DialogueTasks[i].Initialized && !DialogueCycle.DialogueTasks[i].Activated)
             {
                 DialogueCycle.DialogueTasks.Remove(DialogueCycle.DialogueTasks[i]);
             }
