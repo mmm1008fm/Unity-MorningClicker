@@ -25,8 +25,8 @@ public class Player : MonoBehaviour
     {
         if (DialogueCycle == null)
         {
-            // DialogueCycle = new DialogueCycle(_context, 10000, 120000, 60000);
-            DialogueCycle = new DialogueCycle(_context, 2000, 2000, 1000);
+            DialogueCycle = new DialogueCycle(_context, 10000, 120000, 60000);
+            // DialogueCycle = new DialogueCycle(_context, 2000, 2000, 1000);
             DialogueCycle.StartCycle().Forget();
         }
     }
