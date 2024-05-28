@@ -802,7 +802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &941070779
 Transform:
   m_ObjectHideFlags: 0
@@ -830,12 +830,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92dc9e190f832f840b5a1b0e604dc4ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPowerTextField: {fileID: 0}
-  _enemyPowerTextField: {fileID: 0}
-  _attackButton: {fileID: 0}
-  _hidingObjectsOnAttack:
-  - {fileID: 0}
-  - {fileID: 0}
+  PlayerInitHealth: 100
+  EnemyInitHealth: 100
+  PlayerHealth: 0
+  EnemyHealth: 0
+  PlayerAttack: 1
+  EnemyAttack: 2
+  Rage: 0.4
+  _playerHealthBar: {fileID: 813444143}
+  _enemyHealthBar: {fileID: 1238318169}
+  _rageBar: {fileID: 1119130490}
+  _background: {fileID: 810972769}
+  _rageRecession: 0.3
+  _rageRecharge: 0.0275
 --- !u!1 &1119130488
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] ButtonAction _action;
     [SerializeField, ShowIf("_action", ButtonAction.SwitchScene)] string _sceneName;
     [SerializeField, ShowIf("_action", ButtonAction.OpenURL)] string _url;
+    [SerializeField, ShowIf("_action", ButtonAction.BattleScene)] BrefingInfo _brefingInfo;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -34,6 +35,10 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     Application.OpenURL(_url);
                 }
                 break;
+            case ButtonAction.BattleScene:
+                BrefingTransfer.Info = _brefingInfo;
+                SceneSwitcher.Switch("Battle");
+                break;
         }
     }
 
@@ -49,6 +54,7 @@ public class SnapButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         ReloadScene,
         QuitGame,
         ResetProgress,
-        OpenURL
+        OpenURL,
+        BattleScene
     }
 }

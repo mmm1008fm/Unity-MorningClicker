@@ -1,96 +1,81 @@
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 
 public class BattleLogic : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _playerPowerTextField;
-    [SerializeField] private TMP_Text _enemyPowerTextField;
-    [SerializeField] private Button _attackButton;
-    [SerializeField] private List<GameObject> _hidingObjectsOnAttack;
+    public int PlayerInitHealth;
+    public int EnemyInitHealth;
+    public int PlayerHealth;
+    public int EnemyHealth;
+    public int PlayerAttack;
+    public int EnemyAttack;
+    public float Rage;
 
-    private int _playerPower;
-    private int _enemyPower;
+    [SerializeField] private Image _playerHealthBar;
+    [SerializeField] private Image _enemyHealthBar;
+    [SerializeField] private Image _rageBar;
+    [SerializeField] private Image _background;
+    [SerializeField] private float _rageRecession;
+    [SerializeField] private float _rageRecharge;
+
+    private List<GameObject> _enemies = new List<GameObject>();
 
     private void Awake()
     {
-        _attackButton.onClick.AddListener(OnClickToAttack);
+        BrefingInfo brefingInfo = BrefingTransfer.Info;
+
+        PlayerInitHealth = ResourceBank.Instance.Armor;
+        PlayerAttack = ResourceBank.Instance.Warriors;
+        EnemyInitHealth = brefingInfo.EnemyArmor;
+        EnemyAttack = brefingInfo.EnemyWarriors;
+        _background.sprite = brefingInfo.Location.Background;
+
+        for (int i = 0; i < brefingInfo.EnemyTypePrefabs.Length; i++)
+        {
+            _enemies.Add(Instantiate(brefingInfo.EnemyTypePrefabs[i])); // Не работает
+        } // TODO: сделать окощки для описания зон
+
+        PlayerHealth = PlayerInitHealth;
+        EnemyHealth = EnemyInitHealth;
+        _rageBar.fillAmount = 0f;
     }
 
     private void Start()
     {
-        _enemyPower = ResourceBank.Instance.Warriors + Random.Range(-3, 5);
-        _playerPower = ResourceBank.Instance.Warriors;
+        PlayerAttackRoutine().Forget();
+        EnemyAttackRoutine().Forget();
     }
 
     private void Update()
     {
-        _playerPowerTextField.text = $"Союзные силы:\n{_playerPower} едениц";
-        _enemyPowerTextField.text = $"Силы противника:\n{_enemyPower} едениц";
-    }
+        _rageBar.fillAmount = Rage;
+        _playerHealthBar.fillAmount = (float)PlayerHealth / PlayerInitHealth;
+        _enemyHealthBar.fillAmount = (float)EnemyHealth / EnemyInitHealth;
+        Rage = Mathf.Clamp(Rage - 0.5f * _rageRecession * Time.deltaTime, 0f, 1f);
 
-    private async void OnClickToAttack()
-    {
-
-        foreach (var obj in _hidingObjectsOnAttack)
+        if (Input.GetMouseButtonDown(0))
         {
-            obj.SetActive(false);
-        }
-
-        AttackResult r = await UniTask.Create(AttackToWin);
-
-        switch (r)
-        {
-            case AttackResult.Win:
-                ResourceBank.Instance.Warriors += Random.Range(3, 10);
-                break;
-            case AttackResult.Deffeat:
-                ResourceBank.Instance.Warriors = 0;
-                break;
-            case AttackResult.Nobody:
-                break;
-        }
-
-        foreach (var obj in _hidingObjectsOnAttack)
-        {
-            obj.SetActive(true);
+            Rage += _rageRecharge;
         }
     }
 
-    private async UniTask<AttackResult> AttackToWin()
+    private async UniTask EnemyAttackRoutine()
     {
-        if (_playerPower <= 0)
+        while (Application.isPlaying)
         {
-            return AttackResult.Nobody;
+            await UniTask.Delay(1000);
+            PlayerHealth -= EnemyAttack;
         }
-
-        while (_playerPower > 0 && _enemyPower > 0)
-        {
-            await UniTask.Delay(Random.Range(200, 1500));
-
-            _playerPower -= 1;
-            _enemyPower -= 1;
-
-            if (_playerPower <= 0)
-            {
-                _playerPower = 0;
-                return AttackResult.Deffeat;
-            }
-
-            if (_enemyPower <= 0)
-            {
-                _enemyPower = 0;
-                return AttackResult.Win;
-            }
-        }
-
-        return AttackResult.Nobody;
     }
 
-    private enum AttackResult
+    private async UniTask PlayerAttackRoutine()
     {
-        Win, Deffeat, Nobody
+        while (Application.isPlaying)
+        {
+            await UniTask.Delay(1000 - (int)(Rage * 500));
+            EnemyHealth -= PlayerAttack;
+        }
     }
 }

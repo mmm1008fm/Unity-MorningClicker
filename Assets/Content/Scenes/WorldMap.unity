@@ -372,6 +372,14 @@ MonoBehaviour:
   _action: 1
   _sceneName: Battle
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
 --- !u!114 &34834615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4762,6 +4770,14 @@ MonoBehaviour:
   _action: 1
   _sceneName: Battle
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
 --- !u!114 &1101045627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9099,6 +9115,14 @@ MonoBehaviour:
   _action: 1
   _sceneName: Battle
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
 --- !u!224 &8476422653596786255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9174,6 +9198,14 @@ MonoBehaviour:
   _action: 1
   _sceneName: Main
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
 --- !u!20 &8537905981616490434
 Camera:
   m_ObjectHideFlags: 0
@@ -9360,6 +9392,14 @@ MonoBehaviour:
   _action: 1
   _sceneName: Battle
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
 --- !u!1 &9093844593462195563
 GameObject:
   m_ObjectHideFlags: 0
@@ -9392,9 +9432,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _action: 1
+  _action: 6
   _sceneName: Battle
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 21300000, guid: 5bbcd81daf03ea84fa2b638e2a7dc29a, type: 3}
+      <Name>k__BackingField: "\u041F\u0443\u0441\u0442\u044B\u043D\u044F"
+      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 10 \u0445\u043F
+        \u0438 1 \u0443\u0440\u043E\u043D"
+    <EnemyTypePrefabs>k__BackingField:
+    - {fileID: 4316502951820976614, guid: e7a930eee0cb0e6459aed5ef4689a387, type: 3}
+    <EnemyArmor>k__BackingField: 10
+    <EnemyWarriors>k__BackingField: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
