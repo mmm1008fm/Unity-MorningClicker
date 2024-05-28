@@ -45,14 +45,27 @@ public class TalkButton : MonoBehaviour
         }
 
         _button.interactable = false;
-        await TalkEvent(_dialogueTasks[0].Context[0], _dialogueTasks);
+
+        int contextNumber = 0;
+
+        if (_dialogueTasks[0].Text == "Invest")
+        {
+            contextNumber = 1;
+        }
+        else
+        {
+            contextNumber = 0;
+        }
+
+        await TalkEvent(_dialogueTasks[0].Context[contextNumber], _dialogueTasks, contextNumber);
         _button.interactable = true;
     }
 
-    private async UniTask TalkEvent(DialoguesContext context, List<DialogueTask> inputTasks)
+    private async UniTask TalkEvent(DialoguesContext context, List<DialogueTask> inputTasks, int contextNumber)
     {
-        var answersCopy = new string[inputTasks[0].Answers.Length];
         var currentTask = inputTasks[0];
+
+        var answersCopy = new string[inputTasks[0].Answers.Length];
 
         for (int i = 0; i < answersCopy.Length; i++)
         {
@@ -85,18 +98,42 @@ public class TalkButton : MonoBehaviour
         {
             "Принять" => 0,
             "Отказать" => 1,
+            "Рискнём" => 0,
+            "Ни за что!" => 1,
             _ => throw new ArgumentException(nameof(VariantButton.MyText)),
         };
 
         VariantButton.MyText = string.Empty;
 
-        // Продолжение диалога
-        await _dialogueSystem.StartDialogue(context.Answers[numOfContext]);
-        await _dialogueSystem.StartDialogue(context.End);
+        if (contextNumber == 0)
+        {
+            // Продолжение диалога
+            await _dialogueSystem.StartDialogue(context.Answers[numOfContext]);
+        }
 
         if (numOfContext == 0)
         {
             currentTask.Activate();
         }
+
+        try
+        {
+            DialogueInvest currentInvest = (DialogueInvest)currentTask;
+
+            if (currentInvest.IsLuck)
+            {
+                await _dialogueSystem.StartDialogue(context.Luck);
+            }
+            else
+            {
+                await _dialogueSystem.StartDialogue(context.Unluck);
+            }
+        }
+        catch (System.Exception)
+        {
+
+        }
+
+        await _dialogueSystem.StartDialogue(context.End);
     }
 }

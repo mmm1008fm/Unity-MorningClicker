@@ -1887,7 +1887,7 @@ MonoBehaviour:
   _name: {fileID: 3242517041417151902}
   _content: {fileID: 5635328201938443525}
   _dialogueBody: {fileID: 7829305453601608139}
-  _textSpeed: 0.1
+  _textSpeed: 0.03
 --- !u!224 &6958113333765610639
 RectTransform:
   m_ObjectHideFlags: 0

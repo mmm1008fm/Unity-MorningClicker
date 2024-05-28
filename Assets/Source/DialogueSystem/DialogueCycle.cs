@@ -23,9 +23,19 @@ public class DialogueCycle
         while (Application.isPlaying)
         {
             await UniTask.Delay(Random.Range(_minMsInterval, _maxMsInterval));
-            var gift = new DialogueGift("Gift", _giftActualDuration, Context, new string[] { "Принять", "Отказать" });
-            gift.Initialize().Forget();
-            DialogueTasks.Add(gift);
+            DialogueTask task;
+            
+            if (Random.Range(0, 100) <= 50)
+            {
+                task = new DialogueGift("Gift", _giftActualDuration, Context, new string[] { "Принять", "Отказать" });
+            }
+            else
+            {
+                task = new DialogueInvest("Invest", _giftActualDuration, Context, new string[] { "Рискнём", "Ни за что!" });
+            }
+
+            task.Initialize().Forget();
+            DialogueTasks.Add(task);
         }
     }
 }
