@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8ceb596c59e08f49a6f613aed957b6b, type: 3}
-  m_Name: 1
+  m_Name: GiftStart
   m_EditorClassIdentifier: 
   PersonName: "\u0416\u0438\u0442\u0435\u043B\u044C"
   PersonAwatar: {fileID: -538097627, guid: 105ec80fc7db83444ac8e828263e9ac4, type: 3}

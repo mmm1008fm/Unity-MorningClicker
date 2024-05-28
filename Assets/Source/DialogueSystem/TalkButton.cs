@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using TMPro;
@@ -36,7 +37,7 @@ public class TalkButton : MonoBehaviour
         }
     }
 
-    private void OnClickToTalk()
+    private async void OnClickToTalk()
     {
         if (_dialogueTasks.Count == 0 || !_dialogueTasks[0].Initialized)
         {
@@ -44,35 +45,58 @@ public class TalkButton : MonoBehaviour
         }
 
         _button.interactable = false;
-        TalkEvent().Forget();
+        await TalkEvent(_dialogueTasks[0].Context[0], _dialogueTasks);
+        _button.interactable = true;
     }
 
-    private async UniTaskVoid TalkEvent()
+    private async UniTask TalkEvent(DialoguesContext context, List<DialogueTask> inputTasks)
     {
-        GameObject[] buttons = new GameObject[_dialogueTasks[0].Answers.Length];
-        await _dialogueSystem.StartDialogue(_dialogueTasks[0].DialogueObjects[0]);
+        var answersCopy = new string[inputTasks[0].Answers.Length];
+        var currentTask = inputTasks[0];
 
-        GameObject[] variant = new GameObject[_dialogueTasks[0].Answers.Length];
-        VariantButton[] variantButton = new VariantButton[_dialogueTasks[0].Answers.Length];
+        for (int i = 0; i < answersCopy.Length; i++)
+        {
+            answersCopy[i] = inputTasks[0].Answers[i];
+        }
 
-        for (int i = 0; i < _dialogueTasks[0].Answers.Length; i++)
+        await _dialogueSystem.StartDialogue(context.Start);
+
+        // Логика выбора вариантов
+        GameObject[] variant = new GameObject[context.Answers.Length];
+        VariantButton[] variantButton = new VariantButton[context.Answers.Length];
+
+        for (int i = 0; i < context.Answers.Length; i++)
         {
             variant[i] = Instantiate(_variantPrefab, _variantsParent);
-            variant[i].GetComponentInChildren<TMP_Text>().text = _dialogueTasks[0].Answers[i];
-            buttons[i] = variant[i];
+            variant[i].GetComponentInChildren<TMP_Text>().text = answersCopy[i];
             variantButton[i] = variant[i].GetComponent<VariantButton>();
         }
 
         await UniTask.WaitWhile(() => string.IsNullOrEmpty(VariantButton.MyText));
 
-        for (int i = 0; i < _dialogueTasks[0].Answers.Length; i++)
+        for (int i = 0; i < context.Answers.Length; i++)
         {
-            Destroy(buttons[i]);
+            Destroy(variant[i]);
         }
 
-        await _dialogueSystem.StartDialogue(_dialogueTasks[0].DialogueObjects[1]);
-        await _dialogueSystem.StartDialogue(_dialogueTasks[0].DialogueObjects[2]);
-        _dialogueTasks[0].Activate();
-        _dialogueTasks.Remove(_dialogueTasks[0]);
+        int numOfContext = -1;
+
+        numOfContext = VariantButton.MyText switch
+        {
+            "Принять" => 0,
+            "Отказать" => 1,
+            _ => throw new ArgumentException(nameof(VariantButton.MyText)),
+        };
+
+        VariantButton.MyText = string.Empty;
+
+        // Продолжение диалога
+        await _dialogueSystem.StartDialogue(context.Answers[numOfContext]);
+        await _dialogueSystem.StartDialogue(context.End);
+
+        if (numOfContext == 0)
+        {
+            currentTask.Activate();
+        }
     }
 }

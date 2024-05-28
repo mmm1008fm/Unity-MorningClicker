@@ -5,14 +5,15 @@ public abstract class DialogueTask
     public string Text { get; private set; }
     public int RelevanceTimeMs { get; private set; }
     public bool Initialized { get; private set; }
-    public DialogueObject[] DialogueObjects { get; private set; }
+    public DialoguesContext[] Context { get; private set; }
     public string[] Answers { get; private set; }
+    public bool Activated { get; protected set; }
 
-    public DialogueTask(string text, int relevanceTimeMs, DialogueObject[] actualDialogues, string[] answers)
+    public DialogueTask(string text, int relevanceTimeMs, DialoguesContext[] actualDialogues, string[] answers)
     {
         Text = text;
         RelevanceTimeMs = relevanceTimeMs;
-        DialogueObjects = actualDialogues;
+        Context = actualDialogues;
         Answers = answers;
     }
 
@@ -21,8 +22,17 @@ public abstract class DialogueTask
         if (Initialized) return;
         Initialized = true;
         await UniTask.Delay(RelevanceTimeMs);
+
+        if (Activated)
+        {
+            return;
+        }
+
         Initialized = false;
     }
 
-    public abstract void Activate();
+    public virtual void Activate()
+    {
+        Activated = true;
+    }
 }

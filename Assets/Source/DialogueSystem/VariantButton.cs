@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class VariantButton : MonoBehaviour
 {
-    public static string MyText { get; private set; }
+    public static string MyText { get; set; }
     [SerializeField] private Button _button;
 
     private void OnValidate()
