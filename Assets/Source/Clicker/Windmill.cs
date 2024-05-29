@@ -13,8 +13,7 @@ public class Windmill : MonoBehaviour
         while (Application.isPlaying)
         {
             yield return new WaitForSeconds(1);
-            ResourceBank.Instance.Score += ResourceBank.Instance.ScorePerSecond;
+            ResourceBank.Instance.Score += (int)(ResourceBank.Instance.ScorePerSecond * ResourceBank.Instance.PerSecondMultiplayer);
         }
     }
 }
-

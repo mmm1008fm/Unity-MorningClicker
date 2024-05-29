@@ -6,9 +6,10 @@ using TMPro;
 
 public class ArtefactObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public BattleArtefact ArtefactDefinition { get; set; }
+    [field: SerializeField] public BattleArtefact ArtefactDefinition { get; set; }
     [SerializeField] private GameObject _tooltipPrefab;
     [SerializeField] private float _tooltipDelay = 0.5f;
+    [SerializeField] private Transform _hintTransform;
 
     private GameObject _tooltipInstance;
     private Coroutine _showTooltipCoroutine;
@@ -37,7 +38,7 @@ public class ArtefactObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         yield return new WaitForSeconds(_tooltipDelay);
 
-        _tooltipInstance = Instantiate(_tooltipPrefab, transform);
+        _tooltipInstance = Instantiate(_tooltipPrefab, transform.position + Vector3.up * 1, Quaternion.identity, _hintTransform);
         UpdateTooltipContent();
     }
 

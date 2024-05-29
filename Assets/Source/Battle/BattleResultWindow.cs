@@ -31,6 +31,10 @@ public class BattleResultWindow : MonoBehaviour
         switch (winArtefact.Name)
         {
             case "Шляпа пугала":
+                if (!ResourceBank.Instance.ScarecrowHat)
+                {
+                    ResourceBank.Instance.ScorePerSecond += 15;
+                }
                 ResourceBank.Instance.ScarecrowHat = true;
                 break;
             case "Грааль из божественного металла":
@@ -40,6 +44,10 @@ public class BattleResultWindow : MonoBehaviour
                 ResourceBank.Instance.LavaStoneArtefact = true;
                 break;
             case "Сердце леса":
+                if (!ResourceBank.Instance.HeartOfForestArtefact)
+                {
+                    ResourceBank.Instance.ScorePerClick += 7;
+                }
                 ResourceBank.Instance.HeartOfForestArtefact = true;
                 break;
             case "Свиток запретной магии":
