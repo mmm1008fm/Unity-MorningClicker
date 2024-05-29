@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: music volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70ed22538f748cd4eb5231c51fd7ba1b, type: 2}
-  m_sharedMaterial: {fileID: -7405809194595379773, guid: 70ed22538f748cd4eb5231c51fd7ba1b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -777,6 +777,16 @@ MonoBehaviour:
   _action: 1
   _sceneName: MainMenu
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!114 &717250787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,6 +924,16 @@ MonoBehaviour:
   _action: 4
   _sceneName: 
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!114 &740406859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,8 +1207,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back to main menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1537,8 +1557,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: game volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70ed22538f748cd4eb5231c51fd7ba1b, type: 2}
-  m_sharedMaterial: {fileID: -7405809194595379773, guid: 70ed22538f748cd4eb5231c51fd7ba1b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1782,8 +1802,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reset progress
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70ed22538f748cd4eb5231c51fd7ba1b, type: 2}
-  m_sharedMaterial: {fileID: -7405809194595379773, guid: 70ed22538f748cd4eb5231c51fd7ba1b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
