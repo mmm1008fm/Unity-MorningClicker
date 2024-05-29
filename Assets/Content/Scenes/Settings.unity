@@ -439,7 +439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 103}
+  m_AnchoredPosition: {x: 0, y: 90}
   m_SizeDelta: {x: 650.84, y: 110.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &391084271
@@ -464,8 +464,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: music volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 69a8f183008339842a76ff8058d8a158, type: 2}
-  m_sharedMaterial: {fileID: 1752984325642689533, guid: 69a8f183008339842a76ff8058d8a158, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1182,8 +1182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -42.76999, y: 4.760002}
-  m_SizeDelta: {x: -150.18, y: -39.92}
+  m_AnchoredPosition: {x: -24.97, y: 11.96}
+  m_SizeDelta: {x: -72.16, y: -39.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372719503
 MonoBehaviour:
@@ -1207,8 +1207,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit to main menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 69a8f183008339842a76ff8058d8a158, type: 2}
-  m_sharedMaterial: {fileID: 1752984325642689533, guid: 69a8f183008339842a76ff8058d8a158, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.55
+  m_fontSize: 40.65
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1557,8 +1557,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: game volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 69a8f183008339842a76ff8058d8a158, type: 2}
-  m_sharedMaterial: {fileID: 1752984325642689533, guid: 69a8f183008339842a76ff8058d8a158, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
