@@ -52,17 +52,25 @@ public class MoveToClosestButton : MonoBehaviour
             moveTween?.Kill();
             scaleTween?.Kill();
 
-            // Устанавливаем размер объекта в размер для движения
-            scaleTween = targetObject.DOScale(movingScale, moveDuration);
-
-            // Плавное перемещение объекта к ближайшей кнопке
-            moveTween = targetObject.DOMove(targetPosition, moveDuration).OnComplete(() =>
+            try
             {
-                // Изменение размера объекта в зависимости от его нахождения на кнопке
-                scaleTween = targetObject.DOScale(onLocationScale, moveDuration);
-                isMoving = false;
-            });
-            isMoving = true;
+                // Устанавливаем размер объекта в размер для движения
+                scaleTween = targetObject.DOScale(movingScale, moveDuration);
+            }
+            catch { }
+
+            try
+            {
+                // Плавное перемещение объекта к ближайшей кнопке
+                moveTween = targetObject.DOMove(targetPosition, moveDuration).OnComplete(() =>
+                {
+                    // Изменение размера объекта в зависимости от его нахождения на кнопке
+                    scaleTween = targetObject.DOScale(onLocationScale, moveDuration);
+                    isMoving = false;
+                });
+                isMoving = true;
+            }
+            catch { }
         }
         else
         {

@@ -843,6 +843,8 @@ MonoBehaviour:
   _background: {fileID: 810972769}
   _rageRecession: 0.3
   _rageRecharge: 0.0275
+  _enemiesParent: {fileID: 1434997760}
+  _spawnPos: {fileID: 1434997760}
 --- !u!1 &1119130488
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +995,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238318167}
   m_CullTransparentMesh: 1
+--- !u!1 &1434997759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1434997760}
+  m_Layer: 5
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1434997760
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434997759}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2127239815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 571.24, y: -130.66}
+  m_SizeDelta: {x: 777.52, y: 818.69}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1527631198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1380,6 +1417,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 810972768}
+  - {fileID: 1434997760}
   - {fileID: 6394866}
   - {fileID: 462778961}
   - {fileID: 462798753}

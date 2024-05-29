@@ -19,6 +19,8 @@ public class BattleLogic : MonoBehaviour
     [SerializeField] private Image _background;
     [SerializeField] private float _rageRecession;
     [SerializeField] private float _rageRecharge;
+    [SerializeField] private RectTransform _enemiesParent;
+    [SerializeField] private RectTransform _spawnPos;
 
     private List<GameObject> _enemies = new List<GameObject>();
 
@@ -34,8 +36,16 @@ public class BattleLogic : MonoBehaviour
 
         for (int i = 0; i < brefingInfo.EnemyTypePrefabs.Length; i++)
         {
-            _enemies.Add(Instantiate(brefingInfo.EnemyTypePrefabs[i])); // Не работает
-        } // TODO: сделать окощки для описания зон
+            for (int j = 0; j < Random.Range(1, 3); j++)
+            {
+                _enemies.Add(Instantiate(
+                    brefingInfo.EnemyTypePrefabs[i],
+                    _spawnPos.position + new Vector3(Random.Range(-1f, 2f), Random.Range(-1f, 2f), 0f),
+                    Quaternion.identity,
+                    _enemiesParent
+                    ));
+            }
+        }
 
         PlayerHealth = PlayerInitHealth;
         EnemyHealth = EnemyInitHealth;

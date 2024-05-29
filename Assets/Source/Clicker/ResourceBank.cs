@@ -74,7 +74,7 @@ public class ResourceBank : MonoBehaviour
         PlayerPrefs.SetInt("Warriors", bank.Warriors);
         PlayerPrefs.SetInt("ScorePerClickCost", bank.ScorePerClickCost);
         PlayerPrefs.SetInt("ScorePerSecondCost", bank.ScorePerSecondCost);
-        PlayerPrefs.SetFloat("Armor", bank.Armor);
+        PlayerPrefs.SetInt("Armor", bank.Armor);
         PlayerPrefs.SetInt("WarriorCost", bank.WarriorCost);
         PlayerPrefs.SetInt("ArmorCost", bank.ArmorCost);
         PlayerPrefs.SetFloat("MusicVolume", bank.MusicVolume);
