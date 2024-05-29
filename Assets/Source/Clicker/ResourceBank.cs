@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
 #endif
 
 public class ResourceBank : MonoBehaviour
@@ -42,6 +42,9 @@ public class ResourceBank : MonoBehaviour
     public bool HolyCup = false;
 
     [SerializeField] private int _autoSaveInterval;
+    
+    public float PerClickMultiplayer = 1f;
+    public float PerSecondMultiplayer = 1f;
 
     private void Awake()
     {
@@ -61,6 +64,31 @@ public class ResourceBank : MonoBehaviour
     private void Start()
     {
         UniTask.Create(AutoSaveCycle);
+    }
+
+    private void Update()
+    {
+        float ps = 0f;
+        float pc = 0f;
+
+        if (LavaStoneArtefact)
+        {
+            ps += 0.5f;
+        }
+
+        if (MagicScrollArtefact)
+        {
+            pc += 0.5f;
+        }
+
+        if (HolyCup)
+        {
+            pc += 1f;
+            ps += 1f;
+        }
+
+        PerClickMultiplayer = 1f + pc;
+        PerSecondMultiplayer = 1f + ps;
     }
 
     private async UniTask AutoSaveCycle()
