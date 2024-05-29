@@ -1066,6 +1066,16 @@ MonoBehaviour:
   _action: 0
   _sceneName: 
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &405464746
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,6 +3309,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1327810887}
     m_Modifications:
+    - target: {fileID: 705455870423214181, guid: b0bd36adc5646844f8168643fea8b4ad, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+    - target: {fileID: 705455870423214181, guid: b0bd36adc5646844f8168643fea8b4ad, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+    - target: {fileID: 705455870423214181, guid: b0bd36adc5646844f8168643fea8b4ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5458888744630865298, guid: b0bd36adc5646844f8168643fea8b4ad, type: 3}
       propertyPath: m_Name
       value: BackOfScore
@@ -4426,7 +4448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -129.80988, y: -94.99994}
+  m_AnchoredPosition: {x: -129.80981, y: -94.99994}
   m_SizeDelta: {x: 17.950012, y: 17.950012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1595852066
@@ -4526,6 +4548,16 @@ MonoBehaviour:
   _action: 1
   _sceneName: Settings
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &1665414446
 GameObject:
   m_ObjectHideFlags: 0
@@ -5517,6 +5549,16 @@ MonoBehaviour:
   _action: 0
   _sceneName: 
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &1909126877
 GameObject:
   m_ObjectHideFlags: 0
@@ -5930,7 +5972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -129.80939, y: 305.31}
+  m_AnchoredPosition: {x: -129.80933, y: 305.31}
   m_SizeDelta: {x: 17.950012, y: 17.950012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1036805497923671102
@@ -6649,7 +6691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -129.81036, y: 109.04974}
+  m_AnchoredPosition: {x: -129.8103, y: 109.04974}
   m_SizeDelta: {x: 17.950012, y: 17.950012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6099870083004575833
@@ -6797,7 +6839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -129.80939, y: 511.99994}
+  m_AnchoredPosition: {x: -129.80933, y: 511.99994}
   m_SizeDelta: {x: 17.950012, y: 17.950012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7407429590602288726
@@ -6815,6 +6857,16 @@ MonoBehaviour:
   _action: 1
   _sceneName: Shop
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &7447472890983736120
 GameObject:
   m_ObjectHideFlags: 0
@@ -6850,6 +6902,16 @@ MonoBehaviour:
   _action: 1
   _sceneName: Castle
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!224 &7995348392700651972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6893,6 +6955,16 @@ MonoBehaviour:
   _action: 1
   _sceneName: WorldMap
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

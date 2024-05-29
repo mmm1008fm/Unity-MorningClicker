@@ -378,14 +378,14 @@ MonoBehaviour:
       <Name>k__BackingField: "\u041E\u0431\u043B\u0430\u0447\u043D\u043E\u0435 \u043A\u043E\u0440\u043E\u043B\u0435\u0432\u0441\u0442\u0432\u043E
         \u0430\u043D\u0433\u0435\u043B\u043E\u0432, \u043F\u043E\u0433\u0440\u044F\u0437\u0448\u0438\u0445
         \u0432 \u0433\u0440\u0435\u0445\u0430\u0445"
-      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 500 \u0445\u043F
-        \u0438 20 \u0443\u0440\u043E\u043D"
+      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 20000
+        \u0445\u043F \u0438 250 \u0443\u0440\u043E\u043D\u0430"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 3828126894368542751, guid: 46f0487e2bf513c46a43e2d907ef2e5f, type: 3}
     - {fileID: 6590772912851666801, guid: 08fa5f4ecddd0b442801d575c2e1630a, type: 3}
     <EnemyArmor>k__BackingField: 20000
     <EnemyWarriors>k__BackingField: 250
-    <ActualArtefact>k__BackingField: {fileID: 0}
+    <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 4ad7370019a8cb24bb3ce48cd3ce4db7, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!114 &34834615
 MonoBehaviour:
@@ -1788,8 +1788,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: En5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2116,8 +2116,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: En4
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4885,7 +4885,7 @@ MonoBehaviour:
     - {fileID: 1984649474259530682, guid: 7f20101381e68264fa90cc6f8fda8b1b, type: 3}
     <EnemyArmor>k__BackingField: 1000
     <EnemyWarriors>k__BackingField: 50
-    <ActualArtefact>k__BackingField: {fileID: 0}
+    <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 0867ca9ec66f7f44588402ceb29bd033, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!114 &1101045627
 MonoBehaviour:
@@ -6351,8 +6351,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7441,8 +7441,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8486,11 +8486,11 @@ PrefabInstance:
     - target: {fileID: 705455870423214181, guid: b0bd36adc5646844f8168643fea8b4ad, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+      objectReference: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
     - target: {fileID: 705455870423214181, guid: b0bd36adc5646844f8168643fea8b4ad, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+      objectReference: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
     - target: {fileID: 705455870423214181, guid: b0bd36adc5646844f8168643fea8b4ad, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -9148,8 +9148,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back to castle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9429,8 +9429,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: En1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9518,8 +9518,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: En3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9663,8 +9663,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: En2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9795,7 +9795,7 @@ MonoBehaviour:
     - {fileID: 4521071698725039758, guid: ae0db44568a1184429cc8acc9a18aca3, type: 3}
     <EnemyArmor>k__BackingField: 5000
     <EnemyWarriors>k__BackingField: 100
-    <ActualArtefact>k__BackingField: {fileID: 0}
+    <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 2c3929c4dccb4d64b8d58fb39eb9d86a, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!224 &8476422653596786255
 RectTransform:
@@ -10082,7 +10082,7 @@ MonoBehaviour:
     - {fileID: 8427884213502514042, guid: 3fafd864c7fbed74b8adc9498b09d8a9, type: 3}
     <EnemyArmor>k__BackingField: 100
     <EnemyWarriors>k__BackingField: 5
-    <ActualArtefact>k__BackingField: {fileID: 0}
+    <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 4786f6f1660e764489236823fb4b52c3, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!1 &9093844593462195563
 GameObject:
@@ -10130,7 +10130,7 @@ MonoBehaviour:
     - {fileID: 4316502951820976614, guid: e7a930eee0cb0e6459aed5ef4689a387, type: 3}
     <EnemyArmor>k__BackingField: 500
     <EnemyWarriors>k__BackingField: 20
-    <ActualArtefact>k__BackingField: {fileID: 0}
+    <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 2d7e55d7795d0d444aec4110331b32fd, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
