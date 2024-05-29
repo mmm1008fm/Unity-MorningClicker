@@ -22,7 +22,7 @@ public class ResourceBank : MonoBehaviour
         }
     }
 
-    private int _score = 0;
+    private int _score = 100000000;
 
     public int ScorePerClick = 1;
     public int ScorePerSecond = 0;

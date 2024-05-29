@@ -6,7 +6,7 @@ using TMPro;
 
 public class ArtefactObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private BattleArtefact _artefactDefinition;
+    public BattleArtefact ArtefactDefinition { get; set; }
     [SerializeField] private GameObject _tooltipPrefab;
     [SerializeField] private float _tooltipDelay = 0.5f;
 
@@ -51,9 +51,9 @@ public class ArtefactObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             var descriptionText = _tooltipInstance.transform.Find("DescriptionText").GetComponent<TMP_Text>();
             var itemImage = _tooltipInstance.transform.Find("ItemImage").GetComponent<Image>();
 
-            nameText.text = _artefactDefinition.Name;
-            descriptionText.text = _artefactDefinition.Description;
-            itemImage.sprite = _artefactDefinition.Item;
+            nameText.text = ArtefactDefinition.Name;
+            descriptionText.text = ArtefactDefinition.Description;
+            itemImage.sprite = ArtefactDefinition.Item;
         }
     }
 }

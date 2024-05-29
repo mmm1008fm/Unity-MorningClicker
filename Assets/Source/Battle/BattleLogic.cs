@@ -22,6 +22,7 @@ public class BattleLogic : MonoBehaviour
     [SerializeField] private RectTransform _enemiesParent;
     [SerializeField] private RectTransform _spawnPos;
     [SerializeField] private BattleResultWindow _battleResultWindow;
+    [SerializeField] private int _armorCost;
 
     private List<GameObject> _enemies = new List<GameObject>();
     private bool _isEnd;
@@ -93,7 +94,24 @@ public class BattleLogic : MonoBehaviour
             }
 
             await UniTask.Delay(1000);
+
             PlayerHealth -= EnemyAttack;
+            
+            if (Random.Range(0, 100) <= Rage * 100)
+            {
+                ResourceBank.Instance.Armor -= EnemyAttack;
+                ResourceBank.Instance.ArmorCost -= _armorCost * EnemyAttack;
+
+                if (ResourceBank.Instance.Armor < 0)
+                {
+                    ResourceBank.Instance.Armor = 0;
+                }
+
+                if (ResourceBank.Instance.ArmorCost < _armorCost)
+                {
+                    ResourceBank.Instance.ArmorCost = _armorCost;
+                }
+            }
         }
     }
 

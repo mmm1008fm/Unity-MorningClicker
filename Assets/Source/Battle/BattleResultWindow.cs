@@ -20,6 +20,8 @@ public class BattleResultWindow : MonoBehaviour
 
     public void SetWin(BattleArtefact winArtefact, string description = "Вы одержали победу над этим врагом. Поздравляю!")
     {
+        _artefactObject.GetComponent<ArtefactObject>().ArtefactDefinition = winArtefact;
+        
         _title.text = "Победа!";
         _description.text = description;
         _artefactObject.GetComponent<Image>().sprite = winArtefact.Item;
