@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Content/Scenes/Shop.unity
     guid: 396a0199c7c988d478463bffc993e6ba
   - enabled: 1
+    path: Assets/Content/Scenes/Tutor.unity
+    guid: a0d418d7f52c3654296c212e52ec48db
+  - enabled: 1
     path: Assets/Content/Scenes/WorldMap.unity
     guid: 927f0f566746766428ddd6e9ac8aa3df
   - enabled: 1
