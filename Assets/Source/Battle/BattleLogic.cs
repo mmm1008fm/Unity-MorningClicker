@@ -62,6 +62,11 @@ public class BattleLogic : MonoBehaviour
 
     private void Update()
     {
+        if (_isEnd)
+        {
+            return;
+        }
+
         _rageBar.fillAmount = Rage;
         _playerHealthBar.fillAmount = (float)PlayerHealth / PlayerInitHealth;
         _enemyHealthBar.fillAmount = (float)EnemyHealth / EnemyInitHealth;
@@ -114,7 +119,6 @@ public class BattleLogic : MonoBehaviour
     private void Win()
     {
         BrefingInfo brefingInfo = BrefingTransfer.Info;
-        Debug.Log("Win");
         _isEnd = true;
         _battleResultWindow.SetWin(brefingInfo.ActualArtefact,
             $"Вы одержали победу над врагом: {brefingInfo.Location.Description}");
@@ -123,7 +127,6 @@ public class BattleLogic : MonoBehaviour
     private void Defeat()
     {
         BrefingInfo brefingInfo = BrefingTransfer.Info;
-        Debug.Log("Defeat");
         _isEnd = true;
         _battleResultWindow.SetLose($"Вы проиграли врагу: {brefingInfo.Location.Description}");
     }

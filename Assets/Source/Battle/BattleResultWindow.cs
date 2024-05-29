@@ -25,6 +25,30 @@ public class BattleResultWindow : MonoBehaviour
         _artefactObject.GetComponent<Image>().sprite = winArtefact.Item;
         gameObject.SetActive(true);
         _artefactObject.SetActive(true);
+
+        switch (winArtefact.Name)
+        {
+            case "Шляпа пугала":
+                ResourceBank.Instance.ScarecrowHat = true;
+                break;
+            case "Грааль из божественного металла":
+                ResourceBank.Instance.HolyCup = true;
+                break;
+            case "Кусок вулканической породы, все еще горячий":
+                ResourceBank.Instance.LavaStoneArtefact = true;
+                break;
+            case "Сердце леса":
+                ResourceBank.Instance.HeartOfForestArtefact = true;
+                break;
+            case "Свиток запретной магии":
+                ResourceBank.Instance.MagicScrollArtefact = true;
+                break;
+            default:
+                throw new System.Exception("Неизвестный артефакт. Срочно измените проверку по названием выше");
+                // Название должно совпадать с названиями в ScriptableObject
+        }
+
+        ResourceBank.Instance.Save(ResourceBank.Instance);
     }
 
     public void SetLose(string description = "Вы потерпели поражение. Попробуйте еще раз.")
