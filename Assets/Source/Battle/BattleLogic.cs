@@ -21,8 +21,10 @@ public class BattleLogic : MonoBehaviour
     [SerializeField] private float _rageRecharge;
     [SerializeField] private RectTransform _enemiesParent;
     [SerializeField] private RectTransform _spawnPos;
+    [SerializeField] private BattleResultWindow _battleResultWindow;
 
     private List<GameObject> _enemies = new List<GameObject>();
+    private bool _isEnd;
 
     private void Awake()
     {
@@ -75,6 +77,16 @@ public class BattleLogic : MonoBehaviour
     {
         while (Application.isPlaying)
         {
+            if (PlayerHealth <= 0)
+            {
+                Defeat();
+            }
+
+            if (_isEnd)
+            {
+                return;
+            }
+
             await UniTask.Delay(1000);
             PlayerHealth -= EnemyAttack;
         }
@@ -84,8 +96,35 @@ public class BattleLogic : MonoBehaviour
     {
         while (Application.isPlaying)
         {
+            if (EnemyHealth <= 0)
+            {
+                Win();
+            }
+
+            if (_isEnd)
+            {
+                return;
+            }
+
             await UniTask.Delay(1000 - (int)(Rage * 500));
             EnemyHealth -= PlayerAttack;
         }
+    }
+
+    private void Win()
+    {
+        BrefingInfo brefingInfo = BrefingTransfer.Info;
+        Debug.Log("Win");
+        _isEnd = true;
+        _battleResultWindow.SetWin(brefingInfo.ActualArtefact,
+            $"Вы одержали победу над врагом: {brefingInfo.Location.Description}");
+    }
+
+    private void Defeat()
+    {
+        BrefingInfo brefingInfo = BrefingTransfer.Info;
+        Debug.Log("Defeat");
+        _isEnd = true;
+        _battleResultWindow.SetLose($"Вы проиграли врагу: {brefingInfo.Location.Description}");
     }
 }
