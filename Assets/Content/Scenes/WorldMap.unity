@@ -369,18 +369,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _action: 1
+  _action: 6
   _sceneName: Battle
   _url: 
   _brefingInfo:
     <Location>k__BackingField:
-      <Background>k__BackingField: {fileID: 0}
-      <Name>k__BackingField: 
-      <Description>k__BackingField: 
-    <EnemyTypePrefabs>k__BackingField: []
-    <EnemyArmor>k__BackingField: 0
-    <EnemyWarriors>k__BackingField: 0
-  _brefingWindow: {fileID: 0}
+      <Background>k__BackingField: {fileID: 21300000, guid: 76bea18484bfaba4281e6b7d588f316d, type: 3}
+      <Name>k__BackingField: "\u041E\u0431\u043B\u0430\u0447\u043D\u043E\u0435 \u043A\u043E\u0440\u043E\u043B\u0435\u0432\u0441\u0442\u0432\u043E
+        \u0430\u043D\u0433\u0435\u043B\u043E\u0432, \u043F\u043E\u0433\u0440\u044F\u0437\u0448\u0438\u0445
+        \u0432 \u0433\u0440\u0435\u0445\u0430\u0445"
+      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 500 \u0445\u043F
+        \u0438 20 \u0443\u0440\u043E\u043D"
+    <EnemyTypePrefabs>k__BackingField:
+    - {fileID: 3828126894368542751, guid: 46f0487e2bf513c46a43e2d907ef2e5f, type: 3}
+    - {fileID: 6590772912851666801, guid: 08fa5f4ecddd0b442801d575c2e1630a, type: 3}
+    <EnemyArmor>k__BackingField: 20000
+    <EnemyWarriors>k__BackingField: 250
+  _brefingWindow: {fileID: 576159545}
 --- !u!114 &34834615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4824,7 +4829,7 @@ GameObject:
   - component: {fileID: 1101045627}
   - component: {fileID: 1101045626}
   m_Layer: 5
-  m_Name: Enemy4
+  m_Name: Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4862,18 +4867,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _action: 1
+  _action: 6
   _sceneName: Battle
   _url: 
   _brefingInfo:
     <Location>k__BackingField:
-      <Background>k__BackingField: {fileID: 0}
-      <Name>k__BackingField: 
-      <Description>k__BackingField: 
-    <EnemyTypePrefabs>k__BackingField: []
-    <EnemyArmor>k__BackingField: 0
-    <EnemyWarriors>k__BackingField: 0
-  _brefingWindow: {fileID: 0}
+      <Background>k__BackingField: {fileID: 21300000, guid: 653f272fd2506b447ada297231968bfa, type: 3}
+      <Name>k__BackingField: "\u041E\u0441\u0442\u0440\u043E\u0432 \u043C\u0430\u0433\u0438\u0438
+        \u043E\u0433\u043D\u044F \u0441\u043E \u0437\u043B\u043E\u0431\u043D\u044B\u043C\u044B\u0438
+        \u043B\u0430\u0432\u043E\u0432\u044B\u043C\u0438 \u0433\u043E\u043B\u0435\u043C\u0430\u043C\u0438"
+      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 1000 \u0445\u043F
+        \u0438 50 \u0443\u0440\u043E\u043D"
+    <EnemyTypePrefabs>k__BackingField:
+    - {fileID: 4064472929817755106, guid: 8ebf7dc505027a74daffc8fe8f5d62ce, type: 3}
+    - {fileID: 7025152442407593483, guid: fec6f2a26c9ebda4ba0632f21088f124, type: 3}
+    - {fileID: 1984649474259530682, guid: 7f20101381e68264fa90cc6f8fda8b1b, type: 3}
+    <EnemyArmor>k__BackingField: 1000
+    <EnemyWarriors>k__BackingField: 50
+  _brefingWindow: {fileID: 576159545}
 --- !u!114 &1101045627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6398,7 +6409,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -24.04693}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7402,8 +7413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.085, y: 5.332}
-  m_SizeDelta: {x: 119.554, y: 36.023}
+  m_AnchoredPosition: {x: -9.5, y: -6.842}
+  m_SizeDelta: {x: 99.918, y: 13.684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812192766
 MonoBehaviour:
@@ -8993,7 +9004,7 @@ GameObject:
   - component: {fileID: 2662890653834547594}
   - component: {fileID: 9043804333437951060}
   m_Layer: 5
-  m_Name: Enemy2
+  m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9061,7 +9072,7 @@ GameObject:
   - component: {fileID: 1737977646984063782}
   - component: {fileID: 8474418195143987367}
   m_Layer: 5
-  m_Name: Enemy3
+  m_Name: Enemy4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9754,18 +9765,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _action: 1
+  _action: 6
   _sceneName: Battle
   _url: 
   _brefingInfo:
     <Location>k__BackingField:
-      <Background>k__BackingField: {fileID: 0}
-      <Name>k__BackingField: 
-      <Description>k__BackingField: 
-    <EnemyTypePrefabs>k__BackingField: []
-    <EnemyArmor>k__BackingField: 0
-    <EnemyWarriors>k__BackingField: 0
-  _brefingWindow: {fileID: 0}
+      <Background>k__BackingField: {fileID: 21300000, guid: 9f8b6eb8d47323b4caf04df5e381c83c, type: 3}
+      <Name>k__BackingField: "\u041E\u0441\u0442\u0440\u043E\u0432 \u043F\u0440\u0435\u0432\u0435\u0440\u0436\u0435\u043D\u0446\u0435\u0432
+        \u0442\u0435\u043C\u043D\u043E\u0439 \u043C\u0430\u0433\u0438\u0438"
+      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 5000 \u0445\u043F
+        \u0438 100 \u0443\u0440\u043E\u043D"
+    <EnemyTypePrefabs>k__BackingField:
+    - {fileID: 1259217508362929412, guid: 69e3c05929d987e48b37a35c1869e928, type: 3}
+    - {fileID: 4521071698725039758, guid: ae0db44568a1184429cc8acc9a18aca3, type: 3}
+    <EnemyArmor>k__BackingField: 5000
+    <EnemyWarriors>k__BackingField: 100
+  _brefingWindow: {fileID: 576159545}
 --- !u!224 &8476422653596786255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9780,10 +9795,10 @@ RectTransform:
   m_Children:
   - {fileID: 307589094}
   - {fileID: 236192956399450243}
-  - {fileID: 3183422246129562186}
   - {fileID: 9043804333437951058}
-  - {fileID: 5431084413921152460}
+  - {fileID: 3183422246129562186}
   - {fileID: 1101045625}
+  - {fileID: 5431084413921152460}
   - {fileID: 34834613}
   - {fileID: 298065940}
   - {fileID: 2118421294}
@@ -10034,18 +10049,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _action: 1
+  _action: 6
   _sceneName: Battle
   _url: 
   _brefingInfo:
     <Location>k__BackingField:
-      <Background>k__BackingField: {fileID: 0}
-      <Name>k__BackingField: 
-      <Description>k__BackingField: 
-    <EnemyTypePrefabs>k__BackingField: []
-    <EnemyArmor>k__BackingField: 0
-    <EnemyWarriors>k__BackingField: 0
-  _brefingWindow: {fileID: 0}
+      <Background>k__BackingField: {fileID: 21300000, guid: 373aaecfb25d5bd419ae55aa09ef46d4, type: 3}
+      <Name>k__BackingField: "\u041B\u0435\u0441 \u0437\u043B\u043E\u0431\u043D\u044B\u0445
+        \u0434\u0440\u0443\u0438\u0434\u043E\u0432"
+      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 100 \u0445\u043F
+        \u0438 5 \u0441\u0438\u043B\u044B"
+    <EnemyTypePrefabs>k__BackingField:
+    - {fileID: 1885309937920076628, guid: 02b3ee954b2182d48bf288cb9f7461db, type: 3}
+    - {fileID: 4048618637064004052, guid: faea1acae5b9092468240db6c8e97bc4, type: 3}
+    - {fileID: 8427884213502514042, guid: 3fafd864c7fbed74b8adc9498b09d8a9, type: 3}
+    <EnemyArmor>k__BackingField: 100
+    <EnemyWarriors>k__BackingField: 5
+  _brefingWindow: {fileID: 576159545}
 --- !u!1 &9093844593462195563
 GameObject:
   m_ObjectHideFlags: 0
@@ -10060,7 +10080,7 @@ GameObject:
   - component: {fileID: 8656829732194440857}
   - component: {fileID: 9093844593462195565}
   m_Layer: 5
-  m_Name: Enemy1
+  m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10084,13 +10104,14 @@ MonoBehaviour:
   _brefingInfo:
     <Location>k__BackingField:
       <Background>k__BackingField: {fileID: 21300000, guid: 5bbcd81daf03ea84fa2b638e2a7dc29a, type: 3}
-      <Name>k__BackingField: "\u041F\u0443\u0441\u0442\u044B\u043D\u044F"
-      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 10 \u0445\u043F
-        \u0438 1 \u0443\u0440\u043E\u043D"
+      <Name>k__BackingField: "\u041F\u0440\u043E\u043A\u043B\u044F\u0442\u043E\u0435
+        \u043F\u0448\u0435\u043D\u0438\u0447\u043D\u043E\u0435 \u043F\u043E\u043B\u0435"
+      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 500 \u0445\u043F
+        \u0438 20 \u0443\u0440\u043E\u043D"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 4316502951820976614, guid: e7a930eee0cb0e6459aed5ef4689a387, type: 3}
-    <EnemyArmor>k__BackingField: 10
-    <EnemyWarriors>k__BackingField: 1
+    <EnemyArmor>k__BackingField: 500
+    <EnemyWarriors>k__BackingField: 20
   _brefingWindow: {fileID: 576159545}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
