@@ -15,13 +15,11 @@ public class ArtefactObject : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Enter");
         _showTooltipCoroutine = StartCoroutine(ShowTooltipWithDelay());
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Exit");
         if (_showTooltipCoroutine != null)
         {
             StopCoroutine(_showTooltipCoroutine);
