@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2024 alfa 0.0.1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -391,8 +391,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -416,8 +416,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30.8
+  m_fontSizeBase: 30.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -603,6 +603,16 @@ MonoBehaviour:
   _action: 1
   _sceneName: Settings
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &197894908
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,8 +797,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -812,8 +822,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30.8
+  m_fontSizeBase: 30.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -822,7 +832,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -996,8 +1006,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1021,8 +1031,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30.8
+  m_fontSizeBase: 30.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1031,7 +1041,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1265,6 +1275,16 @@ MonoBehaviour:
   _action: 1
   _sceneName: Main
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &1244129054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,6 +1421,16 @@ MonoBehaviour:
   _action: 5
   _sceneName: 
   _url: https://morning-tea-studio.itch.io/tapestry-clicker-a-medieval-tale-beta
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &1331790430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1568,16 @@ MonoBehaviour:
   _action: 3
   _sceneName: 
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &1457988807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,8 +1637,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1622,8 +1662,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30.8
+  m_fontSizeBase: 30.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1632,7 +1672,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1809,6 +1849,16 @@ MonoBehaviour:
   _action: 0
   _sceneName: 
   _url: 
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!1 &1901926469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,6 +2072,16 @@ MonoBehaviour:
   _action: 5
   _sceneName: 
   _url: https://github.com/g4sasha/Unity-MorningClicker
+  _brefingInfo:
+    <Location>k__BackingField:
+      <Background>k__BackingField: {fileID: 0}
+      <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    <EnemyTypePrefabs>k__BackingField: []
+    <EnemyArmor>k__BackingField: 0
+    <EnemyWarriors>k__BackingField: 0
+    <ActualArtefact>k__BackingField: {fileID: 0}
+  _brefingWindow: {fileID: 0}
 --- !u!81 &1218635177005927127
 AudioListener:
   m_ObjectHideFlags: 0

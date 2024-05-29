@@ -22,7 +22,7 @@ public class ResourceBank : MonoBehaviour
         }
     }
 
-    private int _score = 0;
+    private int _score = 100000000;
 
     public int ScorePerClick = 1;
     public int ScorePerSecond = 0;
@@ -34,6 +34,12 @@ public class ResourceBank : MonoBehaviour
     public int ArmorCost = 50;
     public float SoundVolume = 1f;
     public float MusicVolume = 1f;
+
+    public bool MagicScrollArtefact = false;
+    public bool LavaStoneArtefact = false;
+    public bool HeartOfForestArtefact = false;
+    public bool ScarecrowHat = false;
+    public bool HolyCup = false;
 
     [SerializeField] private int _autoSaveInterval;
 
@@ -74,11 +80,16 @@ public class ResourceBank : MonoBehaviour
         PlayerPrefs.SetInt("Warriors", bank.Warriors);
         PlayerPrefs.SetInt("ScorePerClickCost", bank.ScorePerClickCost);
         PlayerPrefs.SetInt("ScorePerSecondCost", bank.ScorePerSecondCost);
-        PlayerPrefs.SetFloat("Armor", bank.Armor);
+        PlayerPrefs.SetInt("Armor", bank.Armor);
         PlayerPrefs.SetInt("WarriorCost", bank.WarriorCost);
         PlayerPrefs.SetInt("ArmorCost", bank.ArmorCost);
         PlayerPrefs.SetFloat("MusicVolume", bank.MusicVolume);
         PlayerPrefs.SetFloat("SoundVolume", bank.SoundVolume);
+        PlayerPrefs.SetInt("MagicScrollArtefact", bank.MagicScrollArtefact ? 1 : 0);
+        PlayerPrefs.SetInt("LavaStoneArtefact", bank.LavaStoneArtefact ? 1 : 0);
+        PlayerPrefs.SetInt("HeartOfForestArtefact", bank.HeartOfForestArtefact ? 1 : 0);
+        PlayerPrefs.SetInt("ScarecrowHat", bank.ScarecrowHat ? 1 : 0);
+        PlayerPrefs.SetInt("HolyCup", bank.HolyCup ? 1 : 0);
     }
 
     public void Load()
@@ -99,6 +110,11 @@ public class ResourceBank : MonoBehaviour
         Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", Instance.ArmorCost);
         Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", Instance.MusicVolume);
         Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", Instance.SoundVolume);
+        Instance.MagicScrollArtefact = PlayerPrefs.GetInt("MagicScrollArtefact", Instance.MagicScrollArtefact ? 1 : 0) == 1;
+        Instance.LavaStoneArtefact = PlayerPrefs.GetInt("LavaStoneArtefact", Instance.LavaStoneArtefact ? 1 : 0) == 1;
+        Instance.HeartOfForestArtefact = PlayerPrefs.GetInt("HeartOfForestArtefact", Instance.HeartOfForestArtefact ? 1 : 0) == 1;
+        Instance.ScarecrowHat = PlayerPrefs.GetInt("ScarecrowHat", Instance.ScarecrowHat ? 1 : 0) == 1;
+        Instance.HolyCup = PlayerPrefs.GetInt("HolyCup", Instance.HolyCup ? 1 : 0) == 1;
     }
 
     public void Reset()

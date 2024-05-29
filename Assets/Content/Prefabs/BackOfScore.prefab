@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0417\u043E\u043B\u043E\u0442\u043E: 0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 70ed22538f748cd4eb5231c51fd7ba1b, type: 2}
-  m_sharedMaterial: {fileID: -7405809194595379773, guid: 70ed22538f748cd4eb5231c51fd7ba1b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
