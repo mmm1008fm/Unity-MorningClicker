@@ -140,19 +140,29 @@ public class BattleLogic : MonoBehaviour
 
     private void Win()
     {
+        if (_isEnd)
+        {
+            return;
+        }
+        
+        _isEnd = true;
         BrefingInfo brefingInfo = BrefingTransfer.Info;
         _tmpAward1.SetActive(true);
         _tmpAward2.SetActive(true);
-        _isEnd = true;
         _battleResultWindow.SetWin(brefingInfo.ActualArtefact,
             $"Вы одержали победу над врагом! Мы понесли потери в {_armorLooses} брони");
     }
 
     private void Defeat()
     {
+        if (_isEnd)
+        {
+            return;
+        }
+
+        _isEnd = true;
         _tmpAward1.SetActive(false);
         _tmpAward2.SetActive(false);
-        _isEnd = true;
         _battleResultWindow.SetLose($"Наши войска приняли решение отступить. Мы потеряли {_armorLooses} брони...");
     }
 }
