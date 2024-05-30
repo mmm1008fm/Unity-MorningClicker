@@ -6,12 +6,23 @@ public class ShopManager : MonoBehaviour
 	public event Action<ShopItem> OnItemBought;
 	[SerializeField] private ShopWindow _shop;
 	private ShopParameters _currentParameters;
+	private AudioSource _shopSound;
 
 	private void Awake()
 	{
 		_shop.CloseButton.onClick.AddListener(CloseShop);
 		_shop.BuyButton.onClick.AddListener(() => Buy(_currentParameters.Item));
 		_shop.Window.SetActive(false);
+	}
+
+	private void Start()
+	{
+		_shopSound = SoundManager.Instance.Play("shop");
+	}
+
+	private void OnDestroy()
+	{
+		_shopSound.Stop();
 	}
 
 	private void Update()

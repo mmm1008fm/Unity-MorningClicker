@@ -29,6 +29,7 @@ public class BattleLogic : MonoBehaviour
     private List<GameObject> _enemies = new List<GameObject>();
     public bool IsEnd;
     private int _armorLooses;
+    private AudioSource _screams;
 
     private void Awake()
     {
@@ -62,6 +63,7 @@ public class BattleLogic : MonoBehaviour
     {
         PlayerAttackRoutine().Forget();
         EnemyAttackRoutine().Forget();
+        _screams = SoundManager.Instance.Play("battle");
     }
 
     private void Update()
@@ -155,6 +157,7 @@ public class BattleLogic : MonoBehaviour
         _battleResultWindow.SetWin(brefingInfo.ActualArtefact,
             $"Вы одержали победу над врагом! Мы понесли потери в {_armorLooses} брони");
         SoundManager.Instance.Play("win");
+        _screams.Stop();
     }
 
     private void Defeat()
@@ -169,5 +172,6 @@ public class BattleLogic : MonoBehaviour
         _tmpAward2.SetActive(false);
         _battleResultWindow.SetLose($"Наши войска приняли решение отступить. Мы потеряли {_armorLooses} брони...");
         SoundManager.Instance.Play("defeat");
+        _screams.Stop();
     }
 }

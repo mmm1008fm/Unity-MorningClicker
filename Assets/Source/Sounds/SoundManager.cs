@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void Play(string soundName)
+    public AudioSource Play(string soundName)
     {
         SoundSetupPair pair = null;
 
@@ -52,12 +52,13 @@ public class SoundManager : MonoBehaviour
         if (pair == null)
         {
             Debug.LogWarning("Не найден звук c названием: " + soundName + " в листе " + _sounds);
-            return;
+            return null;
         }
 
         var audioSource = GetAvailableAudioSource();
         audioSource.volume = pair.Volume * ResourceBank.Instance.SoundVolume;
         audioSource.PlayOneShot(pair.Sound[Random.Range(0, pair.Sound.Count)]);
+        return audioSource;
     }
 
     private AudioSource GetAvailableAudioSource()
