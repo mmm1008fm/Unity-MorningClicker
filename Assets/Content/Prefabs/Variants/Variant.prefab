@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825832da6549cf74f913c221a445f77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 1488742704057612236}
 --- !u!1 &3277340994561326951
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +202,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u0430\u0440\u0438\u0430\u043D\u0442"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f3fb88a4ca2d9fc44ad37eb79707de9c, type: 2}
-  m_sharedMaterial: {fileID: -132825939371940914, guid: f3fb88a4ca2d9fc44ad37eb79707de9c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
+  m_sharedMaterial: {fileID: 2507829736908607915, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -226,10 +227,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 66.3
   m_fontSizeBase: 60
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
