@@ -99,6 +99,8 @@ public class BattleLogic : MonoBehaviour
             await UniTask.Delay(1000);
 
             PlayerHealth -= EnemyAttack;
+
+            SoundManager.Instance.Play("sword");
             
             if (Random.Range(0, 100) <= Rage * 100)
             {
@@ -135,6 +137,7 @@ public class BattleLogic : MonoBehaviour
 
             await UniTask.Delay(1000 - (int)(Rage * 500));
             EnemyHealth -= PlayerAttack;
+            SoundManager.Instance.Play("sword");
         }
     }
 
@@ -151,6 +154,7 @@ public class BattleLogic : MonoBehaviour
         _tmpAward2.SetActive(true);
         _battleResultWindow.SetWin(brefingInfo.ActualArtefact,
             $"Вы одержали победу над врагом! Мы понесли потери в {_armorLooses} брони");
+        SoundManager.Instance.Play("win");
     }
 
     private void Defeat()
@@ -164,5 +168,6 @@ public class BattleLogic : MonoBehaviour
         _tmpAward1.SetActive(false);
         _tmpAward2.SetActive(false);
         _battleResultWindow.SetLose($"Наши войска приняли решение отступить. Мы потеряли {_armorLooses} брони...");
+        SoundManager.Instance.Play("defeat");
     }
 }

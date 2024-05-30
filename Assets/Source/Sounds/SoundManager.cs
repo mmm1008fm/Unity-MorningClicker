@@ -30,6 +30,8 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < _audioSourcePoolSize; i++)
         {
             var audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.loop = false;
+            audioSource.playOnAwake = false;
             _audioSourcePool.Add(audioSource);
         }
     }
