@@ -111,7 +111,7 @@ MonoBehaviour:
     Volume: 0.4
   - Key: new_kveste
     Sound:
-    - {fileID: 8300000, guid: d59016fd4ddc5f64b9890ad67182a927, type: 3}
+    - {fileID: 8300000, guid: 7b2f3b85442ae5443b365f1651173dbd, type: 3}
     Volume: 0.4
   - Key: battle
     Sound:
@@ -125,7 +125,7 @@ MonoBehaviour:
     Sound:
     - {fileID: 8300000, guid: 6bc51873cb90dd84885b3fcd7a7102f6, type: 3}
     Volume: 0.15
-  _audioSourcePoolSize: 10
+  _audioSourcePoolSize: 64
 --- !u!82 &5803319809277192863
 AudioSource:
   m_ObjectHideFlags: 0

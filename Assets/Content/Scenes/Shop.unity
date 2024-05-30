@@ -1942,7 +1942,7 @@ MonoBehaviour:
   <Name>k__BackingField: "\u041C\u0435\u043B\u044C\u043D\u0438\u0446\u0430"
   <Description>k__BackingField: "\u041F\u043E\u043B\u0443\u0447\u0430\u0439\u0442\u0435
     \u043F\u0440\u0438\u0431\u044B\u043B\u044C \u0440\u0430\u0437 \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443"
-  <PriceIncrease>k__BackingField: 20
+  <PriceIncrease>k__BackingField: 10
   <ShopManager>k__BackingField: {fileID: 1395527854}
 --- !u!95 &1955366140
 Animator:
@@ -2112,7 +2112,7 @@ MonoBehaviour:
     \u0432\u0430\u0448\u0435 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435, \u0431\u0435\u0437
     \u044D\u0442\u043E\u0433\u043E \u043D\u0430 \u043F\u043E\u043B\u0435 \u0431\u0438\u0442\u0432\u044B
     \u043D\u0438\u043A\u0443\u0434\u0430"
-  <PriceIncrease>k__BackingField: 10
+  <PriceIncrease>k__BackingField: 5
   <ShopManager>k__BackingField: {fileID: 1395527854}
 --- !u!95 &2096095912
 Animator:

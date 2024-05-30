@@ -32,7 +32,6 @@ public class SoundManager : MonoBehaviour
         if (_firstStart)
         {
             var a = Instance.PlayMusic("bgmusic");
-            a.loop = true;
             _firstStart = false;
             _musicSource = a;
         }
@@ -100,8 +99,10 @@ public class SoundManager : MonoBehaviour
         }
 
         var audioSource = GetAvailableAudioSource();
+        audioSource.clip = pair.Sound[Random.Range(0, pair.Sound.Count)];
         audioSource.volume = pair.Volume * ResourceBank.Instance.MusicVolume;
-        audioSource.PlayOneShot(pair.Sound[Random.Range(0, pair.Sound.Count)]);
+        audioSource.loop = true; // Включаем зацикливание
+        audioSource.Play();
         return audioSource;
     }
 

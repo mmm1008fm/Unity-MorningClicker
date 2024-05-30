@@ -6,6 +6,7 @@ public class SettingsSceneView : MonoBehaviour
 {
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _soundSlider;
+    [SerializeField] private Toggle _toggle;
 
     private void Awake()
     {
@@ -16,6 +17,15 @@ public class SettingsSceneView : MonoBehaviour
     private void Start()
     {
         UpdateSliders();
+        
+        if (ResourceBank.Instance.ВесёлыйРежим)
+        {
+            _toggle.isOn = true;
+        }
+        else
+        {
+            _toggle.isOn = false;
+        }
     }
 
     private void Update()
@@ -23,6 +33,15 @@ public class SettingsSceneView : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
+        }
+
+        if (_toggle.isOn)
+        {
+            ResourceBank.Instance.ВесёлыйРежим = true;
+        }
+        else
+        {
+            ResourceBank.Instance.ВесёлыйРежим = false;
         }
     }
 
