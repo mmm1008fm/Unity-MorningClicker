@@ -704,6 +704,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 94004047176546502, guid: f8b68c11dc3c12f42b6475a62fb1adbf, type: 3}
+      propertyPath: m_margin.y
+      value: 78.49193
+      objectReference: {fileID: 0}
+    - target: {fileID: 94004047176546502, guid: f8b68c11dc3c12f42b6475a62fb1adbf, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: d565c614561b9814b85e4cce9c23db8a, type: 2}
