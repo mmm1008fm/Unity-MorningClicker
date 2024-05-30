@@ -378,8 +378,8 @@ MonoBehaviour:
       <Name>k__BackingField: "\u041E\u0431\u043B\u0430\u0447\u043D\u043E\u0435 \u043A\u043E\u0440\u043E\u043B\u0435\u0432\u0441\u0442\u0432\u043E
         \u0430\u043D\u0433\u0435\u043B\u043E\u0432, \u043F\u043E\u0433\u0440\u044F\u0437\u0448\u0438\u0445
         \u0432 \u0433\u0440\u0435\u0445\u0430\u0445"
-      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 20000
-        \u0445\u043F \u0438 250 \u0443\u0440\u043E\u043D\u0430"
+      <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
+        20000 \u0431\u0440\u043E\u043D\u0438 \u0438 250 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 3828126894368542751, guid: 46f0487e2bf513c46a43e2d907ef2e5f, type: 3}
     - {fileID: 6590772912851666801, guid: 08fa5f4ecddd0b442801d575c2e1630a, type: 3}
@@ -5011,8 +5011,8 @@ MonoBehaviour:
       <Name>k__BackingField: "\u041E\u0441\u0442\u0440\u043E\u0432 \u043C\u0430\u0433\u0438\u0438
         \u043E\u0433\u043D\u044F \u0441\u043E \u0437\u043B\u043E\u0431\u043D\u044B\u043C\u044B\u0438
         \u043B\u0430\u0432\u043E\u0432\u044B\u043C\u0438 \u0433\u043E\u043B\u0435\u043C\u0430\u043C\u0438"
-      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 1000 \u0445\u043F
-        \u0438 50 \u0443\u0440\u043E\u043D"
+      <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
+        1000 \u0431\u0440\u043E\u043D\u0438 \u0438 50 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 4064472929817755106, guid: 8ebf7dc505027a74daffc8fe8f5d62ce, type: 3}
     - {fileID: 7025152442407593483, guid: fec6f2a26c9ebda4ba0632f21088f124, type: 3}
@@ -9788,8 +9788,8 @@ MonoBehaviour:
       <Background>k__BackingField: {fileID: 21300000, guid: 5cfdab751a60df6418a8e4cbef5877d9, type: 3}
       <Name>k__BackingField: "\u041E\u0441\u0442\u0440\u043E\u0432 \u043F\u0440\u0435\u0432\u0435\u0440\u0436\u0435\u043D\u0446\u0435\u0432
         \u0442\u0435\u043C\u043D\u043E\u0439 \u043C\u0430\u0433\u0438\u0438"
-      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 5000 \u0445\u043F
-        \u0438 100 \u0443\u0440\u043E\u043D"
+      <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
+        5000 \u0431\u0440\u043E\u043D\u0438 \u0438 100 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 1259217508362929412, guid: 69e3c05929d987e48b37a35c1869e928, type: 3}
     - {fileID: 4521071698725039758, guid: ae0db44568a1184429cc8acc9a18aca3, type: 3}
@@ -10074,8 +10074,8 @@ MonoBehaviour:
       <Background>k__BackingField: {fileID: 21300000, guid: 373aaecfb25d5bd419ae55aa09ef46d4, type: 3}
       <Name>k__BackingField: "\u041B\u0435\u0441 \u0437\u043B\u043E\u0431\u043D\u044B\u0445
         \u0434\u0440\u0443\u0438\u0434\u043E\u0432"
-      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 100 \u0445\u043F
-        \u0438 5 \u0441\u0438\u043B\u044B"
+      <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
+        100 \u0431\u0440\u043E\u043D\u0438 \u0438 5 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 1885309937920076628, guid: 02b3ee954b2182d48bf288cb9f7461db, type: 3}
     - {fileID: 4048618637064004052, guid: faea1acae5b9092468240db6c8e97bc4, type: 3}
@@ -10124,8 +10124,8 @@ MonoBehaviour:
       <Background>k__BackingField: {fileID: 21300000, guid: 5bbcd81daf03ea84fa2b638e2a7dc29a, type: 3}
       <Name>k__BackingField: "\u041F\u0440\u043E\u043A\u043B\u044F\u0442\u043E\u0435
         \u043F\u0448\u0435\u043D\u0438\u0447\u043D\u043E\u0435 \u043F\u043E\u043B\u0435"
-      <Description>k__BackingField: "\u0423 \u0432\u0440\u0430\u0433\u0430 500 \u0445\u043F
-        \u0438 20 \u0443\u0440\u043E\u043D"
+      <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
+        500 \u0431\u0440\u043E\u043D\u0438 \u0438 20 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 4316502951820976614, guid: e7a930eee0cb0e6459aed5ef4689a387, type: 3}
     <EnemyArmor>k__BackingField: 500
