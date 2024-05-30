@@ -1,6 +1,8 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -29,7 +31,7 @@ public class ResourceBank : MonoBehaviour
     public int Warriors = 0;
     public int Armor = 0;
     public int ScorePerClickCost = 50;
-    public int ScorePerSecondCost = 20;
+    public int ScorePerSecondCost = 10;
     public int WarriorCost = 50;
     public int ArmorCost = 10;
     public float SoundVolume = 0.5f;
@@ -131,34 +133,30 @@ public class ResourceBank : MonoBehaviour
             return;
         }
 
-        Instance.Score = PlayerPrefs.GetInt("Score", Instance.Score);
-        Instance.ScorePerClick = PlayerPrefs.GetInt("ScorePerClick", Instance.ScorePerClick);
-        Instance.ScorePerSecond = PlayerPrefs.GetInt("ScorePerSecond", Instance.ScorePerSecond);
-        Instance.Warriors = PlayerPrefs.GetInt("Warriors", Instance.Warriors);
-        Instance.ScorePerClickCost = PlayerPrefs.GetInt("ScorePerClickCost", Instance.ScorePerClickCost);
-        Instance.ScorePerSecondCost = PlayerPrefs.GetInt("ScorePerSecondCost", Instance.ScorePerSecondCost);
-        Instance.Armor = PlayerPrefs.GetInt("Armor", Instance.Armor);
-        Instance.WarriorCost = PlayerPrefs.GetInt("WarriorCost", Instance.WarriorCost);
-        Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", Instance.ArmorCost);
-        Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.1f);
-        Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", 0.5f);
-        Instance.MagicScrollArtefact = PlayerPrefs.GetInt("MagicScrollArtefact", Instance.MagicScrollArtefact ? 1 : 0) == 1;
-        Instance.LavaStoneArtefact = PlayerPrefs.GetInt("LavaStoneArtefact", Instance.LavaStoneArtefact ? 1 : 0) == 1;
-        Instance.HeartOfForestArtefact = PlayerPrefs.GetInt("HeartOfForestArtefact", Instance.HeartOfForestArtefact ? 1 : 0) == 1;
-        Instance.ScarecrowHat = PlayerPrefs.GetInt("ScarecrowHat", Instance.ScarecrowHat ? 1 : 0) == 1;
-        Instance.HolyCup = PlayerPrefs.GetInt("HolyCup", Instance.HolyCup ? 1 : 0) == 1;
-        Instance.FirstTime = PlayerPrefs.GetInt("FirstTime", Instance.FirstTime ? 1 : 0) == 1;
-        Instance.ВесёлыйРежим = PlayerPrefs.GetInt("ВесёлыйРежим", Instance.ВесёлыйРежим ? 1 : 0) == 1;
+        Instance.Score = PlayerPrefs.GetInt("Score", 0);
+        Instance.ScorePerClick = PlayerPrefs.GetInt("ScorePerClick", 1);
+        Instance.ScorePerSecond = PlayerPrefs.GetInt("ScorePerSecond", 0);
+        Instance.Warriors = PlayerPrefs.GetInt("Warriors", 0);
+        Instance.ScorePerClickCost = PlayerPrefs.GetInt("ScorePerClickCost", 50);
+        Instance.ScorePerSecondCost = PlayerPrefs.GetInt("ScorePerSecondCost", 10);
+        Instance.Armor = PlayerPrefs.GetInt("Armor", 0);
+        Instance.WarriorCost = PlayerPrefs.GetInt("WarriorCost", 50);
+        Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", 10);
+        Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.05f);
+        Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", 0.3f);
+        Instance.MagicScrollArtefact = PlayerPrefs.GetInt("MagicScrollArtefact") == 1;
+        Instance.LavaStoneArtefact = PlayerPrefs.GetInt("LavaStoneArtefact") == 1;
+        Instance.HeartOfForestArtefact = PlayerPrefs.GetInt("HeartOfForestArtefact") == 1;
+        Instance.ScarecrowHat = PlayerPrefs.GetInt("ScarecrowHat") == 1;
+        Instance.HolyCup = PlayerPrefs.GetInt("HolyCup") == 1;
+        Instance.FirstTime = PlayerPrefs.GetInt("FirstTime") == 1;
+        Instance.ВесёлыйРежим = PlayerPrefs.GetInt("ВесёлыйРежим") == 1;
     }
 
     public void Reset()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
-        #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-        #else
-            SceneSwitcher.QuitGame();
-        #endif
+        SceneManager.LoadScene("MainMenu");
     }
 }

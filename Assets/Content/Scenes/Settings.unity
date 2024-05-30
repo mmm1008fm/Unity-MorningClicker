@@ -2759,7 +2759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSlider: {fileID: 700891436}
   _soundSlider: {fileID: 1986865356}
-  _toggle: {fileID: 0}
+  _toggle: {fileID: 1871851999}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
