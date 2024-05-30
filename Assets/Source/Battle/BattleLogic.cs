@@ -27,7 +27,7 @@ public class BattleLogic : MonoBehaviour
     [SerializeField] private GameObject _tmpAward2;
 
     private List<GameObject> _enemies = new List<GameObject>();
-    private bool _isEnd;
+    public bool IsEnd;
     private int _armorLooses;
 
     private void Awake()
@@ -66,7 +66,7 @@ public class BattleLogic : MonoBehaviour
 
     private void Update()
     {
-        if (_isEnd)
+        if (IsEnd)
         {
             return;
         }
@@ -91,7 +91,7 @@ public class BattleLogic : MonoBehaviour
                 Defeat();
             }
 
-            if (_isEnd)
+            if (IsEnd)
             {
                 return;
             }
@@ -128,7 +128,7 @@ public class BattleLogic : MonoBehaviour
                 Win();
             }
 
-            if (_isEnd)
+            if (IsEnd)
             {
                 return;
             }
@@ -140,12 +140,12 @@ public class BattleLogic : MonoBehaviour
 
     private void Win()
     {
-        if (_isEnd)
+        if (IsEnd)
         {
             return;
         }
-        
-        _isEnd = true;
+
+        IsEnd = true;
         BrefingInfo brefingInfo = BrefingTransfer.Info;
         _tmpAward1.SetActive(true);
         _tmpAward2.SetActive(true);
@@ -155,12 +155,12 @@ public class BattleLogic : MonoBehaviour
 
     private void Defeat()
     {
-        if (_isEnd)
+        if (IsEnd)
         {
             return;
         }
 
-        _isEnd = true;
+        IsEnd = true;
         _tmpAward1.SetActive(false);
         _tmpAward2.SetActive(false);
         _battleResultWindow.SetLose($"Наши войска приняли решение отступить. Мы потеряли {_armorLooses} брони...");
