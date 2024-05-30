@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private int _audioSourcePoolSize = 10;
     private List<AudioSource> _audioSourcePool;
     private int _currentAudioSourceIndex = 0;
+    private bool _firstStart;
+    private AudioSource _musicSource;
 
     private void Awake()
     {
@@ -17,13 +19,28 @@ public class SoundManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             InitializeAudioSourcePool();
-            var a = Instance.Play("bgmusic");
-            a.loop = true;
+            _firstStart = true;
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        if (_firstStart)
+        {
+            var a = Instance.PlayMusic("bgmusic");
+            a.loop = true;
+            _firstStart = false;
+            _musicSource = a;
+        }
+    }
+
+    private void Update()
+    {
+        _musicSource.volume = ResourceBank.Instance.MusicVolume;
     }
 
     private void InitializeAudioSourcePool()
@@ -59,6 +76,31 @@ public class SoundManager : MonoBehaviour
 
         var audioSource = GetAvailableAudioSource();
         audioSource.volume = pair.Volume * ResourceBank.Instance.SoundVolume;
+        audioSource.PlayOneShot(pair.Sound[Random.Range(0, pair.Sound.Count)]);
+        return audioSource;
+    }
+
+    public AudioSource PlayMusic(string soundName)
+    {
+        SoundSetupPair pair = null;
+
+        foreach (var sound in _sounds)
+        {
+            if (sound.Key == soundName)
+            {
+                pair = sound;
+                break;
+            }
+        }
+
+        if (pair == null)
+        {
+            Debug.LogWarning("Не найден звук c названием: " + soundName + " в листе " + _sounds);
+            return null;
+        }
+
+        var audioSource = GetAvailableAudioSource();
+        audioSource.volume = pair.Volume * ResourceBank.Instance.MusicVolume;
         audioSource.PlayOneShot(pair.Sound[Random.Range(0, pair.Sound.Count)]);
         return audioSource;
     }

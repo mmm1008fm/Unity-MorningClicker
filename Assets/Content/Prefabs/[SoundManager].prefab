@@ -123,7 +123,7 @@ MonoBehaviour:
     Volume: 0.25
   - Key: bgmusic
     Sound:
-    - {fileID: 8300000, guid: 78e815abd76677f43b6637653a34db17, type: 3}
+    - {fileID: 8300000, guid: 6bc51873cb90dd84885b3fcd7a7102f6, type: 3}
     Volume: 0.15
   _audioSourcePoolSize: 10
 --- !u!82 &5803319809277192863
