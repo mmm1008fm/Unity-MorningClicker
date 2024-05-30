@@ -54,14 +54,13 @@ public class Player : MonoBehaviour
         }
         else
         {
-            SoundManager.Instance.Play("new_kveste");
-
             if (ResourceBank.Instance.ВесёлыйРежим)
             {
                 if (_okokok)
                 {
                     Notification.Instance.SetActive(true);
                     _okokok = true;
+                    SoundManager.Instance.Play("pokupka");
                 }
             }
             else
@@ -70,6 +69,7 @@ public class Player : MonoBehaviour
                 {
                     Notification.Instance.SetActive(true);
                     _okokok = true;
+                    SoundManager.Instance.Play("new_kveste");
                 }
             }
         }
