@@ -34,7 +34,7 @@ public class BattleResultWindow : MonoBehaviour
             case "Шляпа пугала":
                 if (!ResourceBank.Instance.ScarecrowHat)
                 {
-                    ResourceBank.Instance.ScorePerSecond += 15;
+                    ResourceBank.Instance.ScorePerSecond += 50;
                 }
                 ResourceBank.Instance.ScarecrowHat = true;
                 break;
@@ -48,7 +48,7 @@ public class BattleResultWindow : MonoBehaviour
             case "Сердце леса":
                 if (!ResourceBank.Instance.HeartOfForestArtefact)
                 {
-                    ResourceBank.Instance.ScorePerClick += 7;
+                    ResourceBank.Instance.ScorePerClick += 50;
                 }
                 ResourceBank.Instance.HeartOfForestArtefact = true;
                 break;
