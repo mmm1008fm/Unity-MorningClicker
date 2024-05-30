@@ -29,6 +29,7 @@ public class BattleLogic : MonoBehaviour
     private List<GameObject> _enemies = new List<GameObject>();
     public bool IsEnd;
     private int _armorLooses;
+    private AudioSource _screams;
 
     private void Awake()
     {
@@ -62,6 +63,7 @@ public class BattleLogic : MonoBehaviour
     {
         PlayerAttackRoutine().Forget();
         EnemyAttackRoutine().Forget();
+        _screams = SoundManager.Instance.Play("battle");
     }
 
     private void Update()
@@ -99,6 +101,8 @@ public class BattleLogic : MonoBehaviour
             await UniTask.Delay(1000);
 
             PlayerHealth -= EnemyAttack;
+
+            SoundManager.Instance.Play("sword");
             
             if (Random.Range(0, 100) <= Rage * 100)
             {
@@ -135,6 +139,7 @@ public class BattleLogic : MonoBehaviour
 
             await UniTask.Delay(1000 - (int)(Rage * 500));
             EnemyHealth -= PlayerAttack;
+            SoundManager.Instance.Play("sword");
         }
     }
 
@@ -151,6 +156,8 @@ public class BattleLogic : MonoBehaviour
         _tmpAward2.SetActive(true);
         _battleResultWindow.SetWin(brefingInfo.ActualArtefact,
             $"Вы одержали победу над врагом! Мы понесли потери в {_armorLooses} брони");
+        SoundManager.Instance.Play("win");
+        _screams.Stop();
     }
 
     private void Defeat()
@@ -164,5 +171,7 @@ public class BattleLogic : MonoBehaviour
         _tmpAward1.SetActive(false);
         _tmpAward2.SetActive(false);
         _battleResultWindow.SetLose($"Наши войска приняли решение отступить. Мы потеряли {_armorLooses} брони...");
+        SoundManager.Instance.Play("defeat");
+        _screams.Stop();
     }
 }

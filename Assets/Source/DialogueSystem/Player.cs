@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            SoundManager.Instance.Play("new_kveste");
             Notification.Instance.SetActive(true);
         }
     }

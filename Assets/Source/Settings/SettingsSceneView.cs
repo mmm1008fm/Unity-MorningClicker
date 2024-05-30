@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsSceneView : MonoBehaviour
@@ -10,6 +11,16 @@ public class SettingsSceneView : MonoBehaviour
     {
         _musicSlider.onValueChanged.AddListener(MusicVolumeChange);
         _soundSlider.onValueChanged.AddListener(SoundVolumeChange);
+    }
+
+    private void Update()
+    {
+        UpdateSliders();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     private void OnEnable()
