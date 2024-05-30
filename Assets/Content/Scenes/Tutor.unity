@@ -1660,11 +1660,11 @@ RectTransform:
   m_Children:
   - {fileID: 376486316}
   - {fileID: 931698933}
+  - {fileID: 1905819012}
   - {fileID: 1544724714}
   - {fileID: 1230833781}
   - {fileID: 753100835}
   - {fileID: 1452016201}
-  - {fileID: 1905819012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6903,7 +6903,6 @@ GameObject:
   - component: {fileID: 1452016201}
   - component: {fileID: 1452016204}
   - component: {fileID: 1452016203}
-  - component: {fileID: 1452016202}
   m_Layer: 5
   m_Name: ResultWindow
   m_TagString: Untagged
@@ -6933,23 +6932,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.034513887}
   m_SizeDelta: {x: 980.03, y: 924.54}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1452016202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452016200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43beae28580eaa142ba3fec24ee5c984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _title: {fileID: 1916691645}
-  _description: {fileID: 16913241}
-  _continueButton: {fileID: 1191520598}
-  _artefactObject: {fileID: 0}
-  _continueSceneName: WorldMap
 --- !u!114 &1452016203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9008,7 +8990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3059164894798384019, guid: e7a930eee0cb0e6459aed5ef4689a387, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 239
+      value: 179.99994
       objectReference: {fileID: 0}
     - target: {fileID: 3059164894798384019, guid: e7a930eee0cb0e6459aed5ef4689a387, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9192,7 +9174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1979671620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9309,7 +9291,7 @@ MonoBehaviour:
   _outCastle: {fileID: 948485426}
   _inCastle: {fileID: 1096619405}
   _shop: {fileID: 180789233}
-  _battle: {fileID: 0}
+  _battle: {fileID: 427390464}
   _dialogueSystem: {fileID: 1720379232}
   _dialogueBody: {fileID: 274118567}
   _firstAct: {fileID: 11400000, guid: 596a8ad46e1e93e49b4ecd4fdbe159dc, type: 2}
@@ -9318,7 +9300,7 @@ MonoBehaviour:
   _shopAct: {fileID: 11400000, guid: 0886a02bbe227b14c8275c1d8636a640, type: 2}
   _afterBuy: {fileID: 11400000, guid: 2356e57bf64ce0449be751fc63158b51, type: 2}
   _battleAct: {fileID: 11400000, guid: 485ed895abeb6fd479c1fb507e5dd0d3, type: 2}
-  _afterBattleAct: {fileID: 0}
+  _afterBattleAct: {fileID: 11400000, guid: e35ae76e1112dd24bb82fdb35783b29f, type: 2}
   _finishBattleButton: {fileID: 1191520598}
   _shopButton: {fileID: 1358150714}
   _shopTask: {fileID: 1018596781}

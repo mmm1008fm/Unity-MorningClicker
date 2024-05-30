@@ -30,14 +30,13 @@ public class PlayButton : MonoBehaviour
 
     private void OnClick()
     {
-        _tutorWindow.SetActive(true); // Временно
         if (ResourceBank.Instance.FirstTime && ResourceBank.Instance.Score <= 0)
         {
             _tutorWindow.SetActive(true);
         }
         else
         {
-            // SceneManager.LoadScene("Main"); // Временно отключено
+            SceneManager.LoadScene("Main");
         }
     }
 }
