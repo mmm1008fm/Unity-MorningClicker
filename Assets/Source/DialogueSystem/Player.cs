@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public static Player Instance { get; private set; }
     public DialogueCycle DialogueCycle { get; private set; }
     [SerializeField] private DialoguesContext[] _context;
+    private bool _okokok;
 
     private void Awake()
     {
@@ -49,11 +50,17 @@ public class Player : MonoBehaviour
         if (DialogueCycle.DialogueTasks.Count == 0)
         {
             Notification.Instance.SetActive(false);
+            _okokok = false;
         }
         else
         {
             SoundManager.Instance.Play("new_kveste");
-            Notification.Instance.SetActive(true);
+
+            if (_okokok)
+            {
+                Notification.Instance.SetActive(true);
+                _okokok = true;
+            }
         }
     }
 }
