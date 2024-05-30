@@ -29,7 +29,7 @@ public class TalkButton : MonoBehaviour
     {
         if (_dialogueTasks.Count == 0)
         {
-            _statusTextField.text = "Ничего";
+            _statusTextField.text = "Нет заданий";
         }
         else
         {
@@ -52,11 +52,16 @@ public class TalkButton : MonoBehaviour
     private async UniTask TalkEvent(DialoguesContext context, List<DialogueTask> inputTasks)
     {
         var answersCopy = new string[inputTasks[0].Answers.Length];
-        var currentTask = inputTasks[0];
+        var currentTasks = new DialogueTask[inputTasks.Count];
+        Array.Copy(inputTasks.ToArray(), currentTasks, inputTasks.Count);
+
+        var currentTask = currentTasks[0];
+
+        inputTasks.Clear();
 
         for (int i = 0; i < answersCopy.Length; i++)
         {
-            answersCopy[i] = inputTasks[0].Answers[i];
+            answersCopy[i] = currentTask.Answers[i];
         }
 
         await _dialogueSystem.StartDialogue(context.Start);
