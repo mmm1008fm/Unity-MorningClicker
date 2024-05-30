@@ -13,28 +13,22 @@ public class SettingsSceneView : MonoBehaviour
         _soundSlider.onValueChanged.AddListener(SoundVolumeChange);
     }
 
-    private void Update()
+    private void Start()
     {
         UpdateSliders();
+    }
 
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
         }
     }
 
-    private void OnEnable()
-    {
-        UpdateSliders();
-    }
-
-    private void Start()
-    {
-        UpdateSliders();
-    }
-
     private void UpdateSliders()
     {
+        // Устанавливаем значения слайдеров только при включении или старте
         _musicSlider.value = ResourceBank.Instance.MusicVolume;
         _soundSlider.value = ResourceBank.Instance.SoundVolume;
     }

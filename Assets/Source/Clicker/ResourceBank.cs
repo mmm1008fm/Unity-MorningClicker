@@ -32,8 +32,8 @@ public class ResourceBank : MonoBehaviour
     public int ScorePerSecondCost = 20;
     public int WarriorCost = 50;
     public int ArmorCost = 10;
-    public float SoundVolume = 0.75f;
-    public float MusicVolume = 0.4f;
+    public float SoundVolume = 0.5f;
+    public float MusicVolume = 0.15f;
 
     public bool MagicScrollArtefact = false;
     public bool LavaStoneArtefact = false;
@@ -138,8 +138,8 @@ public class ResourceBank : MonoBehaviour
         Instance.Armor = PlayerPrefs.GetInt("Armor", Instance.Armor);
         Instance.WarriorCost = PlayerPrefs.GetInt("WarriorCost", Instance.WarriorCost);
         Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", Instance.ArmorCost);
-        Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", Instance.MusicVolume);
-        Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", Instance.SoundVolume);
+        Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.1f);
+        Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", 0.5f);
         Instance.MagicScrollArtefact = PlayerPrefs.GetInt("MagicScrollArtefact", Instance.MagicScrollArtefact ? 1 : 0) == 1;
         Instance.LavaStoneArtefact = PlayerPrefs.GetInt("LavaStoneArtefact", Instance.LavaStoneArtefact ? 1 : 0) == 1;
         Instance.HeartOfForestArtefact = PlayerPrefs.GetInt("HeartOfForestArtefact", Instance.HeartOfForestArtefact ? 1 : 0) == 1;
