@@ -56,10 +56,21 @@ public class Player : MonoBehaviour
         {
             SoundManager.Instance.Play("new_kveste");
 
-            if (_okokok)
+            if (ResourceBank.Instance.ВесёлыйРежим)
             {
-                Notification.Instance.SetActive(true);
-                _okokok = true;
+                if (_okokok)
+                {
+                    Notification.Instance.SetActive(true);
+                    _okokok = true;
+                }
+            }
+            else
+            {
+                if (!_okokok)
+                {
+                    Notification.Instance.SetActive(true);
+                    _okokok = true;
+                }
             }
         }
     }

@@ -46,6 +46,7 @@ public class ResourceBank : MonoBehaviour
     public float PerClickMultiplayer = 1f;
     public float PerSecondMultiplayer = 1f;
     public bool FirstTime = true;
+    public bool ВесёлыйРежим;
 
     private void Awake()
     {
@@ -120,6 +121,7 @@ public class ResourceBank : MonoBehaviour
         PlayerPrefs.SetInt("ScarecrowHat", bank.ScarecrowHat ? 1 : 0);
         PlayerPrefs.SetInt("HolyCup", bank.HolyCup ? 1 : 0);
         PlayerPrefs.SetInt("FirstTime", bank.FirstTime ? 1 : 0);
+        PlayerPrefs.SetInt("ВесёлыйРежим", bank.ВесёлыйРежим ? 1 : 0);
     }
 
     public void Load()
@@ -146,6 +148,7 @@ public class ResourceBank : MonoBehaviour
         Instance.ScarecrowHat = PlayerPrefs.GetInt("ScarecrowHat", Instance.ScarecrowHat ? 1 : 0) == 1;
         Instance.HolyCup = PlayerPrefs.GetInt("HolyCup", Instance.HolyCup ? 1 : 0) == 1;
         Instance.FirstTime = PlayerPrefs.GetInt("FirstTime", Instance.FirstTime ? 1 : 0) == 1;
+        Instance.ВесёлыйРежим = PlayerPrefs.GetInt("ВесёлыйРежим", Instance.ВесёлыйРежим ? 1 : 0) == 1;
     }
 
     public void Reset()
