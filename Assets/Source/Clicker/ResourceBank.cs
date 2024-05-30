@@ -29,11 +29,11 @@ public class ResourceBank : MonoBehaviour
     public int Warriors = 0;
     public int Armor = 0;
     public int ScorePerClickCost = 50;
-    public int ScorePerSecondCost = 50;
+    public int ScorePerSecondCost = 20;
     public int WarriorCost = 50;
-    public int ArmorCost = 50;
-    public float SoundVolume = 1f;
-    public float MusicVolume = 1f;
+    public int ArmorCost = 10;
+    public float SoundVolume = 0.75f;
+    public float MusicVolume = 0.4f;
 
     public bool MagicScrollArtefact = false;
     public bool LavaStoneArtefact = false;
