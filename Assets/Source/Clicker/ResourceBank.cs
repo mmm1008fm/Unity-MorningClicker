@@ -1,25 +1,16 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Events;
+using System;
+
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
 #endif
 
 public class ResourceBank : MonoBehaviour
 {
     public static ResourceBank Instance { get; private set; }
 
-    public static UnityAction<int> ScoreChanged;
-    public static UnityAction<int> ScorePerClickChanged;
-    public static UnityAction<int> ScorePerSecondChanged;
-    public static UnityAction<int> WarriorsCountChanged;
-    public static UnityAction<int> ScorePerClickCostChanged;
-    public static UnityAction<int> ScorePerSecondCostChanged;
-    public static UnityAction<float> DefensePercentChanged;
-    public static UnityAction<int> ArmorCostChanged;
-    public static UnityAction<int> WarriorCostChanged;
-    public static UnityAction<float> SoundVolumeChanged;
-    public static UnityAction<float> MusicVolumeChanged;
+    public static event Action<int> OnScoreChanged;
 
     public int Score
     {
@@ -27,122 +18,34 @@ public class ResourceBank : MonoBehaviour
         set
         {
             _score = value;
-            ScoreChanged?.Invoke(value);
+            OnScoreChanged?.Invoke(_score);
         }
     }
+
     private int _score = 0;
 
-    public int ScorePerClick
-    {
-        get => _scorePerClick;
-        set
-        {
-            _scorePerClick = value;
-            ScorePerClickChanged?.Invoke(value);
-        }
-    }
-    private int _scorePerClick = 1;
+    public int ScorePerClick = 1;
+    public int ScorePerSecond = 0;
+    public int Warriors = 0;
+    public int Armor = 0;
+    public int ScorePerClickCost = 50;
+    public int ScorePerSecondCost = 20;
+    public int WarriorCost = 50;
+    public int ArmorCost = 10;
+    public float SoundVolume = 0.75f;
+    public float MusicVolume = 0.4f;
 
-    public int ScorePerSecond
-    {
-        get => _scorePerSecond;
-        set
-        {
-            _scorePerSecond = value;
-            ScorePerSecondChanged?.Invoke(value);
-        }
-    }
-    private int _scorePerSecond = 0;
-
-    public int WarriorsCount
-    {
-        get => _warriorsCount;
-        set
-        {
-            _warriorsCount = value;
-            WarriorsCountChanged?.Invoke(value);
-        }
-    }
-    private int _warriorsCount = 0;
-
-    public int ScorePerClickCost
-    {
-        get => _scorePerClickCost;
-        set
-        {
-            _scorePerClickCost = value;
-            ScorePerClickCostChanged?.Invoke(value);
-        }
-    }
-    private int _scorePerClickCost = 50;
-
-    public int ScorePerSecondCost
-    {
-        get => _scorePerSecondCost;
-        set
-        {
-            _scorePerSecondCost = value;
-            ScorePerSecondCostChanged?.Invoke(value);
-        }
-    }
-    private int _scorePerSecondCost = 50;
-
-    public float DefensePercent
-    {
-        get => _defensePercent;
-        set
-        {
-            _defensePercent = value;
-            DefensePercentChanged?.Invoke(value);
-        }
-    }
-    private float _defensePercent = 0f;
-
-    public int WarriorCost
-    {
-        get => _warriorCost;
-        set
-        {
-            _warriorCost = value;
-            WarriorCostChanged?.Invoke(value);
-        }
-    }
-    private int _warriorCost = 50;
-
-    public int ArmorCost
-    {
-        get => _armorCost;
-        set
-        {
-            _armorCost = value;
-            ArmorCostChanged?.Invoke(value);
-        }
-    }
-    private int _armorCost;
-
-    public float SoundVolume
-    {
-        get => _soundVolume;
-        set
-        {
-            _soundVolume = value;
-            SoundVolumeChanged?.Invoke(value);
-        }
-    }
-    private float _soundVolume = 1f;
-
-    public float MusicVolume
-    {
-        get => _musicVolume;
-        set
-        {
-            _musicVolume = value;
-            MusicVolumeChanged?.Invoke(value);
-        }
-    }
-    private float _musicVolume = 1f;
+    public bool MagicScrollArtefact = false;
+    public bool LavaStoneArtefact = false;
+    public bool HeartOfForestArtefact = false;
+    public bool ScarecrowHat = false;
+    public bool HolyCup = false;
 
     [SerializeField] private int _autoSaveInterval;
+    
+    public float PerClickMultiplayer = 1f;
+    public float PerSecondMultiplayer = 1f;
+    public bool FirstTime = true;
 
     private void Awake()
     {
@@ -155,12 +58,38 @@ public class ResourceBank : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Load();
     }
 
     private void Start()
     {
-        Load();
         UniTask.Create(AutoSaveCycle);
+    }
+
+    private void Update()
+    {
+        float ps = 0f;
+        float pc = 0f;
+
+        if (LavaStoneArtefact)
+        {
+            ps += 0.5f;
+        }
+
+        if (MagicScrollArtefact)
+        {
+            pc += 0.5f;
+        }
+
+        if (HolyCup)
+        {
+            pc += 1f;
+            ps += 1f;
+        }
+
+        PerClickMultiplayer = 1f + pc;
+        PerSecondMultiplayer = 1f + ps;
     }
 
     private async UniTask AutoSaveCycle()
@@ -172,22 +101,28 @@ public class ResourceBank : MonoBehaviour
         }
     }
 
-    public static void Save(ResourceBank bank)
+    public void Save(ResourceBank bank)
     {
         PlayerPrefs.SetInt("Score", bank.Score);
         PlayerPrefs.SetInt("ScorePerClick", bank.ScorePerClick);
         PlayerPrefs.SetInt("ScorePerSecond", bank.ScorePerSecond);
-        PlayerPrefs.SetInt("WarriorsCount", bank.WarriorsCount);
+        PlayerPrefs.SetInt("Warriors", bank.Warriors);
         PlayerPrefs.SetInt("ScorePerClickCost", bank.ScorePerClickCost);
         PlayerPrefs.SetInt("ScorePerSecondCost", bank.ScorePerSecondCost);
-        PlayerPrefs.SetFloat("DefensePercent", bank.DefensePercent);
+        PlayerPrefs.SetInt("Armor", bank.Armor);
         PlayerPrefs.SetInt("WarriorCost", bank.WarriorCost);
         PlayerPrefs.SetInt("ArmorCost", bank.ArmorCost);
         PlayerPrefs.SetFloat("MusicVolume", bank.MusicVolume);
         PlayerPrefs.SetFloat("SoundVolume", bank.SoundVolume);
+        PlayerPrefs.SetInt("MagicScrollArtefact", bank.MagicScrollArtefact ? 1 : 0);
+        PlayerPrefs.SetInt("LavaStoneArtefact", bank.LavaStoneArtefact ? 1 : 0);
+        PlayerPrefs.SetInt("HeartOfForestArtefact", bank.HeartOfForestArtefact ? 1 : 0);
+        PlayerPrefs.SetInt("ScarecrowHat", bank.ScarecrowHat ? 1 : 0);
+        PlayerPrefs.SetInt("HolyCup", bank.HolyCup ? 1 : 0);
+        PlayerPrefs.SetInt("FirstTime", bank.FirstTime ? 1 : 0);
     }
 
-    public static void Load()
+    public void Load()
     {
         if (!Instance)
         {
@@ -197,19 +132,26 @@ public class ResourceBank : MonoBehaviour
         Instance.Score = PlayerPrefs.GetInt("Score", Instance.Score);
         Instance.ScorePerClick = PlayerPrefs.GetInt("ScorePerClick", Instance.ScorePerClick);
         Instance.ScorePerSecond = PlayerPrefs.GetInt("ScorePerSecond", Instance.ScorePerSecond);
-        Instance.WarriorsCount = PlayerPrefs.GetInt("WarriorsCount", Instance.WarriorsCount);
+        Instance.Warriors = PlayerPrefs.GetInt("Warriors", Instance.Warriors);
         Instance.ScorePerClickCost = PlayerPrefs.GetInt("ScorePerClickCost", Instance.ScorePerClickCost);
         Instance.ScorePerSecondCost = PlayerPrefs.GetInt("ScorePerSecondCost", Instance.ScorePerSecondCost);
-        Instance.DefensePercent = PlayerPrefs.GetFloat("DefensePercent", Instance.DefensePercent);
+        Instance.Armor = PlayerPrefs.GetInt("Armor", Instance.Armor);
         Instance.WarriorCost = PlayerPrefs.GetInt("WarriorCost", Instance.WarriorCost);
         Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", Instance.ArmorCost);
         Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", Instance.MusicVolume);
         Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", Instance.SoundVolume);
+        Instance.MagicScrollArtefact = PlayerPrefs.GetInt("MagicScrollArtefact", Instance.MagicScrollArtefact ? 1 : 0) == 1;
+        Instance.LavaStoneArtefact = PlayerPrefs.GetInt("LavaStoneArtefact", Instance.LavaStoneArtefact ? 1 : 0) == 1;
+        Instance.HeartOfForestArtefact = PlayerPrefs.GetInt("HeartOfForestArtefact", Instance.HeartOfForestArtefact ? 1 : 0) == 1;
+        Instance.ScarecrowHat = PlayerPrefs.GetInt("ScarecrowHat", Instance.ScarecrowHat ? 1 : 0) == 1;
+        Instance.HolyCup = PlayerPrefs.GetInt("HolyCup", Instance.HolyCup ? 1 : 0) == 1;
+        Instance.FirstTime = PlayerPrefs.GetInt("FirstTime", Instance.FirstTime ? 1 : 0) == 1;
     }
 
-    public static void Reset()
+    public void Reset()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
         #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
         #else

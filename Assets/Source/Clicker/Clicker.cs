@@ -14,6 +14,6 @@ public class Clicker : MonoBehaviour, IPointerDownHandler
 
     private void AddScore()
     {
-        ResourceBank.Instance.Score += ResourceBank.Instance.ScorePerClick;
+        ResourceBank.Instance.Score += (int)(ResourceBank.Instance.ScorePerClick * ResourceBank.Instance.PerClickMultiplayer);
     }
 }
