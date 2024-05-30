@@ -378,12 +378,12 @@ MonoBehaviour:
       <Name>k__BackingField: "\u0426\u0430\u0440\u0441\u0442\u0432\u043E \u0430\u043D\u0433\u0435\u043B\u043E\u0432,
         \u043F\u043E\u0432\u044F\u0437\u0448\u0438\u0445 \u0432 \u0433\u0440\u0435\u0445\u0430\u0445"
       <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
-        20000 \u0431\u0440\u043E\u043D\u0438 \u0438 250 \u0432\u043E\u0438\u043D\u043E\u0432"
+        500 \u0431\u0440\u043E\u043D\u0438 \u0438 30 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 3828126894368542751, guid: 46f0487e2bf513c46a43e2d907ef2e5f, type: 3}
     - {fileID: 6590772912851666801, guid: 08fa5f4ecddd0b442801d575c2e1630a, type: 3}
-    <EnemyArmor>k__BackingField: 20000
-    <EnemyWarriors>k__BackingField: 250
+    <EnemyArmor>k__BackingField: 500
+    <EnemyWarriors>k__BackingField: 30
     <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 4ad7370019a8cb24bb3ce48cd3ce4db7, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!114 &34834615
@@ -5570,13 +5570,13 @@ MonoBehaviour:
         \u043E\u0433\u043D\u044F \u0441\u043E \u0437\u043B\u043E\u0431\u043D\u044B\u043C\u044B\u0438
         \u043B\u0430\u0432\u043E\u0432\u044B\u043C\u0438 \u0433\u043E\u043B\u0435\u043C\u0430\u043C\u0438"
       <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
-        1000 \u0431\u0440\u043E\u043D\u0438 \u0438 50 \u0432\u043E\u0438\u043D\u043E\u0432"
+        300 \u0431\u0440\u043E\u043D\u0438 \u0438 10 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 4064472929817755106, guid: 8ebf7dc505027a74daffc8fe8f5d62ce, type: 3}
     - {fileID: 7025152442407593483, guid: fec6f2a26c9ebda4ba0632f21088f124, type: 3}
     - {fileID: 1984649474259530682, guid: 7f20101381e68264fa90cc6f8fda8b1b, type: 3}
-    <EnemyArmor>k__BackingField: 1000
-    <EnemyWarriors>k__BackingField: 50
+    <EnemyArmor>k__BackingField: 300
+    <EnemyWarriors>k__BackingField: 10
     <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 0867ca9ec66f7f44588402ceb29bd033, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!114 &1101045627
@@ -10908,12 +10908,12 @@ MonoBehaviour:
       <Name>k__BackingField: "\u041E\u0441\u0442\u0440\u043E\u0432 \u043F\u0440\u0435\u0432\u0435\u0440\u0436\u0435\u043D\u0446\u0435\u0432
         \u0442\u0435\u043C\u043D\u043E\u0439 \u043C\u0430\u0433\u0438\u0438"
       <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
-        5000 \u0431\u0440\u043E\u043D\u0438 \u0438 100 \u0432\u043E\u0438\u043D\u043E\u0432"
+        400 \u0431\u0440\u043E\u043D\u0438 \u0438 20 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 1259217508362929412, guid: 69e3c05929d987e48b37a35c1869e928, type: 3}
     - {fileID: 4521071698725039758, guid: ae0db44568a1184429cc8acc9a18aca3, type: 3}
-    <EnemyArmor>k__BackingField: 5000
-    <EnemyWarriors>k__BackingField: 100
+    <EnemyArmor>k__BackingField: 400
+    <EnemyWarriors>k__BackingField: 20
     <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 2c3929c4dccb4d64b8d58fb39eb9d86a, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!224 &8476422653596786255
@@ -11194,13 +11194,13 @@ MonoBehaviour:
       <Name>k__BackingField: "\u041B\u0435\u0441 \u0437\u043B\u043E\u0431\u043D\u044B\u0445
         \u0434\u0440\u0443\u0438\u0434\u043E\u0432"
       <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
-        100 \u0431\u0440\u043E\u043D\u0438 \u0438 5 \u0432\u043E\u0438\u043D\u043E\u0432"
+        100 \u0431\u0440\u043E\u043D\u0438 \u0438 1 \u0432\u043E\u0438\u043D\u0430"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 1885309937920076628, guid: 02b3ee954b2182d48bf288cb9f7461db, type: 3}
     - {fileID: 4048618637064004052, guid: faea1acae5b9092468240db6c8e97bc4, type: 3}
     - {fileID: 8427884213502514042, guid: 3fafd864c7fbed74b8adc9498b09d8a9, type: 3}
     <EnemyArmor>k__BackingField: 100
-    <EnemyWarriors>k__BackingField: 5
+    <EnemyWarriors>k__BackingField: 1
     <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 4786f6f1660e764489236823fb4b52c3, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!1 &9093844593462195563
@@ -11244,11 +11244,11 @@ MonoBehaviour:
       <Name>k__BackingField: "\u041F\u0440\u043E\u043A\u043B\u044F\u0442\u043E\u0435
         \u043F\u0448\u0435\u043D\u0438\u0447\u043D\u043E\u0435 \u043F\u043E\u043B\u0435"
       <Description>k__BackingField: "\u0412\u0440\u0430\u0433 \u0438\u043C\u0435\u0435\u0442
-        500 \u0431\u0440\u043E\u043D\u0438 \u0438 20 \u0432\u043E\u0438\u043D\u043E\u0432"
+        250 \u0431\u0440\u043E\u043D\u0438 \u0438 5 \u0432\u043E\u0438\u043D\u043E\u0432"
     <EnemyTypePrefabs>k__BackingField:
     - {fileID: 4316502951820976614, guid: e7a930eee0cb0e6459aed5ef4689a387, type: 3}
-    <EnemyArmor>k__BackingField: 500
-    <EnemyWarriors>k__BackingField: 20
+    <EnemyArmor>k__BackingField: 250
+    <EnemyWarriors>k__BackingField: 5
     <ActualArtefact>k__BackingField: {fileID: 11400000, guid: 2d7e55d7795d0d444aec4110331b32fd, type: 2}
   _brefingWindow: {fileID: 576159545}
 --- !u!1660057539 &9223372036854775807

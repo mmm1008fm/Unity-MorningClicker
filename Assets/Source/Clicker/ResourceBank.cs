@@ -137,11 +137,11 @@ public class ResourceBank : MonoBehaviour
         Instance.ScorePerClick = PlayerPrefs.GetInt("ScorePerClick", 1);
         Instance.ScorePerSecond = PlayerPrefs.GetInt("ScorePerSecond", 0);
         Instance.Warriors = PlayerPrefs.GetInt("Warriors", 0);
-        Instance.ScorePerClickCost = PlayerPrefs.GetInt("ScorePerClickCost", 50);
-        Instance.ScorePerSecondCost = PlayerPrefs.GetInt("ScorePerSecondCost", 10);
+        Instance.ScorePerClickCost = PlayerPrefs.GetInt("ScorePerClickCost", 25);
+        Instance.ScorePerSecondCost = PlayerPrefs.GetInt("ScorePerSecondCost", 5);
         Instance.Armor = PlayerPrefs.GetInt("Armor", 0);
         Instance.WarriorCost = PlayerPrefs.GetInt("WarriorCost", 50);
-        Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", 10);
+        Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", 5);
         Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.05f);
         Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", 0.3f);
         Instance.MagicScrollArtefact = PlayerPrefs.GetInt("MagicScrollArtefact", 0) == 1;
