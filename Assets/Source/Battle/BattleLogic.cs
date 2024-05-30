@@ -23,6 +23,8 @@ public class BattleLogic : MonoBehaviour
     [SerializeField] private RectTransform _spawnPos;
     [SerializeField] private BattleResultWindow _battleResultWindow;
     [SerializeField] private int _armorCost;
+    [SerializeField] private GameObject _tmpAward1;
+    [SerializeField] private GameObject _tmpAward2;
 
     private List<GameObject> _enemies = new List<GameObject>();
     private bool _isEnd;
@@ -137,6 +139,8 @@ public class BattleLogic : MonoBehaviour
     private void Win()
     {
         BrefingInfo brefingInfo = BrefingTransfer.Info;
+        _tmpAward1.SetActive(true);
+        _tmpAward2.SetActive(true);
         _isEnd = true;
         _battleResultWindow.SetWin(brefingInfo.ActualArtefact,
             $"Вы одержали победу над врагом: {brefingInfo.Location.Description}");
@@ -145,6 +149,8 @@ public class BattleLogic : MonoBehaviour
     private void Defeat()
     {
         BrefingInfo brefingInfo = BrefingTransfer.Info;
+        _tmpAward1.SetActive(false);
+        _tmpAward2.SetActive(false);
         _isEnd = true;
         _battleResultWindow.SetLose($"Вы проиграли врагу: {brefingInfo.Location.Description}");
     }
