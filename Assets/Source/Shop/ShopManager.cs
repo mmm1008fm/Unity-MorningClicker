@@ -37,6 +37,8 @@ public class ShopManager : MonoBehaviour
 		var chosenCount = (int)_shop.Slider.value;
 		var chosenItem = item.Buy(chosenCount);
 
+		SoundManager.Instance.Play("pokupka");
+
 		ResourceBank.Instance.Score -= price;
 		_currentParameters.Item.Price += _currentParameters.PriceIncrease * chosenCount;
 		_shop.Slider.value = 1f;

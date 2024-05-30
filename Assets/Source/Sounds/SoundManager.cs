@@ -6,7 +6,9 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
 
     [SerializeField] private List<SoundSetupPair> _sounds;
-    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private int _audioSourcePoolSize = 10;
+    private List<AudioSource> _audioSourcePool;
+    private int _currentAudioSourceIndex = 0;
 
     private void Awake()
     {
@@ -14,10 +16,21 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            InitializeAudioSourcePool();
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void InitializeAudioSourcePool()
+    {
+        _audioSourcePool = new List<AudioSource>();
+        for (int i = 0; i < _audioSourcePoolSize; i++)
+        {
+            var audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSourcePool.Add(audioSource);
         }
     }
 
@@ -40,7 +53,15 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        _audioSource.volume = pair.Volume * ResourceBank.Instance.SoundVolume;
-        _audioSource.PlayOneShot(pair.Sound[Random.Range(0, pair.Sound.Count)]);
+        var audioSource = GetAvailableAudioSource();
+        audioSource.volume = pair.Volume * ResourceBank.Instance.SoundVolume;
+        audioSource.PlayOneShot(pair.Sound[Random.Range(0, pair.Sound.Count)]);
+    }
+
+    private AudioSource GetAvailableAudioSource()
+    {
+        var audioSource = _audioSourcePool[_currentAudioSourceIndex];
+        _currentAudioSourceIndex = (_currentAudioSourceIndex + 1) % _audioSourcePoolSize;
+        return audioSource;
     }
 }
