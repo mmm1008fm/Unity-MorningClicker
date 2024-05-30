@@ -22,7 +22,7 @@ public class ResourceBank : MonoBehaviour
         }
     }
 
-    private int _score = 100000000;
+    private int _score = 0;
 
     public int ScorePerClick = 1;
     public int ScorePerSecond = 0;
@@ -45,6 +45,7 @@ public class ResourceBank : MonoBehaviour
     
     public float PerClickMultiplayer = 1f;
     public float PerSecondMultiplayer = 1f;
+    public bool FirstTime = true;
 
     private void Awake()
     {
@@ -118,6 +119,7 @@ public class ResourceBank : MonoBehaviour
         PlayerPrefs.SetInt("HeartOfForestArtefact", bank.HeartOfForestArtefact ? 1 : 0);
         PlayerPrefs.SetInt("ScarecrowHat", bank.ScarecrowHat ? 1 : 0);
         PlayerPrefs.SetInt("HolyCup", bank.HolyCup ? 1 : 0);
+        PlayerPrefs.SetInt("FirstTime", bank.FirstTime ? 1 : 0);
     }
 
     public void Load()
@@ -143,11 +145,13 @@ public class ResourceBank : MonoBehaviour
         Instance.HeartOfForestArtefact = PlayerPrefs.GetInt("HeartOfForestArtefact", Instance.HeartOfForestArtefact ? 1 : 0) == 1;
         Instance.ScarecrowHat = PlayerPrefs.GetInt("ScarecrowHat", Instance.ScarecrowHat ? 1 : 0) == 1;
         Instance.HolyCup = PlayerPrefs.GetInt("HolyCup", Instance.HolyCup ? 1 : 0) == 1;
+        Instance.FirstTime = PlayerPrefs.GetInt("FirstTime", Instance.FirstTime ? 1 : 0) == 1;
     }
 
     public void Reset()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
         #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
         #else
