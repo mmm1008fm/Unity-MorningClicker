@@ -144,13 +144,13 @@ public class ResourceBank : MonoBehaviour
         Instance.ArmorCost = PlayerPrefs.GetInt("ArmorCost", 10);
         Instance.MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.05f);
         Instance.SoundVolume = PlayerPrefs.GetFloat("SoundVolume", 0.3f);
-        Instance.MagicScrollArtefact = PlayerPrefs.GetInt("MagicScrollArtefact") == 1;
-        Instance.LavaStoneArtefact = PlayerPrefs.GetInt("LavaStoneArtefact") == 1;
-        Instance.HeartOfForestArtefact = PlayerPrefs.GetInt("HeartOfForestArtefact") == 1;
-        Instance.ScarecrowHat = PlayerPrefs.GetInt("ScarecrowHat") == 1;
-        Instance.HolyCup = PlayerPrefs.GetInt("HolyCup") == 1;
-        Instance.FirstTime = PlayerPrefs.GetInt("FirstTime") == 1;
-        Instance.ВесёлыйРежим = PlayerPrefs.GetInt("ВесёлыйРежим") == 1;
+        Instance.MagicScrollArtefact = PlayerPrefs.GetInt("MagicScrollArtefact", 0) == 1;
+        Instance.LavaStoneArtefact = PlayerPrefs.GetInt("LavaStoneArtefact", 0) == 1;
+        Instance.HeartOfForestArtefact = PlayerPrefs.GetInt("HeartOfForestArtefact", 0) == 1;
+        Instance.ScarecrowHat = PlayerPrefs.GetInt("ScarecrowHat", 0) == 1;
+        Instance.HolyCup = PlayerPrefs.GetInt("HolyCup", 0) == 1;
+        Instance.FirstTime = PlayerPrefs.GetInt("FirstTime", 1) == 1;
+        Instance.ВесёлыйРежим = PlayerPrefs.GetInt("ВесёлыйРежим", 0) == 1;
     }
 
     public void Reset()
