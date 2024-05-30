@@ -6,12 +6,23 @@ public class ShopManager : MonoBehaviour
 	public event Action<ShopItem> OnItemBought;
 	[SerializeField] private ShopWindow _shop;
 	private ShopParameters _currentParameters;
+	private AudioSource _shopSound;
 
 	private void Awake()
 	{
 		_shop.CloseButton.onClick.AddListener(CloseShop);
 		_shop.BuyButton.onClick.AddListener(() => Buy(_currentParameters.Item));
 		_shop.Window.SetActive(false);
+	}
+
+	private void Start()
+	{
+		_shopSound = SoundManager.Instance.Play("shop");
+	}
+
+	private void OnDestroy()
+	{
+		_shopSound.Stop();
 	}
 
 	private void Update()
@@ -36,6 +47,8 @@ public class ShopManager : MonoBehaviour
 		var price = CalculateTotalPrice((int)_shop.Slider.value, _currentParameters.Item.Price, _currentParameters.PriceIncrease);
 		var chosenCount = (int)_shop.Slider.value;
 		var chosenItem = item.Buy(chosenCount);
+
+		SoundManager.Instance.Play("pokupka");
 
 		ResourceBank.Instance.Score -= price;
 		_currentParameters.Item.Price += _currentParameters.PriceIncrease * chosenCount;

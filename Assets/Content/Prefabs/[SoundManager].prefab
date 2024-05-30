@@ -92,7 +92,40 @@ MonoBehaviour:
     - {fileID: 8300000, guid: f93f24c84ba522943bbeb82bffc477c8, type: 3}
     - {fileID: 8300000, guid: 2ac848cb6dc492f479c1d48ab2b4089b, type: 3}
     Volume: 0.661
-  _audioSource: {fileID: 5803319809277192863}
+  - Key: sword
+    Sound:
+    - {fileID: 8300000, guid: e3c3520969fae28489d66ac2ac857e96, type: 3}
+    - {fileID: 8300000, guid: bb5e15cf41c54034cb0e2f780d7a4ee6, type: 3}
+    Volume: 0.5
+  - Key: win
+    Sound:
+    - {fileID: 8300000, guid: a6e23eabb5f70e54eacde709ba8d58d0, type: 3}
+    Volume: 0.5
+  - Key: defeat
+    Sound:
+    - {fileID: 8300000, guid: 8e82863547dec3e4a9b2b92932d51b96, type: 3}
+    Volume: 0.5
+  - Key: pokupka
+    Sound:
+    - {fileID: 8300000, guid: d59016fd4ddc5f64b9890ad67182a927, type: 3}
+    Volume: 0.4
+  - Key: new_kveste
+    Sound:
+    - {fileID: 8300000, guid: d59016fd4ddc5f64b9890ad67182a927, type: 3}
+    Volume: 0.4
+  - Key: battle
+    Sound:
+    - {fileID: 8300000, guid: d3f6b1503c906ff4fac7a09da3545d53, type: 3}
+    Volume: 0.3
+  - Key: shop
+    Sound:
+    - {fileID: 8300000, guid: f3dce80fe51f1834f9bbfd9bd79c809b, type: 3}
+    Volume: 0.25
+  - Key: bgmusic
+    Sound:
+    - {fileID: 8300000, guid: 6bc51873cb90dd84885b3fcd7a7102f6, type: 3}
+    Volume: 0.15
+  _audioSourcePoolSize: 10
 --- !u!82 &5803319809277192863
 AudioSource:
   m_ObjectHideFlags: 0

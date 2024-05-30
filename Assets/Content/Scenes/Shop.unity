@@ -131,6 +131,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7540541039587896391, guid: 0995e68c6d0d9434bb03916eb42a53d0, type: 3}
+      propertyPath: _sounds.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540541039587896391, guid: 0995e68c6d0d9434bb03916eb42a53d0, type: 3}
+      propertyPath: _sounds.Array.data[9].Key
+      value: shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540541039587896391, guid: 0995e68c6d0d9434bb03916eb42a53d0, type: 3}
+      propertyPath: _sounds.Array.data[9].Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540541039587896391, guid: 0995e68c6d0d9434bb03916eb42a53d0, type: 3}
+      propertyPath: _sounds.Array.data[9].Sound.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540541039587896391, guid: 0995e68c6d0d9434bb03916eb42a53d0, type: 3}
+      propertyPath: _sounds.Array.data[9].Sound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f3dce80fe51f1834f9bbfd9bd79c809b, type: 3}
     - target: {fileID: 8562388445286564872, guid: 0995e68c6d0d9434bb03916eb42a53d0, type: 3}
       propertyPath: m_Name
       value: '[SoundManager]'
@@ -584,9 +604,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4385530759887835137, guid: c12235bef98c20e47b7118567ccdd1a9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 391933398}
-    - targetCorrespondingSourceObject: {fileID: 9040174550788689136, guid: c12235bef98c20e47b7118567ccdd1a9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1967246688}
   m_SourcePrefab: {fileID: 100100000, guid: c12235bef98c20e47b7118567ccdd1a9, type: 3}
 --- !u!114 &304031151 stripped
 MonoBehaviour:
@@ -609,7 +626,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7287428815617900634, guid: c12235bef98c20e47b7118567ccdd1a9, type: 3}
   m_PrefabInstance: {fileID: 304031150}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967246684}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -761,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -557.6
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -954,7 +971,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4ffc9ef3e7aa84d42bef2c4f6302e3af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8204f111298b37e439f1f799a73aaa20, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1142,11 +1159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -443.77
+      value: -415
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 7.73
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1842,7 +1859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 456.13995
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1948,36 +1965,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1967246684 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9040174550788689136, guid: c12235bef98c20e47b7118567ccdd1a9, type: 3}
-  m_PrefabInstance: {fileID: 304031150}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1967246688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967246684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac36713446d926244ac0af2a11c518f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _action: 0
-  _sceneName: 
-  _url: 
-  _brefingInfo:
-    <Location>k__BackingField:
-      <Background>k__BackingField: {fileID: 0}
-      <Name>k__BackingField: 
-      <Description>k__BackingField: 
-    <EnemyTypePrefabs>k__BackingField: []
-    <EnemyArmor>k__BackingField: 0
-    <EnemyWarriors>k__BackingField: 0
-    <ActualArtefact>k__BackingField: {fileID: 0}
-  _brefingWindow: {fileID: 0}
 --- !u!1001 &2096095905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2064,7 +2051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 573.58
+      value: 548
       objectReference: {fileID: 0}
     - target: {fileID: 4341518285206854165, guid: 2df7b065499f1b34ca38d6a5c64f9123, type: 3}
       propertyPath: m_AnchoredPosition.y

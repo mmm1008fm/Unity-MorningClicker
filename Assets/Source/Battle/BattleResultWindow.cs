@@ -10,6 +10,7 @@ public class BattleResultWindow : MonoBehaviour
     [SerializeField] private Button _continueButton;
     [SerializeField] private GameObject _artefactObject;
     [SerializeField] private string _continueSceneName = "WorldMap";
+    private bool _isEnd;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class BattleResultWindow : MonoBehaviour
                 break;
             case "Грааль из божественного металла":
                 ResourceBank.Instance.HolyCup = true;
+                _isEnd = true;
                 break;
             case "Кусок вулканической породы, все еще горячий":
                 ResourceBank.Instance.LavaStoneArtefact = true;
@@ -70,6 +72,13 @@ public class BattleResultWindow : MonoBehaviour
 
     private void Continue()
     {
-        SceneManager.LoadScene(_continueSceneName);
+        if (_isEnd)
+        {
+            SceneManager.LoadScene("End");
+        }
+        else
+        {
+            SceneManager.LoadScene(_continueSceneName);
+        }
     }
 }
