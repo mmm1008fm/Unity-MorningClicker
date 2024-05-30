@@ -56,6 +56,8 @@ public class Player : MonoBehaviour
         {
             if (ResourceBank.Instance.ВесёлыйРежим)
             {
+                SoundManager.Instance.Play("pokupka");
+
                 if (_okokok)
                 {
                     Notification.Instance.SetActive(true);

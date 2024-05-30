@@ -63,7 +63,11 @@ public class BattleLogic : MonoBehaviour
     {
         PlayerAttackRoutine().Forget();
         EnemyAttackRoutine().Forget();
-        _screams = SoundManager.Instance.Play("battle");
+        
+        if (ResourceBank.Instance.Armor > EnemyAttack)
+        {
+            _screams = SoundManager.Instance.Play("battle");
+        }
     }
 
     private void Update()

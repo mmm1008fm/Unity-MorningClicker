@@ -17,6 +17,15 @@ public class SettingsSceneView : MonoBehaviour
     private void Start()
     {
         UpdateSliders();
+        
+        if (ResourceBank.Instance.ВесёлыйРежим)
+        {
+            _toggle.isOn = true;
+        }
+        else
+        {
+            _toggle.isOn = false;
+        }
     }
 
     private void Update()
