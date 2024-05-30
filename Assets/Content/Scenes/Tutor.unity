@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_text: "\u0417\u0430\u0434\u0430\u043D\u0438\u0435"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_sharedMaterial: {fileID: 4315889943509796650, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3405,7 +3405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f2a5ef47e93c364e87950e346340a9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ffc9ef3e7aa84d42bef2c4f6302e3af, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4452,7 +4452,7 @@ MonoBehaviour:
     \u043A \u0431\u0438\u0442\u0432\u0435!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
-  m_sharedMaterial: {fileID: 1006949552660887589, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
+  m_sharedMaterial: {fileID: 4315889943509796650, guid: 88c2e018beb5e0f489aa2fccb0693b94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -44,4 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f6f6036921c2b4d916b988dcbda374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _autoSaveInterval: 1000
+  ScorePerClick: 1
+  ScorePerSecond: 0
+  Warriors: 0
+  Armor: 0
+  ScorePerClickCost: 50
+  ScorePerSecondCost: 50
+  WarriorCost: 50
+  ArmorCost: 50
+  SoundVolume: 1
+  MusicVolume: 1
+  MagicScrollArtefact: 0
+  LavaStoneArtefact: 0
+  HeartOfForestArtefact: 0
+  ScarecrowHat: 0
+  HolyCup: 0
+  _autoSaveInterval: 300
+  PerClickMultiplayer: 1
+  PerSecondMultiplayer: 1
+  FirstTime: 1

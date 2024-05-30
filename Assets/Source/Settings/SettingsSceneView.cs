@@ -14,6 +14,16 @@ public class SettingsSceneView : MonoBehaviour
 
     private void OnEnable()
     {
+        UpdateSliders();
+    }
+
+    private void Start()
+    {
+        UpdateSliders();
+    }
+
+    private void UpdateSliders()
+    {
         _musicSlider.value = ResourceBank.Instance.MusicVolume;
         _soundSlider.value = ResourceBank.Instance.SoundVolume;
     }
