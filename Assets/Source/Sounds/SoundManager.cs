@@ -17,6 +17,8 @@ public class SoundManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             InitializeAudioSourcePool();
+            var a = Instance.Play("bgmusic");
+            a.loop = true;
         }
         else
         {

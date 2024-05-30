@@ -117,6 +117,14 @@ MonoBehaviour:
     Sound:
     - {fileID: 8300000, guid: d3f6b1503c906ff4fac7a09da3545d53, type: 3}
     Volume: 0.3
+  - Key: shop
+    Sound:
+    - {fileID: 8300000, guid: f3dce80fe51f1834f9bbfd9bd79c809b, type: 3}
+    Volume: 0.25
+  - Key: bgmusic
+    Sound:
+    - {fileID: 8300000, guid: 78e815abd76677f43b6637653a34db17, type: 3}
+    Volume: 0.15
   _audioSourcePoolSize: 10
 --- !u!82 &5803319809277192863
 AudioSource:
